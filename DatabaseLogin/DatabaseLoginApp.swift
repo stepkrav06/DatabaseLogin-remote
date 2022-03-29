@@ -18,7 +18,15 @@ struct DatabaseLoginApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().onDisappear{
+                let firebaseAuth = Auth.auth()
+                do {
+                  try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                  print("Error signing out: %@", signOutError)
+                }
+                print("bububu")
+            }
         }
     }
 }
