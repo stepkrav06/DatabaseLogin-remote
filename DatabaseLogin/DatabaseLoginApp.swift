@@ -11,22 +11,20 @@ import Firebase
 @main
 struct DatabaseLoginApp: App {
     
-    init(){
-        FirebaseApp.configure()
-        
-    }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     
     var body: some Scene {
         WindowGroup {
-            ContentView().onDisappear{
-                let firebaseAuth = Auth.auth()
-                do {
-                  try firebaseAuth.signOut()
-                } catch let signOutError as NSError {
-                  print("Error signing out: %@", signOutError)
-                }
-                print("bububu")
-            }
+            let viewModel = AppViewModel()
+            ContentView()
+                .environmentObject(viewModel)
         }
+    }
+}
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
     }
 }

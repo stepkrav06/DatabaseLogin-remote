@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
+		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
 		DA5664CB27F380FB0031F8F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664CA27F380FB0031F8F1 /* ContentView.swift */; };
 		DA5664CD27F380FC0031F8F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5664CC27F380FC0031F8F1 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLoginApp.swift; sourceTree = "<group>"; };
 		DA5664CA27F380FB0031F8F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			children = (
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
+				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
+				DA5545CB27F4E62C00F476EA /* LoginPage.swift */,
 				DA56650327F385140031F8F1 /* Database.swift */,
 				DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */,
 				DA5664CC27F380FC0031F8F1 /* Assets.xcassets */,
@@ -290,9 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				DA56650427F385140031F8F1 /* Database.swift in Sources */,
 				DA5664CB27F380FB0031F8F1 /* ContentView.swift in Sources */,
 				DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */,
+				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
