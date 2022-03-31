@@ -10,6 +10,9 @@ import SwiftUI
 struct LoginPage: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var name: String = ""
+    @State private var lastName: String = ""
+    @State private var isAdmin: String = ""
     @FocusState private var writingFocus: Bool
     @State private var createUserAlertError = false
     @State private var createUserAlertSuccess = false
@@ -42,6 +45,25 @@ struct LoginPage: View {
                     .focused($writingFocus)
                     .padding()
                     .background(Color(.secondarySystemBackground))
+                    TextField(
+                        "Name",
+                        text: $name
+                    )
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .focused($writingFocus)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    TextField(
+                        "Last name",
+                        text: $lastName
+                    )
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .focused($writingFocus)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    
                 }
                 
                 
@@ -50,7 +72,7 @@ struct LoginPage: View {
                     guard !email.isEmpty, !password.isEmpty else{
                         return
                     }
-                    viewModel.createUser(email: email, password: password)
+                    viewModel.createUser(email: email, password: password, name: name, lastName: lastName, isAdmin: false)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         if viewModel.createUserError != nil {
                             createUserAlertError = true
@@ -99,19 +121,19 @@ struct LoginPage: View {
                     Alert(title: Text("Unable to log in"), message: Text(viewModel.logInError!), dismissButton: .default(Text("OK")) {viewModel.logInError = nil})
                 }
                 Spacer()
-                Button(action: {
-                    AddUser()
-                
-                }){
-                    Text("Add user")
-                }
-                .foregroundColor(.white)
-                .padding()
-                .background(.orange)
-                .cornerRadius(8)
-                ForEach(userList.users) { user in
-                    Text(user.name)
-                }
+//                Button(action: {
+//                    AddUser()
+//
+//                }){
+//                    Text("Add user")
+//                }
+//                .foregroundColor(.white)
+//                .padding()
+//                .background(.orange)
+//                .cornerRadius(8)
+//                ForEach(userList.users) { user in
+//                    Text(user.name)
+//                }
             }
             .navigationTitle("Sign In")
             

@@ -10,18 +10,29 @@ import Firebase
 
 public struct User: Identifiable {
     public let id = UUID()
-    var uid = UUID().uuidString
+    var uid: String
+    var email: String
     var isAdmin: Bool
     var name: String
     var lastName: String
     var tasks: [String]
     
     
-    init(name: String, lastName: String, isAdmin: Bool, tasks: [String]) {
+    init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool, tasks: [String]) {
+        self.uid = uid
+        self.email = email
         self.name = name
         self.lastName = lastName
         self.isAdmin = isAdmin
         self.tasks = tasks
+    }
+    init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool) {
+        self.uid = uid
+        self.email = email
+        self.name = name
+        self.lastName = lastName
+        self.isAdmin = isAdmin
+        self.tasks = ["placeholder"]
     }
     init?(snapshot: DataSnapshot) {
       guard
@@ -30,6 +41,7 @@ public struct User: Identifiable {
         let lastName = value["lastName"] as? String,
         let tasks = value["tasks"] as? NSArray as? [String],
         let isAdmin = value["isAdmin"] as? Bool,
+        let email = value["email"] as? String,
         let uid = value["uid"] as? String
       else {
         return nil
@@ -40,23 +52,19 @@ public struct User: Identifiable {
         self.isAdmin = isAdmin
       self.uid = uid
         self.tasks = tasks
+        self.email = email
     }
     func toAnyObject() -> Any {
       return [
         "uid": uid,
+        "email": email,
         "isAdmin": isAdmin,
         "name": name,
         "lastName": lastName,
         "tasks": tasks as NSArray
       ]
     }
-    func tasksToArray() -> NSArray{
-        var taskStrings: [String] = []
-        for task in self.tasks {
-            taskStrings.append(task)
-        }
-        return taskStrings as NSArray
-    }
+
     
 }
 
@@ -78,12 +86,12 @@ public struct Task {
         self.importance = importance
     }
 }
-public func AddUser(){
-    let task1 = Task(content: "bubu1", importance: 1)
-    let task2 = Task(content: "bubu2", importance: 2)
-    let user = User(name: "bob", lastName: "bob", isAdmin: true, tasks: [task1.id, task2.id])
-    let ref = Database.database().reference(withPath: "users")
-    let userRef = ref.child(user.uid)
-    userRef.setValue(user.toAnyObject())
-    
-}
+//public func AddUser(){
+//    let task1 = Task(content: "bubu1", importance: 1)
+//    let task2 = Task(content: "bubu2", importance: 2)
+//    let user = User(name: "bob", lastName: "bob", isAdmin: true, tasks: [task1.id, task2.id])
+//    let ref = Database.database().reference(withPath: "users")
+//    let userRef = ref.child(user.uid)
+//    userRef.setValue(user.toAnyObject())
+//    
+//}

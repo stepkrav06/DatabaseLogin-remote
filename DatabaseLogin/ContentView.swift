@@ -13,33 +13,67 @@ class AppViewModel: ObservableObject {
     @Published var createUserError: String?
     @Published var logInError: String?
     @Published var signedIn: Bool = false
+    @Published var currentLoggedUser: User? = nil
+    
     var isSignedIn: Bool  {
         return Auth.auth().currentUser != nil
     }
-    func createUser(email: String, password: String) {
+    func createUser(email: String, password: String, name: String, lastName: String, isAdmin: Bool) {
         
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
+        Auth.auth().createUser(withEmail: email, password: password) { res, error in
             if error != nil {
                 self.createUserError = error?.localizedDescription ?? ""
                 print(self.createUserError!)
             } else {
-                
+                let user = User(uid: res!.user.uid, email: email, name: name, lastName: lastName, isAdmin: isAdmin)
+                let ref = Database.database().reference(withPath: "users")
+                let userRef = ref.child(res!.user.uid)
+                userRef.setValue(user.toAnyObject())
             }
             
         }
     }
     func logIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
 
             guard user != nil, error == nil else {
-                self?.logInError = error!.localizedDescription
-                print(self?.logInError!)
+                self.logInError = error!.localizedDescription
+                print(self.logInError!)
                 return
             }
             DispatchQueue.main.async {
                 //Success
-                self?.signedIn = true
+                self.signedIn = true
             }
+            let ref = Database.database().reference(withPath: "users")
+            let userPath = ref.child(user!.user.uid)
+//            userPath.getData(completion: { error, snapshot in
+//                    guard error == nil else {
+//                        print(error!.localizedDescription)
+//                        return
+//                        
+//                    }
+                userPath.observe(.value) { snapshot in
+                    let curuser = User(snapshot: snapshot)
+                    self.currentLoggedUser = curuser
+                    print(self.currentLoggedUser)
+                    print(curuser)
+                } withCancel: { error in
+                    print(error.localizedDescription)
+                }
+
+                
+                
+               
+                        
+                        
+                    
+                   
+                    
+                    
+                   // })
+                
+            
             
         }
     }

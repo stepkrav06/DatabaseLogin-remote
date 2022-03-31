@@ -19,6 +19,14 @@ struct SomeView: View {
             .padding()
             .background(.orange)
         .cornerRadius(8)
+            //Text(viewModel.currentLoggedUser!.name)
+            Button(action: {print(viewModel.currentLoggedUser!)}){
+                Text("print")
+            }
+            .foregroundColor(.white)
+            .padding()
+            .background(.orange)
+            .cornerRadius(8)
         }.navigationTitle("Some view")
     }
 }
