@@ -8,7 +8,8 @@
 import Foundation
 import Firebase
 
-public struct User {
+public struct User: Identifiable {
+    public let id = UUID()
     var uid = UUID().uuidString
     var isAdmin: Bool
     var name: String

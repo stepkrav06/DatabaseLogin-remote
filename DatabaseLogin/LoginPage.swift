@@ -15,6 +15,7 @@ struct LoginPage: View {
     @State private var createUserAlertSuccess = false
     @State private var logInAlertError = false
     @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var userList: Users
     var body: some View {
         
         ZStack{
@@ -108,6 +109,9 @@ struct LoginPage: View {
                 .padding()
                 .background(.orange)
                 .cornerRadius(8)
+                ForEach(userList.users) { user in
+                    Text(user.name)
+                }
             }
             .navigationTitle("Sign In")
             

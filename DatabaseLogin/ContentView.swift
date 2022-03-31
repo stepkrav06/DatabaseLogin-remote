@@ -49,9 +49,13 @@ class AppViewModel: ObservableObject {
         self.signedIn = false
     }
 }
+class Users: ObservableObject {
+    @Published var users: [User] = []
+}
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var userList: Users
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
@@ -71,12 +75,13 @@ struct ContentView: View {
                             users.append(user)
                         }
                       }
-                        //self.itemList = newItems
+                        userList.users = users
                         
                         for user in users {
                             print(user.name)
                             print(user.tasks)
                         }
+                        
                     }
                     // 6
                     refObservers.append(completed)
