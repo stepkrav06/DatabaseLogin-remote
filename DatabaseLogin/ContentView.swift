@@ -22,6 +22,8 @@ class AppViewModel: ObservableObject {
             if error != nil {
                 self.createUserError = error?.localizedDescription ?? ""
                 print(self.createUserError!)
+            } else {
+                
             }
             
         }
@@ -55,7 +57,30 @@ struct ContentView: View {
             if viewModel.signedIn {
                 SomeView()
             } else {
-                LoginPage()
+                LoginPage().onAppear{
+                    let ref = Database.database().reference(withPath: "users")
+                    let completed = ref.observe(.value) { snapshot in
+                      // 2
+                      var users: [User] = []
+                      // 3
+                      for child in snapshot.children {
+                        // 4
+                          if
+                            let snapshot = child as? DataSnapshot,
+                          let user = User(snapshot: snapshot) {
+                            users.append(user)
+                        }
+                      }
+                        //self.itemList = newItems
+                        
+                        for user in users {
+                            print(user.name)
+                            print(user.tasks)
+                        }
+                    }
+                    // 6
+                    refObservers.append(completed)
+                }
             }
             
         }

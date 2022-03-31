@@ -79,6 +79,8 @@ struct LoginPage: View {
                     guard !email.isEmpty, !password.isEmpty else{
                         return
                     }
+                    //AddUser()
+                    
                     viewModel.logIn(email: email, password: password)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         if viewModel.logInError != nil {
@@ -95,6 +97,17 @@ struct LoginPage: View {
                 .alert(isPresented: $logInAlertError) {
                     Alert(title: Text("Unable to log in"), message: Text(viewModel.logInError!), dismissButton: .default(Text("OK")) {viewModel.logInError = nil})
                 }
+                Spacer()
+                Button(action: {
+                    AddUser()
+                
+                }){
+                    Text("Add user")
+                }
+                .foregroundColor(.white)
+                .padding()
+                .background(.orange)
+                .cornerRadius(8)
             }
             .navigationTitle("Sign In")
             

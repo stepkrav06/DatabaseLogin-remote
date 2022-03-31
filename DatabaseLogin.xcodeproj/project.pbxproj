@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27022F3C27F58C7800EAC364 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27022F3B27F58C7800EAC364 /* Models.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
 		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27022F3B27F58C7800EAC364 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 			children = (
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
+				27022F3B27F58C7800EAC364 /* Models.swift */,
 				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
 				DA5545CB27F4E62C00F476EA /* LoginPage.swift */,
 				DA56650327F385140031F8F1 /* Database.swift */,
@@ -299,6 +302,7 @@
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				DA56650427F385140031F8F1 /* Database.swift in Sources */,
 				DA5664CB27F380FB0031F8F1 /* ContentView.swift in Sources */,
+				27022F3C27F58C7800EAC364 /* Models.swift in Sources */,
 				DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 			);
@@ -469,6 +473,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,6 +503,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
