@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		27022F3C27F58C7800EAC364 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27022F3B27F58C7800EAC364 /* Models.swift */; };
+		DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65B927F63DB500E7A07C /* Tab.swift */; };
+		DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
 		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		27022F3B27F58C7800EAC364 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		DA1F65B927F63DB500E7A07C /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewAdmin.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
+				DA1F65B927F63DB500E7A07C /* Tab.swift */,
+				DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
 				27022F3B27F58C7800EAC364 /* Models.swift */,
 				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
@@ -301,10 +307,12 @@
 			files = (
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				DA56650427F385140031F8F1 /* Database.swift in Sources */,
+				DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */,
 				DA5664CB27F380FB0031F8F1 /* ContentView.swift in Sources */,
 				27022F3C27F58C7800EAC364 /* Models.swift in Sources */,
 				DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
+				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

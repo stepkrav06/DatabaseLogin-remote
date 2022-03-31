@@ -93,7 +93,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
-                SomeView()
+                TabViewAdmin()
             } else {
                 LoginPage().onAppear{
                     let ref = Database.database().reference(withPath: "users")
