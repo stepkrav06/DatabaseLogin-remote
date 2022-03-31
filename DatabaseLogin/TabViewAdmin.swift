@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabViewAdmin: View {
+    @EnvironmentObject var viewModel: AppViewModel
     @State var selectedTab: TabAdmin = .event
     @State var color: Color = .teal
     @State private var offsetX: CGFloat = 0.0
@@ -25,7 +26,7 @@ struct TabViewAdmin: View {
                     case .grading:
                         SomeView()
                     case .account:
-                        SomeView()
+                        AccountView()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
