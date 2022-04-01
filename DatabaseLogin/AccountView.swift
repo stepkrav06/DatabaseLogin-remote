@@ -26,11 +26,15 @@ struct AccountView: View {
                 .frame(maxWidth: .infinity, maxHeight: 50)
                 .background(.orange)
                 if !show{
-                    Button(action: {withAnimation{show.toggle()}}){ //change password
-                    Text("Change password")
+                    VStack{
+                        Text("Change password")
                             
                             .matchedGeometryEffect(id: "title", in: namespace)
-                }
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
+                            }
+                        
+                        }
                 .foregroundColor(.white)
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: 50)
@@ -38,32 +42,45 @@ struct AccountView: View {
                 .cornerRadius(8)
                 
                 } else {
-                    
-                    Button(action: {withAnimation{show.toggle()}}){ //change password
                     VStack{
-                    Text("Change password")
-                        .frame(alignment: .top)
+                        Text("Change password")
+                            .frame(alignment: .top)
+                            
+                            .matchedGeometryEffect(id: "title", in: namespace)
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
+                            }
+                        SecureField(
+                            "New Password",
+                            text: $password
+                        )
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .padding()
                         
-                        .matchedGeometryEffect(id: "title", in: namespace)
-                    SecureField(
-                        "New Password",
-                        text: $password
-                    )
-                    .textInputAutocapitalization(.never)
-                    .disableAutocorrection(true)
-                    .padding()
-                    .background(Color(.secondarySystemBackground))
-                    SecureField(
-                        "Confirm new password",
-                        text: $password2
-                    )
-                    .textInputAutocapitalization(.never)
-                    .disableAutocorrection(true)
-                    .padding()
-                    .background(Color(.secondarySystemBackground))
+                        
+                        SecureField(
+                            "Confirm new password",
+                            text: $password2
+                        )
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .padding()
+                        
+                        
+                        Button(action: {}){ //change password
+                        Text("Change")
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(8)
+                                
                     }
+                        }
+                    .textFieldStyle(.roundedBorder)
+                        
                     
-                }
+                    
                 .foregroundColor(.white)
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: 300)
