@@ -14,84 +14,108 @@ struct AccountView: View {
     @State private var password: String = ""
     @State private var password2: String = ""
     var body: some View {
-        ScrollView {
-            VStack {
-                Image(systemName: "person.crop.circle")
-                    .font(.system(size: 100))
-                Button(action: {viewModel.logOut()}){
-                    Text("Sign out")
-                }
-                .foregroundColor(.white)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: 50)
-                .background(.orange)
-                if !show{
-                    VStack{
-                        Text("Change password")
-                            
-                            .matchedGeometryEffect(id: "title", in: namespace)
-                            .onTapGesture {
-                                withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
-                            }
-                        
-                        }
-                .foregroundColor(.white)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: 50)
-                .background(Color.orange.matchedGeometryEffect(id: "bg", in: namespace))
-                .cornerRadius(8)
+        GeometryReader { geometry in
+            ZStack {
+                Image("bg1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.frame(in: .global).width, height: geometry.frame(in: .global).height)
                 
-                } else {
-                    VStack{
-                        Text("Change password")
-                            .frame(alignment: .top)
-                            
-                            .matchedGeometryEffect(id: "title", in: namespace)
-                            .onTapGesture {
-                                withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
-                            }
-                        SecureField(
-                            "New Password",
-                            text: $password
-                        )
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
+                BlurView(effect: .systemUltraThinMaterialDark)
+                
+                    VStack {
+                        Spacer()
+                            .frame(maxHeight: 150)
+                        Image(systemName: "person.crop.circle")
+                            .font(.system(size: 100))
+                        Button(action: {viewModel.logOut()}){
+                            Text("Sign out")
+                        }
+                        .foregroundColor(.white)
                         .padding()
-                        
-                        
-                        SecureField(
-                            "Confirm new password",
-                            text: $password2
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .background(Color.black
+                                        .opacity(0.7)
                         )
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .padding()
-                        
-                        
-                        Button(action: {}){ //change password
-                        Text("Change")
-                                .foregroundColor(.black)
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(8)
+                        .cornerRadius(8)
+                        if !show{
+                            VStack{
+                                Text("Change password")
+                                    
+                                    .matchedGeometryEffect(id: "title", in: namespace)
+                                    
                                 
-                    }
-                        }
-                    .textFieldStyle(.roundedBorder)
+                                }
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .background(Color.black
+                                        .opacity(0.7)
+                                        .matchedGeometryEffect(id: "bg", in: namespace)
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
+                                        })
+                        .cornerRadius(8)
                         
-                    
-                    
-                .foregroundColor(.white)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: 300)
-                .background(Color.orange.matchedGeometryEffect(id: "bg", in: namespace))
-                .cornerRadius(8)
+                        } else {
+                            VStack{
+                                Text("Change password")
+                                    .frame(alignment: .top)
+                                    
+                                    .matchedGeometryEffect(id: "title", in: namespace)
+                                    
+                                SecureField(
+                                    "New Password",
+                                    text: $password
+                                )
+                                .textInputAutocapitalization(.never)
+                                .disableAutocorrection(true)
+                                .padding()
+                                
+                                
+                                SecureField(
+                                    "Confirm new password",
+                                    text: $password2
+                                )
+                                .textInputAutocapitalization(.never)
+                                .disableAutocorrection(true)
+                                .padding()
+                                
+                                
+                                Button(action: {}){ //change password
+                                Text("Change")
+                                        .foregroundColor(.black)
+                                        .padding()
+                                        .background(Color.white)
+                                        .cornerRadius(8)
+                                        
+                            }
+                                }
+                            .textFieldStyle(.roundedBorder)
+                                
+                            
+                            
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                        .background(Color.black
+                                        .opacity(0.7)
+                                        .matchedGeometryEffect(id: "bg", in: namespace)
+                                        .onTapGesture {
+                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
+                                        })
+                        .cornerRadius(8)
+                        
+                        }
+                        Spacer()
+                    }
+                    .frame(alignment: .top)
+                    .navigationTitle("Account")
                 
-                }
+                
                 
             }
-        }
-        .navigationTitle("Account")
+        }.ignoresSafeArea()
     }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27022F3C27F58C7800EAC364 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27022F3B27F58C7800EAC364 /* Models.swift */; };
+		2773159927F6EC00000D5C28 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773159827F6EC00000D5C28 /* BlurView.swift */; };
 		DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65B927F63DB500E7A07C /* Tab.swift */; };
 		DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */; };
 		DA1F65BE27F6463900E7A07C /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65BD27F6463900E7A07C /* AccountView.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		27022F3B27F58C7800EAC364 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2773159827F6EC00000D5C28 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DA1F65B927F63DB500E7A07C /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewAdmin.swift; sourceTree = "<group>"; };
 		DA1F65BD27F6463900E7A07C /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
 				DA1F65B927F63DB500E7A07C /* Tab.swift */,
 				DA1F65BD27F6463900E7A07C /* AccountView.swift */,
+				2773159827F6EC00000D5C28 /* BlurView.swift */,
 				DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
 				27022F3B27F58C7800EAC364 /* Models.swift */,
@@ -315,6 +318,7 @@
 				27022F3C27F58C7800EAC364 /* Models.swift in Sources */,
 				DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */,
 				DA1F65BE27F6463900E7A07C /* AccountView.swift in Sources */,
+				2773159927F6EC00000D5C28 /* BlurView.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
 			);
