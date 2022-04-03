@@ -14,6 +14,7 @@ class AppViewModel: ObservableObject {
     @Published var logInError: String?
     @Published var signedIn: Bool = false
     @Published var currentLoggedUser: User? = nil
+    @Published var isWriting: Bool = false
     
     var isSignedIn: Bool  {
         return Auth.auth().currentUser != nil
