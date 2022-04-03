@@ -13,6 +13,7 @@ struct AccountView: View {
     @State var show = false
     @State private var password: String = ""
     @State private var password2: String = ""
+    @FocusState private var writingFocus: Bool
     var body: some View {
             
         ScrollView{
@@ -43,7 +44,10 @@ struct AccountView: View {
                         .background(gradient1
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
+                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
+                                                show.toggle()
+                                                viewModel.isWriting.toggle()
+                                            }
                                         })
                         .cornerRadius(20)
                         .padding()
@@ -62,6 +66,8 @@ struct AccountView: View {
                                     )
                                     .textInputAutocapitalization(.never)
                                     .disableAutocorrection(true)
+                                    .focused($writingFocus)
+                                    
                                     .padding()
                                     
                                     
@@ -71,6 +77,7 @@ struct AccountView: View {
                                     )
                                     .textInputAutocapitalization(.never)
                                     .disableAutocorrection(true)
+                                    .focused($writingFocus)
                                     .padding()
                                     
                                     
@@ -93,7 +100,10 @@ struct AccountView: View {
                         .background(gradient1
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){show.toggle()}
+                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
+                                                show.toggle()
+                                                viewModel.isWriting.toggle()
+                                            }
                                         })
                         .cornerRadius(20)
                         .padding()
