@@ -17,6 +17,7 @@ struct LoginPage: View {
     @State private var createUserAlertError = false
     @State private var createUserAlertSuccess = false
     @State private var logInAlertError = false
+    
     @EnvironmentObject var viewModel: AppViewModel
     @EnvironmentObject var userList: Users
     var body: some View {

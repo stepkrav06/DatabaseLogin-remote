@@ -14,6 +14,7 @@ struct AccountView: View {
     @State private var password: String = ""
     @State private var password2: String = ""
     @FocusState private var writingFocus: Bool
+    @State private var changePasswordAlertError = false
     var body: some View {
             
         ScrollView{
@@ -21,6 +22,7 @@ struct AccountView: View {
                         Image(systemName: "person.crop.circle")
                             .font(.system(size: 100))
                             .foregroundColor(.textColor1)
+                        Text("Hello, \(viewModel.currentLoggedUser!.name)!")
                         Button(action: {viewModel.logOut()}){
                             Text("Sign out")
                         }
@@ -67,7 +69,7 @@ struct AccountView: View {
                                     .textInputAutocapitalization(.never)
                                     .disableAutocorrection(true)
                                     .focused($writingFocus)
-                                    
+                                    .foregroundColor(.textColor1)
                                     .padding()
                                     
                                     
@@ -78,10 +80,19 @@ struct AccountView: View {
                                     .textInputAutocapitalization(.never)
                                     .disableAutocorrection(true)
                                     .focused($writingFocus)
+                                    .foregroundColor(.textColor1)
                                     .padding()
                                     
                                     
-                                    Button(action: {}){ //change password
+                                    Button(action: {
+                                        viewModel.changePassword(password: password, confirmPassword: password2)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            if viewModel.changePasswordError != nil {
+                                                changePasswordAlertError = true
+                                            }
+                                        
+                                        }
+                                    }){ //change password
                                     Text("Change")
                                             .foregroundColor(.black)
                                             .padding()
@@ -89,6 +100,9 @@ struct AccountView: View {
                                             .cornerRadius(8)
                                             
                                 }
+                                    .alert(isPresented: $changePasswordAlertError) {
+                                        Alert(title: Text("Unable to change password"), message: Text(viewModel.changePasswordError!), dismissButton: .default(Text("OK")) {viewModel.changePasswordError = nil})
+                                    }
                                     }
                             .textFieldStyle(.roundedBorder)
                                 

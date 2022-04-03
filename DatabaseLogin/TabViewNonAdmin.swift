@@ -1,15 +1,15 @@
 //
-//  TabViewAdmin.swift
+//  TabViewNonAdmin.swift
 //  DatabaseLogin
 //
-//  Created by Степан Кравцов on 01.04.2022.
+//  Created by Степан Кравцов on 03.04.2022.
 //
 
 import SwiftUI
 
-struct TabViewAdmin: View {
+struct TabViewNonAdmin: View {
     @EnvironmentObject var viewModel: AppViewModel
-    @State var selectedTab: TabAdmin = .event
+    @State var selectedTab: TabNonAdmin = .event
     @State var color: Color = .teal
     @State private var offsetX: CGFloat = 0.0
     @State private var offsetY: CGFloat = 0.0
@@ -23,7 +23,7 @@ struct TabViewAdmin: View {
                         SomeView()
                     case .fundraiser:
                         SomeView()
-                    case .grading:
+                    case .activity:
                         SomeView()
                     case .account:
                         AccountView()
@@ -33,7 +33,7 @@ struct TabViewAdmin: View {
                 
                 if !viewModel.isWriting{
                     HStack{
-                        ForEach(tabItemsAdmin) { item in
+                        ForEach(tabItemsNonAdmin) { item in
                             Button(action: {
                                 n = 1
                                     selectedTab = item.tab
@@ -84,7 +84,7 @@ struct TabViewAdmin: View {
                                                 self.offsetY =  geomReader.size.height / 2
                                             }
                                                     } }
-                                if selectedTab == .grading {
+                                if selectedTab == .activity {
                                     Circle().fill(color).frame(width: 88).position(x: offsetX, y: offsetY)
                                         .onAppear {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -148,7 +148,7 @@ struct TabViewAdmin: View {
                                                     }
                                         
                                 }
-                                if selectedTab == .grading {
+                                if selectedTab == .activity {
                                     Rectangle()
                                             .fill(color)
                                             .frame(width: 28, height: 5)
@@ -195,8 +195,9 @@ struct TabViewAdmin: View {
     }
 }
 
-struct TabViewAdmin_Previews: PreviewProvider {
+struct TabViewNonAdmin_Previews: PreviewProvider {
     static var previews: some View {
-        TabViewAdmin()
+        TabViewNonAdmin()
     }
 }
+

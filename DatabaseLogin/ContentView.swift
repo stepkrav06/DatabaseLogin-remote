@@ -12,6 +12,7 @@ class AppViewModel: ObservableObject {
     
     @Published var createUserError: String?
     @Published var logInError: String?
+    @Published var changePasswordError: String?
     @Published var signedIn: Bool = false
     @Published var currentLoggedUser: User? = nil
     @Published var isWriting: Bool = false
@@ -46,42 +47,24 @@ class AppViewModel: ObservableObject {
                 //Success
                 self.signedIn = true
             }
-            let ref = Database.database().reference(withPath: "users")
-            let userPath = ref.child(user!.user.uid)
-//            userPath.getData(completion: { error, snapshot in
-//                    guard error == nil else {
-//                        print(error!.localizedDescription)
-//                        return
-//                        
-//                    }
-                userPath.observe(.value) { snapshot in
-                    let curuser = User(snapshot: snapshot)
-                    self.currentLoggedUser = curuser
-                    print(self.currentLoggedUser)
-                    print(curuser)
-                } withCancel: { error in
-                    print(error.localizedDescription)
-                }
-
-                
-                
-               
-                        
-                        
-                    
-                   
-                    
-                    
-                   // })
-                
-            
-            
         }
     }
     func logOut(){
         try? Auth.auth().signOut()
         
         self.signedIn = false
+        self.currentLoggedUser = nil
+    }
+    func changePassword(password: String, confirmPassword: String){
+        if password == confirmPassword {
+            print("bebe")
+            Auth.auth().currentUser?.updatePassword(to: password) { error in
+                if error != nil{
+                    self.changePasswordError = error?.localizedDescription
+                }
+            }
+        }
+        print("no bebe")
     }
 }
 class Users: ObservableObject {
@@ -94,7 +77,41 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
-                TabViewAdmin()
+                if viewModel.currentLoggedUser != nil{
+                    if viewModel.currentLoggedUser?.isAdmin == true{
+                        TabViewAdmin()
+                    }
+                    else{
+                        TabViewNonAdmin()
+                    }
+                    
+                }
+                else{
+                    LoadingView()
+                        .onAppear{
+                            let ref = Database.database().reference(withPath: "users")
+                            let user = Auth.auth().currentUser
+                            print(user?.email)
+                            let userPath = ref.child(user!.uid)
+                //            userPath.getData(completion: { error, snapshot in
+                //                    guard error == nil else {
+                //                        print(error!.localizedDescription)
+                //                        return
+                //
+                //                    }
+                                userPath.observe(.value) { snapshot in
+                                    let curuser = User(snapshot: snapshot)
+                                    viewModel.currentLoggedUser = curuser
+                                    print(viewModel.currentLoggedUser?.isAdmin)
+                                } withCancel: { error in
+                                    print(error.localizedDescription)
+                                }
+                            viewModel.isWriting = false
+                        }
+                }
+                
+                
+                
             } else {
                 LoginPage().onAppear{
                     let ref = Database.database().reference(withPath: "users")
