@@ -54,7 +54,7 @@ struct AccountViewAdmin: View {
                                     ForEach(viewModel.userList){ user in
                                         ManageUserCard(user: user)
                                     }
-                                    Button(action: {}){
+                                    NavigationLink(destination: AddUserPage()){
                                         Image(systemName: "plus")
                                             .font(.system(size: 30))
                                             .padding(8)
