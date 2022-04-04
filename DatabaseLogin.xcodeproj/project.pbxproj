@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700CDBB27FAED980017B114 /* AccountViewAdmin.swift */; };
+		2700CDBE27FAF2540017B114 /* ManageUserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700CDBD27FAF2540017B114 /* ManageUserCard.swift */; };
 		27022F3C27F58C7800EAC364 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27022F3B27F58C7800EAC364 /* Models.swift */; };
 		2773159927F6EC00000D5C28 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773159827F6EC00000D5C28 /* BlurView.swift */; };
 		DA0FADF427F9FAEA00C702DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0FADF327F9FAEA00C702DB /* LoadingView.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		2700CDBB27FAED980017B114 /* AccountViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewAdmin.swift; sourceTree = "<group>"; };
+		2700CDBD27FAF2540017B114 /* ManageUserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUserCard.swift; sourceTree = "<group>"; };
 		27022F3B27F58C7800EAC364 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2773159827F6EC00000D5C28 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DA0FADF327F9FAEA00C702DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				DA1F65B927F63DB500E7A07C /* Tab.swift */,
 				DA1F65BD27F6463900E7A07C /* AccountView.swift */,
 				2700CDBB27FAED980017B114 /* AccountViewAdmin.swift */,
+				2700CDBD27FAF2540017B114 /* ManageUserCard.swift */,
 				2773159827F6EC00000D5C28 /* BlurView.swift */,
 				DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
@@ -336,6 +339,7 @@
 				2773159927F6EC00000D5C28 /* BlurView.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,
+				2700CDBE27FAF2540017B114 /* ManageUserCard.swift in Sources */,
 				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

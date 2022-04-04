@@ -37,7 +37,7 @@ struct AccountViewAdmin: View {
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
                                                 showManageUsers.toggle()
-//                                                viewModel.isWriting.toggle()
+                                                viewModel.isWriting.toggle()
                                             }
                                         })
                         .cornerRadius(20)
@@ -52,27 +52,39 @@ struct AccountViewAdmin: View {
                                         .matchedGeometryEffect(id: "title", in: namespace)
                                         
                                     ForEach(viewModel.userList){ user in
-                                        Text(user.name)
+                                        ManageUserCard(user: user)
                                     }
+                                    Button(action: {}){
+                                        Image(systemName: "plus")
+                                            .font(.system(size: 30))
+                                            .padding(8)
+                                            .foregroundColor(.white)
+                                            .background(.black)
+                                            .mask{
+                                                Circle()
+                                            }
+                                    }
+                                    .padding()
                                     }
                                 
                             
                             
                         .foregroundColor(.white)
                         .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 300)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(gradient1
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
                                                 showManageUsers.toggle()
-//                                                viewModel.isWriting.toggle()
+                                                viewModel.isWriting.toggle()
                                             }
                                         })
                         .cornerRadius(20)
                         .padding()
                         
                         }
+                        Spacer()
                     }
                     
                     .frame(alignment: .top)
