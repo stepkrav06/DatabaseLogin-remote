@@ -26,7 +26,7 @@ struct TabViewAdmin: View {
                     case .grading:
                         SomeView()
                     case .account:
-                        AccountView()
+                        AccountViewAdmin()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

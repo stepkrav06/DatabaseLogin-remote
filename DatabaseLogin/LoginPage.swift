@@ -19,7 +19,6 @@ struct LoginPage: View {
     @State private var logInAlertError = false
     
     @EnvironmentObject var viewModel: AppViewModel
-    @EnvironmentObject var userList: Users
     var body: some View {
         
         ZStack{

@@ -16,6 +16,7 @@ class AppViewModel: ObservableObject {
     @Published var signedIn: Bool = false
     @Published var currentLoggedUser: User? = nil
     @Published var isWriting: Bool = false
+    @Published var userList: [User] = []
     
     var isSignedIn: Bool  {
         return Auth.auth().currentUser != nil
@@ -67,17 +68,17 @@ class AppViewModel: ObservableObject {
         print("no bebe")
     }
 }
-class Users: ObservableObject {
-    @Published var users: [User] = []
-}
+//class Users: ObservableObject {
+//    @Published var users: [User] = []
+//}
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
-    @EnvironmentObject var userList: Users
+//    @EnvironmentObject var userList: Users
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
-                if viewModel.currentLoggedUser != nil{
+                if viewModel.currentLoggedUser != nil && viewModel.userList != nil{
                     if viewModel.currentLoggedUser?.isAdmin == true{
                         TabViewAdmin()
                     }
@@ -93,19 +94,33 @@ struct ContentView: View {
                             let user = Auth.auth().currentUser
                             print(user?.email)
                             let userPath = ref.child(user!.uid)
-                //            userPath.getData(completion: { error, snapshot in
-                //                    guard error == nil else {
-                //                        print(error!.localizedDescription)
-                //                        return
-                //
-                //                    }
-                                userPath.observe(.value) { snapshot in
+                            userPath.observe(.value) { snapshot in
                                     let curuser = User(snapshot: snapshot)
                                     viewModel.currentLoggedUser = curuser
                                     print(viewModel.currentLoggedUser?.isAdmin)
                                 } withCancel: { error in
                                     print(error.localizedDescription)
                                 }
+                            let completed = ref.observe(.value) { snapshot in
+                              // 2
+                              var users: [User] = []
+                              // 3
+                              for child in snapshot.children {
+                                // 4
+                                  if
+                                    let snapshot = child as? DataSnapshot,
+                                  let user = User(snapshot: snapshot) {
+                                    users.append(user)
+                                }
+                              }
+                                viewModel.userList = users
+                                
+                                for user in users {
+                                    print(user.name)
+                                    print(user.tasks)
+                                }
+                                
+                            }
                             viewModel.isWriting = false
                         }
                 }
@@ -113,31 +128,7 @@ struct ContentView: View {
                 
                 
             } else {
-                LoginPage().onAppear{
-                    let ref = Database.database().reference(withPath: "users")
-                    let completed = ref.observe(.value) { snapshot in
-                      // 2
-                      var users: [User] = []
-                      // 3
-                      for child in snapshot.children {
-                        // 4
-                          if
-                            let snapshot = child as? DataSnapshot,
-                          let user = User(snapshot: snapshot) {
-                            users.append(user)
-                        }
-                      }
-                        userList.users = users
-                        
-                        for user in users {
-                            print(user.name)
-                            print(user.tasks)
-                        }
-                        
-                    }
-                    // 6
-                    refObservers.append(completed)
-                }
+                LoginPage()
             }
             
         }

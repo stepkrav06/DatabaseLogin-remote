@@ -17,10 +17,9 @@ struct DatabaseLoginApp: App {
     var body: some Scene {
         WindowGroup {
             let viewModel = AppViewModel()
-            let users = Users()
+            
             ContentView()
                 .environmentObject(viewModel)
-                .environmentObject(users)
 
         }
     }
