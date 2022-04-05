@@ -18,19 +18,13 @@ struct AccountViewAdmin: View {
     @State private var changePasswordAlertError = false
     
     var body: some View {
-        GeometryReader{ geometry in
-        ZStack{
-            BackgoundView()
-                
-            ScrollView{
-                
+        
+        ScrollView{
                     VStack {
                         AccountView()
-                            .frame(maxWidth: geometry.size.width)
                         if !showManageUsers{
                             VStack{
                                 Text("Manage users")
-                                    .bold()
                                     
                                     .matchedGeometryEffect(id: "title", in: namespace)
                                     
@@ -38,35 +32,25 @@ struct AccountViewAdmin: View {
                                 }
                         .foregroundColor(.white)
                         .padding()
-                        .frame(maxWidth: geometry.size.width, maxHeight: 50)
-                        .background(Color.darkGr1
+                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
                                                 showManageUsers.toggle()
                                                 viewModel.isWriting.toggle()
                                             }
-                        })
-                        .mask(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
-                                
-                                .blur(radius: 2)
-                        )
+                                        })
+                        .cornerRadius(20)
                         .padding()
                         
                         
                         } else {
                                 VStack{
                                     Text("Manage users")
-                                        .bold()
                                         .frame(alignment: .top)
                                         
                                         .matchedGeometryEffect(id: "title", in: namespace)
-                                        
-                                        
                                         
                                     ForEach(viewModel.userList){ user in
                                         ManageUserCard(user: user)
@@ -91,8 +75,8 @@ struct AccountViewAdmin: View {
                             
                         .foregroundColor(.white)
                         .padding()
-                        .frame(maxWidth: geometry.size.width, maxHeight: .infinity)
-                        .background(gradient1
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -100,14 +84,7 @@ struct AccountViewAdmin: View {
                                                 viewModel.isWriting.toggle()
                                             }
                                         })
-                        .mask(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.0)]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
-                                
-                                .blur(radius: 2)
-                        )
+                        .cornerRadius(20)
                         .padding()
                         
                         }
@@ -115,16 +92,13 @@ struct AccountViewAdmin: View {
                     }
                     
                     .frame(alignment: .top)
+                    .navigationTitle("Account")
                     
                     
-                    
-                    
-            }
-            .frame(maxHeight:.infinity)
+                    .ignoresSafeArea()
+                    .background(.background)
         }
-        .frame(maxWidth: geometry.size.width)
-                .navigationTitle("Account")
-        }
+                
                 
             
             

@@ -29,15 +29,8 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color.orange.opacity(0.5))
-                        .mask(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
-                                
-                                .blur(radius: 2)
-                        )
+                        .background(Color.teal)
+                        .cornerRadius(20)
                         .padding()
                         if !show{
                             VStack{
@@ -50,7 +43,7 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color.darkGr1
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -58,14 +51,7 @@ struct AccountView: View {
                                                 viewModel.isWriting.toggle()
                                             }
                                         })
-                        .mask(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
-                                
-                                .blur(radius: 2)
-                        )
+                        .cornerRadius(20)
                         .padding()
                         
                         
@@ -125,7 +111,7 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 300)
-                        .background(Color.darkGr1
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -133,14 +119,7 @@ struct AccountView: View {
                                                 viewModel.isWriting.toggle()
                                             }
                                         })
-                        .mask(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
-                                
-                                .blur(radius: 2)
-                        )
+                        .cornerRadius(20)
                         .padding()
                         
                         }
@@ -148,13 +127,12 @@ struct AccountView: View {
                     }
                     
                     .frame(alignment: .top)
+                    .navigationTitle("Account")
                     
                     
-                    
-                   
-                    
+                    .ignoresSafeArea()
+                    .background(.background)
         }
-        
                 
                 
             
