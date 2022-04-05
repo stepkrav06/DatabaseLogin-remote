@@ -39,6 +39,7 @@
 		DA56650027F382FA0031F8F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DA5664FF27F382FA0031F8F1 /* FirebaseMessaging */; };
 		DA56650227F384CE0031F8F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */; };
 		DA56650427F385140031F8F1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA56650327F385140031F8F1 /* Database.swift */; };
+		DA60765E27FCDB950046F6C5 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60765D27FCDB950046F6C5 /* EventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		DA5664E527F380FD0031F8F1 /* DatabaseLoginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLoginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA56650327F385140031F8F1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		DA60765D27FCDB950046F6C5 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				27022F3B27F58C7800EAC364 /* Models.swift */,
 				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
 				DA5545CB27F4E62C00F476EA /* LoginPage.swift */,
+				DA60765D27FCDB950046F6C5 /* EventView.swift */,
 				2700CDBF27FAF91A0017B114 /* AddUserPage.swift */,
 				DA56650327F385140031F8F1 /* Database.swift */,
 				DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */,
@@ -357,6 +360,7 @@
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,
 				2700CDBE27FAF2540017B114 /* ManageUserCard.swift in Sources */,
 				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
+				DA60765E27FCDB950046F6C5 /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
