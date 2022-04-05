@@ -17,10 +17,15 @@ struct AccountViewAdmin: View {
     @FocusState private var writingFocus: Bool
     @State private var changePasswordAlertError = false
     var body: some View {
-        
-        ScrollView{
+        GeometryReader{ geometry in
+        ZStack{
+            BackgoundView()
+                
+            ScrollView{
+                
                     VStack {
                         AccountView()
+                            .frame(maxWidth: geometry.size.width)
                         if !showManageUsers{
                             VStack{
                                 Text("Manage users")
@@ -31,8 +36,8 @@ struct AccountViewAdmin: View {
                                 }
                         .foregroundColor(.white)
                         .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(gradient1
+                        .frame(maxWidth: geometry.size.width, maxHeight: 50)
+                        .background(Color.darkGr1
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -71,7 +76,7 @@ struct AccountViewAdmin: View {
                             
                         .foregroundColor(.white)
                         .padding()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .frame(maxWidth: geometry.size.width, maxHeight: .infinity)
                         .background(gradient1
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
@@ -88,13 +93,16 @@ struct AccountViewAdmin: View {
                     }
                     
                     .frame(alignment: .top)
-                    .navigationTitle("Account")
                     
                     
-                    .ignoresSafeArea()
-                    .background(.background)
+                    
+                    
+            }
+            .frame(maxHeight:.infinity)
         }
-                
+        .frame(maxWidth: geometry.size.width)
+                .navigationTitle("Account")
+        }
                 
             
             

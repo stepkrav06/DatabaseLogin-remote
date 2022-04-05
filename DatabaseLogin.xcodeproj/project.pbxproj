@@ -12,6 +12,8 @@
 		2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700CDBF27FAF91A0017B114 /* AddUserPage.swift */; };
 		27022F3C27F58C7800EAC364 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27022F3B27F58C7800EAC364 /* Models.swift */; };
 		2773159927F6EC00000D5C28 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773159827F6EC00000D5C28 /* BlurView.swift */; };
+		27B127F527FC481A00888179 /* Blobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B127F427FC481900888179 /* Blobs.swift */; };
+		27B127F727FC482400888179 /* BackgoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B127F627FC482400888179 /* BackgoundView.swift */; };
 		DA0FADF427F9FAEA00C702DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0FADF327F9FAEA00C702DB /* LoadingView.swift */; };
 		DA0FADF627F9FD9100C702DB /* TabViewNonAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0FADF527F9FD9100C702DB /* TabViewNonAdmin.swift */; };
 		DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65B927F63DB500E7A07C /* Tab.swift */; };
@@ -61,6 +63,8 @@
 		2700CDBF27FAF91A0017B114 /* AddUserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserPage.swift; sourceTree = "<group>"; };
 		27022F3B27F58C7800EAC364 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2773159827F6EC00000D5C28 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		27B127F427FC481900888179 /* Blobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blobs.swift; sourceTree = "<group>"; };
+		27B127F627FC482400888179 /* BackgoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgoundView.swift; sourceTree = "<group>"; };
 		DA0FADF327F9FAEA00C702DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DA0FADF527F9FD9100C702DB /* TabViewNonAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNonAdmin.swift; sourceTree = "<group>"; };
 		DA1F65B927F63DB500E7A07C /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				DA56650327F385140031F8F1 /* Database.swift */,
 				DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */,
 				DA5664CC27F380FC0031F8F1 /* Assets.xcassets */,
+				27B127F427FC481900888179 /* Blobs.swift */,
+				27B127F627FC482400888179 /* BackgoundView.swift */,
 				DA1F65BF27F9E6B500E7A07C /* Colors.swift */,
 				DA5664CE27F380FC0031F8F1 /* Preview Content */,
 			);
@@ -331,6 +337,7 @@
 			files = (
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */,
+				27B127F527FC481A00888179 /* Blobs.swift in Sources */,
 				DA1F65C027F9E6B600E7A07C /* Colors.swift in Sources */,
 				DA56650427F385140031F8F1 /* Database.swift in Sources */,
 				DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */,
@@ -341,6 +348,7 @@
 				DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */,
 				DA1F65BE27F6463900E7A07C /* AccountView.swift in Sources */,
 				2773159927F6EC00000D5C28 /* BlurView.swift in Sources */,
+				27B127F727FC482400888179 /* BackgoundView.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,
 				2700CDBE27FAF2540017B114 /* ManageUserCard.swift in Sources */,

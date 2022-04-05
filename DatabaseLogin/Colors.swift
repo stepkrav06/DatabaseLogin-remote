@@ -18,5 +18,5 @@ extension Color {
     static let textColor2 = Color("TextColor2")
     
 }
-let gradient1 = LinearGradient(gradient: Gradient(colors: [Color.darkGr1, Color.lightGr1]), startPoint: .topTrailing, endPoint: .bottomLeading)
+let gradient1 = LinearGradient(gradient: Gradient(colors: [Color.darkGr1.opacity(0.8), Color.darkGr1.opacity(0.0)]), startPoint: .top, endPoint: .bottom)
 let gradient2 = LinearGradient(gradient: Gradient(colors: [Color.darkGr2, Color.lightGr2]), startPoint: .topTrailing, endPoint: .bottomLeading)
