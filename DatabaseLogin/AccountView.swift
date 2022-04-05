@@ -29,8 +29,15 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color.darkGr1)
-                        .cornerRadius(20)
+                        .background(Color.orange.opacity(0.5))
+                        .mask(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
+                                
+                                .blur(radius: 2)
+                        )
                         .padding()
                         if !show{
                             VStack{
@@ -51,7 +58,14 @@ struct AccountView: View {
                                                 viewModel.isWriting.toggle()
                                             }
                                         })
-                        .cornerRadius(20)
+                        .mask(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
+                                
+                                .blur(radius: 2)
+                        )
                         .padding()
                         
                         
@@ -119,7 +133,14 @@ struct AccountView: View {
                                                 viewModel.isWriting.toggle()
                                             }
                                         })
-                        .cornerRadius(20)
+                        .mask(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
+                                
+                                .blur(radius: 2)
+                        )
                         .padding()
                         
                         }

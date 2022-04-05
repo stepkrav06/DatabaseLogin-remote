@@ -75,6 +75,7 @@ class AppViewModel: ObservableObject {
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
 //    @EnvironmentObject var userList: Users
+    
     var body: some View {
         NavigationView{
             if viewModel.signedIn {

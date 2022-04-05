@@ -16,6 +16,7 @@ struct AccountViewAdmin: View {
     @State private var password2: String = ""
     @FocusState private var writingFocus: Bool
     @State private var changePasswordAlertError = false
+    
     var body: some View {
         GeometryReader{ geometry in
         ZStack{
@@ -29,6 +30,7 @@ struct AccountViewAdmin: View {
                         if !showManageUsers{
                             VStack{
                                 Text("Manage users")
+                                    .bold()
                                     
                                     .matchedGeometryEffect(id: "title", in: namespace)
                                     
@@ -45,16 +47,26 @@ struct AccountViewAdmin: View {
                                                 viewModel.isWriting.toggle()
                                             }
                         })
-                        .cornerRadius(20)
+                        .mask(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1)
+                                
+                                .blur(radius: 2)
+                        )
                         .padding()
                         
                         
                         } else {
                                 VStack{
                                     Text("Manage users")
+                                        .bold()
                                         .frame(alignment: .top)
                                         
                                         .matchedGeometryEffect(id: "title", in: namespace)
+                                        
+                                        
                                         
                                     ForEach(viewModel.userList){ user in
                                         ManageUserCard(user: user)
@@ -64,10 +76,13 @@ struct AccountViewAdmin: View {
                                             .font(.system(size: 30))
                                             .padding(8)
                                             .foregroundColor(.white)
-                                            .background(.black)
-                                            .mask{
+                                        
+                                            .background(.black.opacity(0.1))
+                                            .mask(
                                                 Circle()
-                                            }
+                                            )
+                                            .overlay( Circle().stroke(.white, lineWidth: 1).blur(radius: 2))
+                                            
                                     }
                                     .padding()
                                     }
@@ -85,7 +100,14 @@ struct AccountViewAdmin: View {
                                                 viewModel.isWriting.toggle()
                                             }
                                         })
-                        .cornerRadius(20)
+                        .mask(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.0)]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
+                                
+                                .blur(radius: 2)
+                        )
                         .padding()
                         
                         }

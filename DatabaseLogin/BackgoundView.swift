@@ -41,8 +41,8 @@ struct BackgoundView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             .background(LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom))
-        .overlay(Material.ultraThinMaterial)
-        .overlay(Color.black.opacity(0.15).ignoresSafeArea())
+            .overlay(BlurView(effect: .systemUltraThinMaterialDark).ignoresSafeArea())
+        
             Wave1()
                 .frame(width: 1000, height: 300)
                 .foregroundColor(Color.purple.opacity(0.3))

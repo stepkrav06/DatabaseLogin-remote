@@ -31,8 +31,16 @@ struct ManageUserCard: View {
                 .padding()
         }
         .foregroundColor(.white)
-        .background(.ultraThinMaterial)
-        .cornerRadius(20)
+        .background(Color.black.opacity(0.1))
+        
+        .mask(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.0)]), startPoint: .top, endPoint: .bottom), lineWidth: 1)
+                
+                .blur(radius: 2)
+        )
         .padding()
         
     }
