@@ -26,7 +26,7 @@ struct TabViewNonAdmin: View {
                     case .activity:
                         SomeView()
                     case .account:
-                        AccountView()
+                        AccountViewNonAdmin()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

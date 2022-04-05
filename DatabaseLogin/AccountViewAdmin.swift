@@ -44,7 +44,7 @@ struct AccountViewAdmin: View {
                                                 showManageUsers.toggle()
                                                 viewModel.isWriting.toggle()
                                             }
-                                        })
+                        })
                         .cornerRadius(20)
                         .padding()
                         

@@ -127,7 +127,7 @@ struct AccountView: View {
                     }
                     
                     .frame(alignment: .top)
-                    .navigationTitle("Account")
+                    
                     
                     
                    

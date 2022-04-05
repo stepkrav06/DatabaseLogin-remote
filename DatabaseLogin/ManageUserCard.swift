@@ -13,23 +13,25 @@ struct ManageUserCard: View {
         VStack{
             HStack{
                 Text(user.name)
+                    .bold()
                 Text(user.lastName)
+                    .bold()
             }
             .frame(alignment: .topLeading)
-            .padding(8)
+            .padding()
             if user.isAdmin {
                 Text("Adiminstrator")
-                    .padding(8)
+                    .padding()
             }
             else {
                 Text("Non Administaror")
-                    .padding(8)
+                    .padding()
             }
             Text("Email: \(user.email)")
-                .padding(8)
+                .padding()
         }
         .foregroundColor(.white)
-        .background(.black)
+        .background(.ultraThinMaterial)
         .cornerRadius(20)
         .padding()
         
