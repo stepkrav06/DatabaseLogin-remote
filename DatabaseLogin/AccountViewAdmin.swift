@@ -32,7 +32,7 @@ struct AccountViewAdmin: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(gradient1
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -72,7 +72,7 @@ struct AccountViewAdmin: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(gradient1
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){

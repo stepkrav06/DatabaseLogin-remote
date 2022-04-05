@@ -29,7 +29,7 @@ struct ManageUserCard: View {
                 .padding(8)
         }
         .foregroundColor(.white)
-        .background(.black)
+        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1))
         .cornerRadius(20)
         .padding()
         

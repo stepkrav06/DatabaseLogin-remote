@@ -29,7 +29,7 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(gradient1)
+                        .background(Color.teal)
                         .cornerRadius(20)
                         .padding()
                         if !show{
@@ -43,7 +43,7 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(gradient1
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
@@ -111,7 +111,7 @@ struct AccountView: View {
                         .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 300)
-                        .background(gradient1
+                        .background(Color.teal
                                         .matchedGeometryEffect(id: "bg", in: namespace)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
