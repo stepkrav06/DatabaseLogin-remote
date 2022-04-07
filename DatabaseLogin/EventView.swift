@@ -18,6 +18,9 @@ struct EventView: View {
             .sheet(isPresented: $showAddEvent){
                 AddEventPage ()
             }
+            ForEach(viewModel.eventList){ event in
+                Text(event.name)
+            }
         }.navigationTitle("Events")
     }
 }

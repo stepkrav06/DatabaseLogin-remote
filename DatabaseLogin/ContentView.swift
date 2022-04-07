@@ -17,6 +17,7 @@ class AppViewModel: ObservableObject {
     @Published var currentLoggedUser: User? = nil
     @Published var isWriting: Bool = false
     @Published var userList: [User] = []
+    @Published var eventList: [Event] = []
     
     var isSignedIn: Bool  {
         return Auth.auth().currentUser != nil
@@ -82,7 +83,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
-                if viewModel.currentLoggedUser != nil && viewModel.userList != nil{
+                if viewModel.currentLoggedUser != nil && viewModel.userList != [] && viewModel.eventList != []{
                     if viewModel.currentLoggedUser?.isAdmin == true{
                         TabViewAdmin()
                     }
@@ -94,7 +95,7 @@ struct ContentView: View {
                 else{
                     LoadingView()
                         .onAppear{
-                            let ref = Database.database().reference(withPath: "users")
+                            var ref = Database.database().reference(withPath: "users")
                             let user = Auth.auth().currentUser
                             print(user?.email)
                             let userPath = ref.child(user!.uid)
@@ -123,13 +124,30 @@ struct ContentView: View {
                                     print(user.name)
                                     print(user.tasks)
                                 }
+                                viewModel.isWriting = false
+                            }
+                                
+                            ref = Database.database().reference(withPath: "events")
+                            let completed2 = ref.observe(.value) { snapshot in
+                              // 2
+                              var events: [Event] = []
+                              // 3
+                              for child in snapshot.children {
+                                // 4
+                                  if
+                                    let snapshot = child as? DataSnapshot,
+                                  let event = Event(snapshot: snapshot) {
+                                    events.append(event)
+                                }
+                              }
+                                viewModel.eventList = events
                                 
                             }
-                            viewModel.isWriting = false
-                        }
+                            
+                        
                 }
                 
-                
+                }
                 
             } else {
                 LoginPage()

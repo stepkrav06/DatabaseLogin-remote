@@ -12,7 +12,7 @@ struct AddEventPage: View {
     @State private var startDate = Date()
     @State private var endDate = Date()
     @State private var isCharity: Bool = false
-    @FocusState private var writingFocus: Bool
+    @State private var charitySum: String = "0"
     @State private var eventAddedAlertSuccess = false
     
     @EnvironmentObject var viewModel: AppViewModel
@@ -30,7 +30,6 @@ struct AddEventPage: View {
                     )
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
-                    .focused($writingFocus)
                     .padding()
                     .background(Color(.secondarySystemBackground))
                     
@@ -43,18 +42,34 @@ struct AddEventPage: View {
                     Toggle("Charity", isOn: $isCharity)
                         .padding()
                         .background(Color(.secondarySystemBackground))
-                    
+                    if isCharity{
+                        TextField(
+                            "Charity goal",
+                            text: $charitySum
+                        )
+                        .keyboardType(.numberPad)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .padding()
+                        .background(Color(.secondarySystemBackground))
+                    }
                 }
                 
                 
                 Button(action: {
-                    writingFocus = false
                     guard !name.isEmpty else{
                         return
                     }
-                    let event = Event(name: name, startDate: startDate.formatted(), endDate: endDate.formatted(), isCharity: isCharity)
-                    viewModel.addEvent(event: event)
-                    eventAddedAlertSuccess = true
+                    if isCharity{
+                        let event = Event(name: name, startDate: startDate.formatted(date: .abbreviated, time: .omitted) , endDate: endDate.formatted(date: .abbreviated, time: .omitted), isCharity: isCharity, charitySum: charitySum)
+                        viewModel.addEvent(event: event)
+                        eventAddedAlertSuccess = true
+                    } else {
+                        let event = Event(name: name, startDate: startDate.formatted(date: .abbreviated, time: .omitted) , endDate: endDate.formatted(date: .abbreviated, time: .omitted), isCharity: isCharity)
+                        viewModel.addEvent(event: event)
+                        eventAddedAlertSuccess = true
+                    }
+                    
                     
                 }){
                     Text("Add user")

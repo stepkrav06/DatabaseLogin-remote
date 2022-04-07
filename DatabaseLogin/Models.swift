@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-public struct User: Identifiable {
+public struct User: Identifiable, Equatable {
     public let id = UUID()
     var uid: String
     var email: String
@@ -68,13 +68,14 @@ public struct User: Identifiable {
     
 }
 
-public struct Event {
-    let id = UUID()
+public struct Event: Identifiable, Equatable {
+    public let id = UUID()
     var sid: String
     var name: String
     var startDate: String
     var endDate: String
     var isCharity: Bool
+    var charitySum: String
     var tasks: [String]
     
     init(name: String, startDate: String, endDate: String, isCharity: Bool) {
@@ -83,6 +84,16 @@ public struct Event {
         self.startDate = startDate
         self.endDate = endDate
         self.isCharity = isCharity
+        self.charitySum = "0"
+        self.tasks = ["placeholder"]
+    }
+    init(name: String, startDate: String, endDate: String, isCharity: Bool, charitySum: String) {
+        self.sid = id.uuidString
+        self.name = name
+        self.startDate = startDate
+        self.endDate = endDate
+        self.isCharity = isCharity
+        self.charitySum = charitySum
         self.tasks = ["placeholder"]
     }
     init(name: String, startDate: String, endDate: String, isCharity: Bool, tasks: [String]) {
@@ -91,6 +102,16 @@ public struct Event {
         self.startDate = startDate
         self.endDate = endDate
         self.isCharity = isCharity
+        self.charitySum = "0"
+        self.tasks = tasks
+    }
+    init(name: String, startDate: String, endDate: String, isCharity: Bool, charitySum: String, tasks: [String]) {
+        self.sid = id.uuidString
+        self.name = name
+        self.startDate = startDate
+        self.endDate = endDate
+        self.isCharity = isCharity
+        self.charitySum = charitySum
         self.tasks = tasks
     }
     init?(snapshot: DataSnapshot) {
@@ -100,6 +121,7 @@ public struct Event {
         let startDate = value["startDate"] as? String,
         let tasks = value["tasks"] as? NSArray as? [String],
         let isCharity = value["isCharity"] as? Bool,
+        let charitySum = value["charitySum"] as? String,
         let endDate = value["endDate"] as? String,
         let sid = value["sid"] as? String
       else {
@@ -111,6 +133,7 @@ public struct Event {
         self.endDate = endDate
       self.sid = sid
         self.isCharity = isCharity
+        self.charitySum = charitySum
         self.tasks = tasks
     }
     func toAnyObject() -> Any {
@@ -120,6 +143,7 @@ public struct Event {
         "startDate": startDate,
         "endDate": endDate,
         "isCharity": isCharity,
+        "charitySum": charitySum,
         "tasks": tasks as NSArray
       ]
     }
