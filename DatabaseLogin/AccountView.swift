@@ -25,12 +25,13 @@ struct AccountView: View {
                         Text("Hello, \(viewModel.currentLoggedUser!.name)!")
                         Button(action: {viewModel.logOut()}){
                             Text("Sign out")
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: 50)
+                                .background(Color.teal)
+                                .cornerRadius(20)
                         }
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color.teal)
-                        .cornerRadius(20)
+                        
                         .padding()
                         if !show{
                             VStack{

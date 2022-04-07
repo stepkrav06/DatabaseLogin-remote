@@ -69,16 +69,64 @@ public struct User: Identifiable {
 }
 
 public struct Event {
-    let id = UUID().uuidString
+    let id = UUID()
+    var sid: String
     var name: String
     var startDate: String
     var endDate: String
     var isCharity: Bool
-    var tasks: [UUID]
+    var tasks: [String]
     
+    init(name: String, startDate: String, endDate: String, isCharity: Bool) {
+        self.sid = id.uuidString
+        self.name = name
+        self.startDate = startDate
+        self.endDate = endDate
+        self.isCharity = isCharity
+        self.tasks = ["placeholder"]
+    }
+    init(name: String, startDate: String, endDate: String, isCharity: Bool, tasks: [String]) {
+        self.sid = id.uuidString
+        self.name = name
+        self.startDate = startDate
+        self.endDate = endDate
+        self.isCharity = isCharity
+        self.tasks = tasks
+    }
+    init?(snapshot: DataSnapshot) {
+      guard
+        let value = snapshot.value as? [String: AnyObject],
+        let name = value["name"] as? String,
+        let startDate = value["startDate"] as? String,
+        let tasks = value["tasks"] as? NSArray as? [String],
+        let isCharity = value["isCharity"] as? Bool,
+        let endDate = value["endDate"] as? String,
+        let sid = value["sid"] as? String
+      else {
+        return nil
+      }
+
+      self.name = name
+        self.startDate = startDate
+        self.endDate = endDate
+      self.sid = sid
+        self.isCharity = isCharity
+        self.tasks = tasks
+    }
+    func toAnyObject() -> Any {
+      return [
+        "sid": sid,
+        "name": name,
+        "startDate": startDate,
+        "endDate": endDate,
+        "isCharity": isCharity,
+        "tasks": tasks as NSArray
+      ]
+    }
+
 }
 public struct Task {
-    let id = UUID().uuidString
+    let id = UUID()
     var content: String
     var importance: Int
     init(content: String, importance: Int) {
@@ -86,12 +134,3 @@ public struct Task {
         self.importance = importance
     }
 }
-//public func AddUser(){
-//    let task1 = Task(content: "bubu1", importance: 1)
-//    let task2 = Task(content: "bubu2", importance: 2)
-//    let user = User(name: "bob", lastName: "bob", isAdmin: true, tasks: [task1.id, task2.id])
-//    let ref = Database.database().reference(withPath: "users")
-//    let userRef = ref.child(user.uid)
-//    userRef.setValue(user.toAnyObject())
-//    
-//}

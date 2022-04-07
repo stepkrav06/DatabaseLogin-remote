@@ -67,10 +67,13 @@ class AppViewModel: ObservableObject {
         }
         print("no bebe")
     }
+    func addEvent(event: Event){
+        let ref = Database.database().reference(withPath: "wvwnts")
+        let eventRef = ref.child(event.sid)
+        eventRef.setValue(event.toAnyObject())
+    }
 }
-//class Users: ObservableObject {
-//    @Published var users: [User] = []
-//}
+
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel

@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct EventView: View {
+    @EnvironmentObject var viewModel: AppViewModel
+    @State var showAddEvent: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Button(action: {showAddEvent.toggle()}){
+                Text("Add event")
+            }
+            .sheet(isPresented: $showAddEvent){
+                AddEventPage ()
+            }
+        }.navigationTitle("Events")
     }
 }
 
