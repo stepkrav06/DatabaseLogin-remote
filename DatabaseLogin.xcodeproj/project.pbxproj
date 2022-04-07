@@ -42,6 +42,7 @@
 		DA56650227F384CE0031F8F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */; };
 		DA56650427F385140031F8F1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA56650327F385140031F8F1 /* Database.swift */; };
 		DA60765E27FCDB950046F6C5 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60765D27FCDB950046F6C5 /* EventView.swift */; };
+		DA8CB85727FF76CE006487CB /* EventNextUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CB85627FF76CE006487CB /* EventNextUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA56650327F385140031F8F1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DA60765D27FCDB950046F6C5 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		DA8CB85627FF76CE006487CB /* EventNextUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNextUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
 				DA5545CB27F4E62C00F476EA /* LoginPage.swift */,
 				DA60765D27FCDB950046F6C5 /* EventView.swift */,
+				DA8CB85627FF76CE006487CB /* EventNextUp.swift */,
 				278CCF7127FEC774005A6F12 /* AddEventPage.swift */,
 				2700CDBF27FAF91A0017B114 /* AddUserPage.swift */,
 				DA56650327F385140031F8F1 /* Database.swift */,
@@ -361,6 +364,7 @@
 				DA1F65BE27F6463900E7A07C /* AccountView.swift in Sources */,
 				2773159927F6EC00000D5C28 /* BlurView.swift in Sources */,
 				278CCF7227FEC774005A6F12 /* AddEventPage.swift in Sources */,
+				DA8CB85727FF76CE006487CB /* EventNextUp.swift in Sources */,
 				27765A5B27FEDEE6005D8407 /* EventCard.swift in Sources */,
 				27B127F927FC51D700888179 /* AccountViewNonAdmin.swift in Sources */,
 				27B127F727FC482400888179 /* BackgoundView.swift in Sources */,

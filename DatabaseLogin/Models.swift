@@ -72,13 +72,13 @@ public struct Event: Identifiable, Equatable {
     public let id = UUID()
     var sid: String
     var name: String
-    var startDate: String
-    var endDate: String
+    var startDate: Date
+    var endDate: Date
     var isCharity: Bool
     var charitySum: String
     var tasks: [String]
     
-    init(name: String, startDate: String, endDate: String, isCharity: Bool) {
+    init(name: String, startDate: Date, endDate: Date, isCharity: Bool) {
         self.sid = id.uuidString
         self.name = name
         self.startDate = startDate
@@ -87,7 +87,7 @@ public struct Event: Identifiable, Equatable {
         self.charitySum = "0"
         self.tasks = ["placeholder"]
     }
-    init(name: String, startDate: String, endDate: String, isCharity: Bool, charitySum: String) {
+    init(name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String) {
         self.sid = id.uuidString
         self.name = name
         self.startDate = startDate
@@ -96,7 +96,7 @@ public struct Event: Identifiable, Equatable {
         self.charitySum = charitySum
         self.tasks = ["placeholder"]
     }
-    init(name: String, startDate: String, endDate: String, isCharity: Bool, tasks: [String]) {
+    init(name: String, startDate: Date, endDate: Date, isCharity: Bool, tasks: [String]) {
         self.sid = id.uuidString
         self.name = name
         self.startDate = startDate
@@ -105,7 +105,7 @@ public struct Event: Identifiable, Equatable {
         self.charitySum = "0"
         self.tasks = tasks
     }
-    init(name: String, startDate: String, endDate: String, isCharity: Bool, charitySum: String, tasks: [String]) {
+    init(name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String, tasks: [String]) {
         self.sid = id.uuidString
         self.name = name
         self.startDate = startDate
@@ -118,20 +118,25 @@ public struct Event: Identifiable, Equatable {
       guard
         let value = snapshot.value as? [String: AnyObject],
         let name = value["name"] as? String,
-        let startDate = value["startDate"] as? String,
+        let startDateString = value["startDate"] as? String,
         let tasks = value["tasks"] as? NSArray as? [String],
         let isCharity = value["isCharity"] as? Bool,
         let charitySum = value["charitySum"] as? String,
-        let endDate = value["endDate"] as? String,
+        let endDateString = value["endDate"] as? String,
         let sid = value["sid"] as? String
+        
+        
       else {
         return nil
       }
+        let endDate = stringToDate(string: endDateString)
+        let startDate = stringToDate(string: startDateString)
 
       self.name = name
-        self.startDate = startDate
-        self.endDate = endDate
-      self.sid = sid
+        self.sid = sid
+        
+        self.startDate = startDate!
+        self.endDate = endDate!
         self.isCharity = isCharity
         self.charitySum = charitySum
         self.tasks = tasks
@@ -140,12 +145,17 @@ public struct Event: Identifiable, Equatable {
       return [
         "sid": sid,
         "name": name,
-        "startDate": startDate,
-        "endDate": endDate,
+        "startDate": startDate.formatted(date: .numeric, time: .omitted),
+        "endDate": endDate.formatted(date: .numeric, time: .omitted),
         "isCharity": isCharity,
         "charitySum": charitySum,
         "tasks": tasks as NSArray
       ]
+    }
+    func stringToDate(string: String) -> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm/DD/yy"
+        return dateFormatter.date(from: string)
     }
 
 }

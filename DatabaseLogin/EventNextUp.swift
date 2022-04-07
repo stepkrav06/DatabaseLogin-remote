@@ -1,5 +1,5 @@
 //
-//  EventCard.swift
+//  EventNextUp.swift
 //  DatabaseLogin
 //
 //  Created by Степан Кравцов on 07.04.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EventCard: View {
+struct EventNextUp: View {
     var event: Event
     var body: some View {
         VStack{
@@ -36,16 +36,13 @@ struct EventCard: View {
         }
         .foregroundColor(.primary)
         .padding()
-        .background(Color.teal.opacity(0.8))
-        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.black, lineWidth: 2).blur(radius: 5))
-        .frame(maxWidth: .infinity)
+        
         
     }
 }
 
-struct EventCard_Previews: PreviewProvider {
+struct EventNextUp_Previews: PreviewProvider {
     static var previews: some View {
-        EventCard(event: Event(name: "Name", startDate: "12/12/12", endDate: "13/12/12", isCharity: false))
+        EventNextUp(event: Event(name: "Name", startDate: "12/12/12", endDate: "13/12/12", isCharity: false))
     }
 }
