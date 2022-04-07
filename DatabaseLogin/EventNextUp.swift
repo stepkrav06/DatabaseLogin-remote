@@ -16,10 +16,10 @@ struct EventNextUp: View {
                 .bold()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 .padding(4)
-            Text("Start: \(event.startDate)")
+            Text("Start: \(event.startDate.formatted(date: .abbreviated, time: .omitted))")
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding(4)
-            Text("End: \(event.endDate)")
+            Text("End: \(event.endDate.formatted(date: .abbreviated, time: .omitted))")
                 .padding(4)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             if event.isCharity{
@@ -43,6 +43,6 @@ struct EventNextUp: View {
 
 struct EventNextUp_Previews: PreviewProvider {
     static var previews: some View {
-        EventNextUp(event: Event(name: "Name", startDate: "12/12/12", endDate: "13/12/12", isCharity: false))
+        EventNextUp(event: Event(name: "Name", startDate: Date(), endDate: Date(), isCharity: false))
     }
 }

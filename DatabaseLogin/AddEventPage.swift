@@ -20,9 +20,15 @@ struct AddEventPage: View {
         
         ZStack{
             VStack{
-                Spacer()
+                Text("Add event")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
                 Image(systemName: "calendar")
                     .font(.system(size: 100))
+                    .padding()
                 VStack {
                     TextField(
                         "Name",
@@ -61,22 +67,22 @@ struct AddEventPage: View {
                         return
                     }
                     if isCharity{
-                        let event = Event(name: name, startDate: startDate.formatted(date: .abbreviated, time: .omitted) , endDate: endDate.formatted(date: .abbreviated, time: .omitted), isCharity: isCharity, charitySum: charitySum)
+                        let event = Event(name: name, startDate: startDate, endDate: endDate, isCharity: isCharity, charitySum: charitySum)
                         viewModel.addEvent(event: event)
                         eventAddedAlertSuccess = true
                     } else {
-                        let event = Event(name: name, startDate: startDate.formatted(date: .abbreviated, time: .omitted) , endDate: endDate.formatted(date: .abbreviated, time: .omitted), isCharity: isCharity)
+                        let event = Event(name: name, startDate: startDate, endDate: endDate, isCharity: isCharity)
                         viewModel.addEvent(event: event)
                         eventAddedAlertSuccess = true
                     }
                     
                     
                 }){
-                    Text("Add user")
+                    Text("Add event")
                 }
                 .foregroundColor(.white)
                 .padding()
-                .background(.orange)
+                .background(.teal)
                 .cornerRadius(8)
                 .alert("Event added", isPresented: $eventAddedAlertSuccess) {
                     Button("OK", role: .cancel) { }
@@ -98,7 +104,7 @@ struct AddEventPage: View {
 //                    Text(user.name)
 //                }
             }
-            .navigationTitle("Add event")
+            
             
             
         }

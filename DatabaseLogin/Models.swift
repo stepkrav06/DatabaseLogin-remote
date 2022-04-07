@@ -129,17 +129,17 @@ public struct Event: Identifiable, Equatable {
       else {
         return nil
       }
-        let endDate = stringToDate(string: endDateString)
-        let startDate = stringToDate(string: startDateString)
-
-      self.name = name
+        self.name = name
         self.sid = sid
-        
-        self.startDate = startDate!
-        self.endDate = endDate!
         self.isCharity = isCharity
         self.charitySum = charitySum
         self.tasks = tasks
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M/d/yyyy"
+        self.endDate = dateFormatter.date(from: endDateString)!
+        self.startDate = dateFormatter.date(from: startDateString)!
+        
+        
     }
     func toAnyObject() -> Any {
       return [
@@ -152,11 +152,7 @@ public struct Event: Identifiable, Equatable {
         "tasks": tasks as NSArray
       ]
     }
-    func stringToDate(string: String) -> Date?{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm/DD/yy"
-        return dateFormatter.date(from: string)
-    }
+    
 
 }
 public struct Task {

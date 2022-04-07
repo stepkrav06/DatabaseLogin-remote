@@ -83,7 +83,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
-                if viewModel.currentLoggedUser != nil && viewModel.userList != [] && viewModel.eventList != []{
+                if viewModel.currentLoggedUser != nil && viewModel.userList != [] {
                     if viewModel.currentLoggedUser?.isAdmin == true{
                         TabViewAdmin()
                     }

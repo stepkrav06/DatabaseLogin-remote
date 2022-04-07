@@ -10,7 +10,7 @@ import SwiftUI
 struct EventView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @State var showAddEvent: Bool = false
-    @State var sortBy: String = "Date"
+    @State var sortBy: String = "Start Date"
     var body: some View {
         ScrollView {
             VStack{
@@ -20,7 +20,9 @@ struct EventView: View {
                         .font(.title)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                         .padding(4)
-                    EventNextUp(event: Event(name: "Name", startDate: "12/12/12", endDate: "13/12/12", isCharity: false))
+                    EventNextUp(event: viewModel.eventList.sorted(by: {
+                        $0.startDate.compare($1.startDate) == .orderedAscending
+                    })[0])
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.primary)
@@ -32,9 +34,12 @@ struct EventView: View {
                 .padding()
                 HStack{
                     Picker("Sort by", selection: $sortBy) {
-                                    Text("Date")
+                                    Text("Start Date")
                     
-                            .tag("Date")
+                            .tag("Start Date")
+                        Text("End Date")
+        
+                .tag("End Date")
                                     Text("Name")
                             
                             .tag("Name")
@@ -60,10 +65,28 @@ struct EventView: View {
                     AddEventPage ()
                 }
                 }
-                ForEach(viewModel.eventList){ event in
+                if sortBy == "Start Date"{
+                    
+                ForEach(viewModel.eventList.sorted(by: {
+                    $0.startDate.compare($1.startDate) == .orderedAscending
+                })){ event in
                     EventCard(event: event)
                         .padding(.horizontal)
                         .padding(.vertical, 8)
+                }
+                }
+                if sortBy == "End Date"{
+                    
+                ForEach(viewModel.eventList.sorted(by: {
+                    $0.startDate.compare($1.startDate) == .orderedDescending
+                })){ event in
+                    EventCard(event: event)
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                }
+                }
+                if sortBy == "Start Date"{
+                    // MARK: - add sorting by name
                 }
                 Spacer()
                     .frame(height: 100)
