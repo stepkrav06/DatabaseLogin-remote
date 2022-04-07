@@ -68,7 +68,7 @@ class AppViewModel: ObservableObject {
         print("no bebe")
     }
     func addEvent(event: Event){
-        let ref = Database.database().reference(withPath: "wvwnts")
+        let ref = Database.database().reference(withPath: "events")
         let eventRef = ref.child(event.sid)
         eventRef.setValue(event.toAnyObject())
     }
