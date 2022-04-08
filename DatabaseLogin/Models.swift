@@ -135,7 +135,7 @@ public struct Event: Identifiable, Equatable {
         self.charitySum = charitySum
         self.tasks = tasks
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/d/yyyy"
+        dateFormatter.dateFormat = "d/M/yyyy"
         self.endDate = dateFormatter.date(from: endDateString)!
         self.startDate = dateFormatter.date(from: startDateString)!
         
@@ -155,12 +155,43 @@ public struct Event: Identifiable, Equatable {
     
 
 }
-public struct Task {
-    let id = UUID()
+public struct Task: Identifiable{
+    public let id = UUID()
+    var sid: String
     var content: String
-    var importance: Int
-    init(content: String, importance: Int) {
+    var importance: String
+    init(content: String, importance: String) {
+        self.sid = self.id.uuidString
         self.content = content
         self.importance = importance
     }
+    init?(snapshot: DataSnapshot) {
+      guard
+        let value = snapshot.value as? [String: AnyObject],
+        let content = value["content"] as? String,
+        let importance = value["importance"] as? String,
+        let sid = value["sid"] as? String
+        
+        
+      else {
+        return nil
+      }
+        self.sid = sid
+        self.content = content
+        self.importance = importance
+        
+        
+        
+    }
+    func toAnyObject() -> Any {
+      return [
+        "sid": sid,
+        "content": content,
+        "importance": importance
+      ]
+    }
+}
+
+class EventTasks: ObservableObject {
+    @Published var tasks: [Task] = []
 }

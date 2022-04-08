@@ -73,6 +73,51 @@ class AppViewModel: ObservableObject {
         let eventRef = ref.child(event.sid)
         eventRef.setValue(event.toAnyObject())
     }
+    func changeEvent(event: Event, name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String){
+        let ref = Database.database().reference(withPath: "events")
+        let eventRef = ref.child(event.sid)
+        let newEvent = Event(name: name, startDate: startDate, endDate: endDate, isCharity: isCharity, charitySum: charitySum, tasks: event.tasks)
+        eventRef.setValue(newEvent.toAnyObject())
+    }
+    func addTasks(event: Event, tasks: [Task]){
+        let ref = Database.database().reference(withPath: "events")
+        let eventRef = ref.child(event.sid)
+        let eventTasksRef = eventRef.child("tasks")
+        var taskList: [String] = []
+        for task in tasks{
+            taskList.append(task.sid)
+        }
+        eventTasksRef.setValue(taskList as NSArray)
+        let refTasks = Database.database().reference(withPath: "tasks")
+        for task in tasks{
+            let refTask = refTasks.child(task.sid)
+            refTask.setValue(task.toAnyObject())
+        }
+    }
+    func addTaskToPerson(newTask: Task, person: User){
+        let ref = Database.database().reference(withPath: "events")
+        let userRef = ref.child(person.uid)
+        let userTasksRef = userRef.child("tasks")
+        userTasksRef.observe(.value) { snapshot in
+            var tasks: [String] = []
+            // 3
+            for child in snapshot.children {
+              // 4
+                if
+                  let snapshot = child as? DataSnapshot
+                 {
+                    let taskId = snapshot.value as! String
+                    tasks.append(taskId)
+              }
+            }
+            tasks.append(newTask.sid)
+            userTasksRef.setValue(tasks as NSArray)
+            } withCancel: { error in
+                print(error.localizedDescription)
+            }
+        
+        
+    }
 }
 
 

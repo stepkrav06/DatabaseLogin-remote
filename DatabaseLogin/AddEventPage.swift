@@ -18,7 +18,7 @@ struct AddEventPage: View {
     @EnvironmentObject var viewModel: AppViewModel
     var body: some View {
         
-        ZStack{
+        ScrollView{
             VStack{
                 Text("Add event")
                     .font(.title)
@@ -98,7 +98,7 @@ struct AddEventPage: View {
 //                }
 //                .foregroundColor(.white)
 //                .padding()
-//                .background(.orange)
+//                .backgrou nd(.orange)
 //                .cornerRadius(8)
 //                ForEach(userList.users) { user in
 //                    Text(user.name)

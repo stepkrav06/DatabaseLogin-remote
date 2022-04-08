@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    
     @State var showAddEvent: Bool = false
     @State var sortBy: String = "Start Date"
     var body: some View {
@@ -20,9 +21,14 @@ struct EventView: View {
                         .font(.title)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                         .padding(4)
-                    EventNextUp(event: viewModel.eventList.sorted(by: {
+                    if let event = viewModel.eventList.sorted(by: {
                         $0.startDate.compare($1.startDate) == .orderedAscending
-                    })[0])
+                    })[0]{
+                        EventNextUp(event: event)
+                    } else {
+                        Text("No events planned")
+                    }
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundColor(.primary)
@@ -70,9 +76,12 @@ struct EventView: View {
                 ForEach(viewModel.eventList.sorted(by: {
                     $0.startDate.compare($1.startDate) == .orderedAscending
                 })){ event in
+                    NavigationLink(destination: EventViewDetailedAdmin(event: event)){
                     EventCard(event: event)
                         .padding(.horizontal)
                         .padding(.vertical, 8)
+                        
+                    }
                 }
                 }
                 if sortBy == "End Date"{
@@ -80,9 +89,14 @@ struct EventView: View {
                 ForEach(viewModel.eventList.sorted(by: {
                     $0.startDate.compare($1.startDate) == .orderedDescending
                 })){ event in
+                    NavigationLink(destination: EventViewDetailed(event: event)){
                     EventCard(event: event)
                         .padding(.horizontal)
                         .padding(.vertical, 8)
+                        
+                    }
+                        
+                        
                 }
                 }
                 if sortBy == "Start Date"{

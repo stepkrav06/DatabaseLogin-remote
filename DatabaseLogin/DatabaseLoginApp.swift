@@ -17,9 +17,11 @@ struct DatabaseLoginApp: App {
     var body: some Scene {
         WindowGroup {
             let viewModel = AppViewModel()
+            let eventTasks = EventTasks()
             
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(eventTasks)
 
         }
     }
