@@ -15,6 +15,7 @@ struct AddTaskView: View {
     @State private var importance: String = "1"
     @State private var tasksAddedAlertSuccess = false
     @State private var tasksCommittedAlertSuccess = false
+    @State private var showUserList = false
     var body: some View {
         
         ZStack{
@@ -25,7 +26,7 @@ struct AddTaskView: View {
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Image(systemName: "calendar")
+                Image(systemName: "square.and.pencil")
                     .font(.system(size: 100))
                     .padding()
                 VStack {
@@ -45,7 +46,12 @@ struct AddTaskView: View {
                     .disableAutocorrection(true)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                    
+                    Button(action: {showUserList.toggle()}){
+                        Text("Select users to assing task")
+                    }
+                    .sheet(isPresented: $showUserList){
+                        
+                    }
                     
                 }
                 

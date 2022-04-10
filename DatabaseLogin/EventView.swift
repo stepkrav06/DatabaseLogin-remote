@@ -99,8 +99,17 @@ struct EventView: View {
                         
                 }
                 }
-                if sortBy == "Start Date"{
-                    // MARK: - add sorting by name
+                if sortBy == "Name"{
+                    ForEach(viewModel.eventList.sorted { $0.name.lowercased() < $1.name.lowercased() }){ event in
+                        NavigationLink(destination: EventViewDetailed(event: event)){
+                        EventCard(event: event)
+                            .padding(.horizontal)
+                            .padding(.vertical, 8)
+                            
+                        }
+                            
+                            
+                    }
                 }
                 Spacer()
                     .frame(height: 100)

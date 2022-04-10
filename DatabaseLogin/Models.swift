@@ -194,4 +194,5 @@ public struct Task: Identifiable{
 
 class EventTasks: ObservableObject {
     @Published var tasks: [Task] = []
+    @Published var users: [User] = []
 }

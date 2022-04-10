@@ -22,12 +22,20 @@ struct EventViewDetailed: View {
             Text(event.endDate.formatted(date: .abbreviated, time: .omitted))
                 .padding()
             List{
-                ForEach(tasks.tasks){ task in
-                    Text(task.content)
-                }
+                
+                Section {
+                    ForEach(tasks.tasks) { task in
+                        Text(task.content)
+                            .badge(task.importance)
+                    }
+                  } header: {
+                    Text("Tasks")
+                  } footer: {
+                    Text("\(tasks.tasks.count) tasks")
+                  }
             }
         }
-        .navigationTitle("Event Detailed")
+        .navigationTitle("Event details")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear{
             let ref = Database.database().reference(withPath: "tasks")
