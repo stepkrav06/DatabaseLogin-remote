@@ -17,10 +17,11 @@ struct EventViewDetailed: View {
                 .font(.title)
                 .frame(alignment:.top)
                 .padding()
-            Text(event.startDate.formatted(date: .abbreviated, time: .omitted))
+            Text("Start date: \(event.startDate.formatted(date: .abbreviated, time: .omitted))")
                 .padding()
-            Text(event.endDate.formatted(date: .abbreviated, time: .omitted))
+            Text("End date: \(event.endDate.formatted(date: .abbreviated, time: .omitted))")
                 .padding()
+                
             List{
                 
                 Section {
@@ -36,7 +37,7 @@ struct EventViewDetailed: View {
             }
         }
         .navigationTitle("Event details")
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity)
         .onAppear{
             let ref = Database.database().reference(withPath: "tasks")
             ref.observe(.value) { snapshot in

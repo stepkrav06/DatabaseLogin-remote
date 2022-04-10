@@ -95,10 +95,33 @@ class AppViewModel: ObservableObject {
         }
     }
     func addTaskToPerson(newTask: Task, person: User){
-        let ref = Database.database().reference(withPath: "events")
+        let ref = Database.database().reference(withPath: "users")
         let userRef = ref.child(person.uid)
         let userTasksRef = userRef.child("tasks")
-        userTasksRef.observe(.value) { snapshot in
+//        userTasksRef.getData(completion:  { error, snapshot in
+//            guard error == nil else {
+//              print(error!.localizedDescription)
+//              return;
+//            }
+//
+//            var tasks: [String] = []
+//            // 3
+//            for child in snapshot.children {
+//              // 4
+//                if
+//                  let snapshot = child as? DataSnapshot
+//                 {
+//                    let taskId = snapshot.value as! String
+//                    if taskId != "placeholder"{
+//                        tasks.append(taskId)
+//                    }
+//
+//              }
+//            }
+//            tasks.append(newTask.sid)
+//            userTasksRef.setValue(tasks as NSArray)
+//          })
+        userTasksRef.observeSingleEvent(of: .value, with: { snapshot in
             var tasks: [String] = []
             // 3
             for child in snapshot.children {
@@ -107,12 +130,15 @@ class AppViewModel: ObservableObject {
                   let snapshot = child as? DataSnapshot
                  {
                     let taskId = snapshot.value as! String
-                    tasks.append(taskId)
+                    if taskId != "placeholder"{
+                        tasks.append(taskId)
+                    }
+                    
               }
             }
             tasks.append(newTask.sid)
             userTasksRef.setValue(tasks as NSArray)
-            } withCancel: { error in
+            }) { (error) in
                 print(error.localizedDescription)
             }
         

@@ -18,8 +18,12 @@ struct EventViewDetailedAdmin: View {
         VStack{
             EventViewDetailed(event: event)
             Button(action: {showAddTasks.toggle()}){
-                Text("add tasks")
+                Text("Add tasks")
             }
+            .foregroundColor(.white)
+            .padding()
+            .background(.teal)
+            .cornerRadius(8)
             .sheet(isPresented: $showAddTasks){
                 AddTaskView(event: event)
             }

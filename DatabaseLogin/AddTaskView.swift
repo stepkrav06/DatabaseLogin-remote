@@ -14,7 +14,6 @@ struct AddTaskView: View {
     @State private var content: String = ""
     @State private var importance: String = "1"
     @State private var tasksAddedAlertSuccess = false
-    @State private var tasksCommittedAlertSuccess = false
     @State private var showUserList = false
     var body: some View {
         
@@ -46,11 +45,17 @@ struct AddTaskView: View {
                     .disableAutocorrection(true)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                    Button(action: {showUserList.toggle()}){
+                    Button(action: {showUserList.toggle()
+                        print(event.sid)
+                    }){
                         Text("Select users to assing task")
                     }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(.teal)
+                    .cornerRadius(8)
                     .sheet(isPresented: $showUserList){
-                        
+                        AssignTaskToUserView()
                     }
                     
                 }
@@ -62,6 +67,14 @@ struct AddTaskView: View {
                     }
                     let task = Task(content: content, importance: importance)
                     eventTasks.tasks.append(task)
+                    DispatchQueue.main.async {
+                        viewModel.addTasks(event: event, tasks: eventTasks.tasks)
+                        for person in eventTasks.users{
+                            viewModel.addTaskToPerson(newTask: task, person: person)
+                        }
+                    }
+                    
+                    
                     tasksAddedAlertSuccess = true
                     
                 }){
@@ -74,23 +87,7 @@ struct AddTaskView: View {
                 .alert("Task added", isPresented: $tasksAddedAlertSuccess) {
                     Button("OK", role: .cancel) { }
                 }
-                Button(action: {
-                    guard !content.isEmpty, !importance.isEmpty else{
-                        return
-                    }
-                    viewModel.addTasks(event: event, tasks: eventTasks.tasks)
-                    tasksCommittedAlertSuccess = true
-                    
-                }){
-                    Text("Commit changes")
-                }
-                .foregroundColor(.white)
-                .padding()
-                .background(.teal)
-                .cornerRadius(8)
-                .alert("Task commited", isPresented: $tasksCommittedAlertSuccess) {
-                    Button("OK", role: .cancel) { }
-                }
+                
                 Spacer()
                 
                 Spacer()

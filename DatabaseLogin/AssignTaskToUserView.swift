@@ -9,32 +9,48 @@ import SwiftUI
 
 struct AssignTaskToUserView: View {
     @EnvironmentObject var viewModel: AppViewModel
-    @State var isEditing = true
-    @State var selection = Set<String>()
+    @EnvironmentObject var event: EventTasks
     var body: some View {
         VStack {
-            List(selection: $selection) {
+            Text("Assign task to")
+                .bold()
+                .font(.title)
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            List {
                 Section {
                     ForEach(viewModel.userList) { user in
-                        
-                        Text("\(user.name) \(user.lastName)")
+                        HStack{
+                            Text("\(user.name) \(user.lastName)")
+                            Spacer()
+                            Image(systemName: event.users.contains(user) ? "checkmark.circle" : "")
+                                .foregroundColor(.blue)
+                        }
+                        .onTapGesture {
+                            if event.users.contains(user){
+                                if let index = event.users.firstIndex(of: user) {
+                                    event.users.remove(at: index)
+                                }
+                            } else{
+                                event.users.append(user)
+                            }
+                            print(event.users)
+                        }
                     }
                   } header: {
                     Text("Users")
                   } footer: {
-                      Text("\(viewModel.userList.count) users")
+                    Text("\(viewModel.userList.count) users")
                   }
-                        }
+                
+                    
+                    
+            }
                         
-                        .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
-                        Button(action: {
-                            print(selection)
-                        }) {
-                            Text(isEditing ? "Done" : "Edit")
-                                .frame(width: 80, height: 40)
-                        }
-                        .background(Color.yellow)
-                    }
+            
+        }
+        
+        
         .navigationTitle("Assign task to")
         
     }
