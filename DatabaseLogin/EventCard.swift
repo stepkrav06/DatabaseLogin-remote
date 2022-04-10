@@ -38,7 +38,7 @@ struct EventCard: View {
         .padding()
         .background(Color.teal.opacity(0.8))
         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.black, lineWidth: 2).blur(radius: 5))
+        .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.primary, lineWidth: 2).blur(radius: 5))
         .frame(maxWidth: .infinity)
         
     }

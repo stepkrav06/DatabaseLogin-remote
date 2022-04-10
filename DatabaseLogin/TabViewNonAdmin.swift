@@ -20,13 +20,13 @@ struct TabViewNonAdmin: View {
                 Group{
                     switch selectedTab{
                     case .event:
-                        SomeView()
+                        EventViewNonAdmin()
                     case .fundraiser:
                         SomeView()
                     case .activity:
                         SomeView()
                     case .account:
-                        AccountViewNonAdmin()
+                        AccountView()
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

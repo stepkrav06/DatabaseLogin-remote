@@ -1,13 +1,13 @@
 //
-//  EventView.swift
+//  EventViewNonAdmin.swift
 //  DatabaseLogin
 //
-//  Created by Степан Кравцов on 05.04.2022.
+//  Created by Степан Кравцов on 10.04.2022.
 //
 
 import SwiftUI
 
-struct EventView: View {
+struct EventViewNonAdmin: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     @State var showAddEvent: Bool = false
@@ -35,7 +35,7 @@ struct EventView: View {
                 .padding()
                 .background(.ultraThinMaterial)
                 .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.black, lineWidth: 1).blur(radius: 4))
+                .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.primary, lineWidth: 1).blur(radius: 4))
                 
                 .padding()
                 HStack{
@@ -53,30 +53,14 @@ struct EventView: View {
                                 .pickerStyle(SegmentedPickerStyle())
                                 .padding()
                     
-                Button(action: {showAddEvent.toggle()}){
-                    Image(systemName: "plus")
-                        .font(.system(size: 30))
-                        .padding(4)
-                        .foregroundColor(.secondary)
-                    
-                        .background(.black.opacity(0.1))
-                        .mask(
-                            Circle()
-                        )
-                        
-                        
-                }
-                .padding(.horizontal)
-                .sheet(isPresented: $showAddEvent){
-                    AddEventPage ()
-                }
+                
                 }
                 if sortBy == "Start Date"{
                     
                 ForEach(viewModel.eventList.sorted(by: {
                     $0.startDate.compare($1.startDate) == .orderedAscending
                 })){ event in
-                    NavigationLink(destination: EventViewDetailedAdmin(event: event)){
+                    NavigationLink(destination: EventViewDetailed(event: event)){
                     EventCard(event: event)
                         .padding(.horizontal)
                         .padding(.vertical, 8)
@@ -118,8 +102,8 @@ struct EventView: View {
     }
 }
 
-struct EventView_Previews: PreviewProvider {
+struct EventViewNonAdmin_Previews: PreviewProvider {
     static var previews: some View {
-        EventView()
+        EventViewNonAdmin()
     }
 }

@@ -11,7 +11,7 @@ struct AccountViewNonAdmin: View {
     var body: some View {
         GeometryReader{ geometry in
             ZStack{
-                BackgoundView()
+                
                 AccountView()
                     .frame(maxWidth: geometry.size.width)
             }

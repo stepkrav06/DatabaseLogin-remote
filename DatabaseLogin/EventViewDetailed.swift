@@ -12,6 +12,7 @@ struct EventViewDetailed: View {
     @EnvironmentObject var tasks: EventTasks
     var body: some View {
         VStack{
+            VStack{
             Text(event.name)
                 .bold()
                 .font(.title)
@@ -20,8 +21,22 @@ struct EventViewDetailed: View {
             Text("Start date: \(event.startDate.formatted(date: .abbreviated, time: .omitted))")
                 .padding()
             Text("End date: \(event.endDate.formatted(date: .abbreviated, time: .omitted))")
-                .padding()
                 
+                .padding()
+                if event.isCharity{
+                    Text("Target sum: \(event.charitySum)")
+                        
+                        .padding()
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .foregroundColor(.primary)
+            .padding()
+            .background(.ultraThinMaterial)
+            .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+            .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.black, lineWidth: 1).blur(radius: 4))
+            
+            .padding()
             List{
                 
                 Section {

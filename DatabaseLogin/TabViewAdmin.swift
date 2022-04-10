@@ -20,7 +20,7 @@ struct TabViewAdmin: View {
                 Group{
                     switch selectedTab{
                     case .event:
-                        EventView()
+                        EventViewAdmin()
                     case .fundraiser:
                         SomeView()
                     case .grading:
