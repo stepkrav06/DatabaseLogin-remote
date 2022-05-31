@@ -17,8 +17,6 @@
 		277F52E9280041720073BF3A /* EventViewDetailedAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */; };
 		277F52EB2800434C0073BF3A /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F52EA2800434C0073BF3A /* AddTaskView.swift */; };
 		278CCF7227FEC774005A6F12 /* AddEventPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CCF7127FEC774005A6F12 /* AddEventPage.swift */; };
-		27B127F527FC481A00888179 /* Blobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B127F427FC481900888179 /* Blobs.swift */; };
-		27B127F727FC482400888179 /* BackgoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B127F627FC482400888179 /* BackgoundView.swift */; };
 		27B127F927FC51D700888179 /* AccountViewNonAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B127F827FC51D600888179 /* AccountViewNonAdmin.swift */; };
 		DA0FADF427F9FAEA00C702DB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0FADF327F9FAEA00C702DB /* LoadingView.swift */; };
 		DA0FADF627F9FD9100C702DB /* TabViewNonAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0FADF527F9FD9100C702DB /* TabViewNonAdmin.swift */; };
@@ -79,8 +77,6 @@
 		277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewDetailedAdmin.swift; sourceTree = "<group>"; };
 		277F52EA2800434C0073BF3A /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		278CCF7127FEC774005A6F12 /* AddEventPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventPage.swift; sourceTree = "<group>"; };
-		27B127F427FC481900888179 /* Blobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blobs.swift; sourceTree = "<group>"; };
-		27B127F627FC482400888179 /* BackgoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgoundView.swift; sourceTree = "<group>"; };
 		27B127F827FC51D600888179 /* AccountViewNonAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewNonAdmin.swift; sourceTree = "<group>"; };
 		DA0FADF327F9FAEA00C702DB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		DA0FADF527F9FD9100C702DB /* TabViewNonAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNonAdmin.swift; sourceTree = "<group>"; };
@@ -192,8 +188,6 @@
 				DA56650327F385140031F8F1 /* Database.swift */,
 				DA56650127F384CE0031F8F1 /* GoogleService-Info.plist */,
 				DA5664CC27F380FC0031F8F1 /* Assets.xcassets */,
-				27B127F427FC481900888179 /* Blobs.swift */,
-				27B127F627FC482400888179 /* BackgoundView.swift */,
 				DA1F65BF27F9E6B500E7A07C /* Colors.swift */,
 				DA5664CE27F380FC0031F8F1 /* Preview Content */,
 			);
@@ -371,7 +365,6 @@
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */,
 				277F52E9280041720073BF3A /* EventViewDetailedAdmin.swift in Sources */,
-				27B127F527FC481A00888179 /* Blobs.swift in Sources */,
 				DA1F65C027F9E6B600E7A07C /* Colors.swift in Sources */,
 				DA56650427F385140031F8F1 /* Database.swift in Sources */,
 				DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */,
@@ -388,7 +381,6 @@
 				27765A5B27FEDEE6005D8407 /* EventCard.swift in Sources */,
 				27B127F927FC51D700888179 /* AccountViewNonAdmin.swift in Sources */,
 				DA1330AD28032BE3002F75EC /* AssignTaskToUserView.swift in Sources */,
-				27B127F727FC482400888179 /* BackgoundView.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 				277F52E728001FB30073BF3A /* EventViewDetailed.swift in Sources */,
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,

@@ -54,18 +54,18 @@ struct MyTaskView: View {
                     let taskRef = ref.child(taskId)
                     
                     taskRef.observe(.value) { snapshot in
-                        var tasks: [Task] = []
+                        
                         // 3
                         
                           // 4
                             if
                               let task = Task(snapshot: snapshot)
                              {
-                                tasks.append(task)
+                                self.tasks.append(task)
                                 
                           }
                         
-                        self.tasks = tasks
+                        
                         } withCancel: { error in
                             print(error.localizedDescription)
                         }
