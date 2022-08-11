@@ -46,7 +46,7 @@
 		DA60765E27FCDB950046F6C5 /* EventViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */; };
 		DA8CB85727FF76CE006487CB /* EventNextUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CB85627FF76CE006487CB /* EventNextUp.swift */; };
 		DA9CE1BE28A3BC5E002FA019 /* TaskViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */; };
-		DA9CE1C028A3C3AE002FA019 /* TaskViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BF28A3C3AE002FA019 /* TaskViewAdmin.swift */; };
+		DA9CE1C028A3C3AE002FA019 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */; };
 		DAFD93202803451600D7B348 /* EventViewNonAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD931F2803451600D7B348 /* EventViewNonAdmin.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +103,7 @@
 		DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewAdmin.swift; sourceTree = "<group>"; };
 		DA8CB85627FF76CE006487CB /* EventNextUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNextUp.swift; sourceTree = "<group>"; };
 		DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCard.swift; sourceTree = "<group>"; };
-		DA9CE1BF28A3C3AE002FA019 /* TaskViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewAdmin.swift; sourceTree = "<group>"; };
+		DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		DAFD931F2803451600D7B348 /* EventViewNonAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewNonAdmin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,7 +176,7 @@
 				DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
 				DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */,
-				DA9CE1BF28A3C3AE002FA019 /* TaskViewAdmin.swift */,
+				DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */,
 				27765A5A27FEDEE6005D8407 /* EventCard.swift */,
 				277F52E628001FB30073BF3A /* EventViewDetailed.swift */,
 				277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */,
@@ -368,7 +368,7 @@
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */,
 				277F52E9280041720073BF3A /* EventViewDetailedAdmin.swift in Sources */,
-				DA9CE1C028A3C3AE002FA019 /* TaskViewAdmin.swift in Sources */,
+				DA9CE1C028A3C3AE002FA019 /* TaskView.swift in Sources */,
 				DA1F65C027F9E6B600E7A07C /* Colors.swift in Sources */,
 				DA56650427F385140031F8F1 /* Database.swift in Sources */,
 				DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */,

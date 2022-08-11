@@ -17,14 +17,14 @@ struct TabItemAdmin: Identifiable{
 }
 var tabItemsAdmin = [
     TabItemAdmin(text: "Event", icon: "calendar", tab: .event, color: .teal),
-    TabItemAdmin(text: "Fundraiser", icon: "dollarsign.circle", tab: .fundraiser, color: .teal),
+    TabItemAdmin(text: "Tasks", icon: "square.and.pencil", tab: .tasks, color: .teal),
     TabItemAdmin(text: "Grading", icon: "text.badge.star", tab: .grading, color: .teal),
     TabItemAdmin(text: "Account", icon: "person", tab: .account, color: .teal),
     
 ]
 enum TabAdmin: String {
     case event
-    case fundraiser
+    case tasks
     case grading
     case account
 }
@@ -37,7 +37,7 @@ struct TabItemNonAdmin: Identifiable{
 }
 var tabItemsNonAdmin = [
     TabItemNonAdmin(text: "Event", icon: "calendar", tab: .event, color: .teal),
-    TabItemNonAdmin(text: "Fundraiser", icon: "dollarsign.circle", tab: .fundraiser, color: .teal),
+    TabItemNonAdmin(text: "Tasks", icon: "square.and.pencil", tab: .tasks, color: .teal),
     TabItemNonAdmin(text: "Activity", icon: "chart.bar", tab: .activity, color: .teal),
     TabItemNonAdmin(text: "Account", icon: "person", tab: .account, color: .teal),
     
@@ -45,7 +45,7 @@ var tabItemsNonAdmin = [
 
 enum TabNonAdmin: String {
     case event
-    case fundraiser
+    case tasks
     case activity
     case account
 }

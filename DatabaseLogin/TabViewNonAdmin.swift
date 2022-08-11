@@ -21,8 +21,8 @@ struct TabViewNonAdmin: View {
                     switch selectedTab{
                     case .event:
                         EventViewNonAdmin()
-                    case .fundraiser:
-                        SomeView()
+                    case .tasks:
+                        TaskView()
                     case .activity:
                         SomeView()
                     case .account:
@@ -77,7 +77,7 @@ struct TabViewNonAdmin: View {
                                                     }
                                     
                                 }
-                                if selectedTab == .fundraiser { Circle().fill(color).frame(width: 88).position(x: offsetX, y: offsetY)
+                                if selectedTab == .tasks { Circle().fill(color).frame(width: 88).position(x: offsetX, y: offsetY)
                                         .onAppear {
                                             withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
                                                 self.offsetX = geomReader.size.width / 8 * 3 - 7
@@ -133,7 +133,7 @@ struct TabViewNonAdmin: View {
 
                                                     }
                                 }
-                                if selectedTab == .fundraiser { Rectangle()
+                                if selectedTab == .tasks { Rectangle()
                                         .fill(color)
                                         .frame(width: 28, height: 5)
                                         .cornerRadius(3)

@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-struct TaskViewAdmin: View {
+struct TaskView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @State var picked = true
     @Namespace var namespace
@@ -79,9 +79,9 @@ struct TaskViewAdmin: View {
                                 }
                                 
                                 Group {
-                                    ForEach(taskEventDict[event]!){ task in
+                                    ForEach(searchResults(event: event).sorted(by: { $0.name < $1.name })){ task in
                                      
-                                        TaskViewCard(taskName: task.name, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
+                                        TaskViewCard(taskName: task.name, taskId: task.sid, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
                                     }
                                 }
                             }
@@ -99,9 +99,9 @@ struct TaskViewAdmin: View {
                                 }
                                 
                                 Group {
-                                    ForEach(taskEventDict[event]!){ task in
+                                    ForEach(searchResults(event: event).sorted(by: { $0.name < $1.name })){ task in
                                       
-                                        TaskViewCard(taskName: task.name, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
+                                        TaskViewCard(taskName: task.name, taskId: task.sid, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
                                     }
                                 }
                             }
@@ -111,7 +111,8 @@ struct TaskViewAdmin: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
-                
+                Spacer()
+                    .frame(height: 130)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment:.top)
             
@@ -184,10 +185,17 @@ struct TaskViewAdmin: View {
             }
         }
     }
+    func searchResults(event: Event) -> [Task] {
+            if searchText.isEmpty {
+                return taskEventDict[event]!
+            } else {
+                return taskEventDict[event]!.filter { $0.name.contains(searchText) || $0.description.contains(searchText)}
+            }
+        }
 }
 
 struct TaskViewAdmin_Previews: PreviewProvider {
     static var previews: some View {
-        TaskViewAdmin()
+        TaskView()
     }
 }

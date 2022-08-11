@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct TaskViewCard: View {
+    @EnvironmentObject var viewModel: AppViewModel
     var taskName: String
+    var taskId: String
     var taskDescription: String
     var importance: String
     var numPeople: String
@@ -36,15 +38,18 @@ struct TaskViewCard: View {
                             .foregroundColor(.black)
                             .font(.body)
                             .fontWeight(.light)
+                            .lineLimit(2)
                     }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                         .padding(20)
                     HStack(spacing:2) {
                         Image(systemName: "person")
                             .frame(alignment:.bottom)
+                            .foregroundColor((viewModel.currentLoggedUser?.tasks.contains(taskId))! ? .green : .black)
                         
                         Text(numPeople)
                             .fontWeight(.light)
-                    }.frame(maxHeight: .infinity, alignment: .bottomTrailing)
+                            .foregroundColor((viewModel.currentLoggedUser?.tasks.contains(taskId))! ? .green : .black)
+                    }.frame(minWidth: 50, maxHeight: .infinity, alignment: .bottomTrailing)
                         .padding()
                         .padding(.horizontal)
                     
@@ -62,6 +67,6 @@ struct TaskViewCard: View {
 
 struct TaskViewCard_Previews: PreviewProvider {
     static var previews: some View {
-        TaskViewCard(taskName: "Task", taskDescription: "Description", importance: "3", numPeople: "5")
+        TaskViewCard(taskName: "Task", taskId: "1234", taskDescription: "Description", importance: "3", numPeople: "5")
     }
 }

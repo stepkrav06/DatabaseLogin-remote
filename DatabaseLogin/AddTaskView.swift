@@ -38,8 +38,7 @@ struct AddTaskView: View {
                     .disableAutocorrection(true)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                    TextField(
-                        "Detailed description",
+                    TextEditor(
                         text: $description
                     )
                     .textInputAutocapitalization(.never)
