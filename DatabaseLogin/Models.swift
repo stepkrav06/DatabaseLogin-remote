@@ -68,7 +68,7 @@ public struct User: Identifiable, Equatable, Hashable {
     
 }
 
-public struct Event: Identifiable, Equatable {
+public struct Event: Identifiable, Equatable, Hashable {
     public let id = UUID()
     var sid: String
     var name: String
@@ -158,17 +158,23 @@ public struct Event: Identifiable, Equatable {
 public struct Task: Identifiable{
     public let id = UUID()
     var sid: String
-    var content: String
+    var name: String
+    var description: String
     var importance: String
-    init(content: String, importance: String) {
+    var pplAssigned: String
+    init(name: String, importance: String, description: String, ppl: Int) {
         self.sid = self.id.uuidString
-        self.content = content
+        self.name = name
+        self.description = description
+        self.pplAssigned = String(ppl)
         self.importance = importance
     }
     init?(snapshot: DataSnapshot) {
       guard
         let value = snapshot.value as? [String: AnyObject],
-        let content = value["content"] as? String,
+        let name = value["name"] as? String,
+        let description = value["description"] as? String,
+        let pplAssigned = value["pplAssigned"] as? String,
         let importance = value["importance"] as? String,
         let sid = value["sid"] as? String
         
@@ -177,7 +183,9 @@ public struct Task: Identifiable{
         return nil
       }
         self.sid = sid
-        self.content = content
+        self.name = name
+        self.description = description
+        self.pplAssigned = pplAssigned
         self.importance = importance
         
         
@@ -186,7 +194,9 @@ public struct Task: Identifiable{
     func toAnyObject() -> Any {
       return [
         "sid": sid,
-        "content": content,
+        "name": name,
+        "description": description,
+        "pplAssigned": pplAssigned,
         "importance": importance
       ]
     }

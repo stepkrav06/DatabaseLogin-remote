@@ -22,7 +22,7 @@ struct TabViewAdmin: View {
                     case .event:
                         EventViewAdmin()
                     case .fundraiser:
-                        MyTaskView()
+                        TaskViewAdmin()
                     case .grading:
                         SomeView()
                     case .account:

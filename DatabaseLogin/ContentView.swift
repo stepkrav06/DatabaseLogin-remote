@@ -98,29 +98,6 @@ class AppViewModel: ObservableObject {
         let ref = Database.database().reference(withPath: "users")
         let userRef = ref.child(person.uid)
         let userTasksRef = userRef.child("tasks")
-//        userTasksRef.getData(completion:  { error, snapshot in
-//            guard error == nil else {
-//              print(error!.localizedDescription)
-//              return;
-//            }
-//
-//            var tasks: [String] = []
-//            // 3
-//            for child in snapshot.children {
-//              // 4
-//                if
-//                  let snapshot = child as? DataSnapshot
-//                 {
-//                    let taskId = snapshot.value as! String
-//                    if taskId != "placeholder"{
-//                        tasks.append(taskId)
-//                    }
-//
-//              }
-//            }
-//            tasks.append(newTask.sid)
-//            userTasksRef.setValue(tasks as NSArray)
-//          })
         userTasksRef.observeSingleEvent(of: .value, with: { snapshot in
             var tasks: [String] = []
             // 3

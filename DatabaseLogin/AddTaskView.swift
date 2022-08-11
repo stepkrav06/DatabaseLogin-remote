@@ -11,7 +11,8 @@ struct AddTaskView: View {
     var event: Event
     @EnvironmentObject var eventTasks: EventTasks
     @EnvironmentObject var viewModel: AppViewModel
-    @State private var content: String = ""
+    @State private var name: String = ""
+    @State private var description: String = ""
     @State private var importance: String = "1"
     @State private var tasksAddedAlertSuccess = false
     @State private var showUserList = false
@@ -30,8 +31,16 @@ struct AddTaskView: View {
                     .padding()
                 VStack {
                     TextField(
-                        "Task",
-                        text: $content
+                        "Task name",
+                        text: $name
+                    )
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    TextField(
+                        "Detailed description",
+                        text: $description
                     )
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
@@ -62,10 +71,10 @@ struct AddTaskView: View {
                 
                 
                 Button(action: {
-                    guard !content.isEmpty, !importance.isEmpty else{
+                    guard !name.isEmpty, !description.isEmpty, !importance.isEmpty else{
                         return
                     }
-                    let task = Task(content: content, importance: importance)
+                    let task = Task(name: name, importance: importance, description: description, ppl: eventTasks.users.count)
                     eventTasks.tasks.append(task)
                     DispatchQueue.main.async {
                         viewModel.addTasks(event: event, tasks: eventTasks.tasks)

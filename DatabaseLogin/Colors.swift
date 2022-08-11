@@ -20,3 +20,4 @@ extension Color {
 }
 let gradient1 = LinearGradient(gradient: Gradient(colors: [Color.darkGr1, Color.darkGr1.opacity(0.0)]), startPoint: .top, endPoint: .bottom)
 let gradient2 = LinearGradient(gradient: Gradient(colors: [Color.darkGr2, Color.lightGr2]), startPoint: .topTrailing, endPoint: .bottomLeading)
+let importanceColors = [Color.green, Color.yellow, Color.red]
