@@ -162,12 +162,14 @@ public struct Task: Identifiable{
     var description: String
     var importance: String
     var pplAssigned: String
-    init(name: String, importance: String, description: String, ppl: Int) {
+    var people: [String]
+    init(name: String, importance: String, description: String, ppl: Int, people: [String]) {
         self.sid = self.id.uuidString
         self.name = name
         self.description = description
         self.pplAssigned = String(ppl)
         self.importance = importance
+        self.people = people
     }
     init?(snapshot: DataSnapshot) {
       guard
@@ -176,6 +178,7 @@ public struct Task: Identifiable{
         let description = value["description"] as? String,
         let pplAssigned = value["pplAssigned"] as? String,
         let importance = value["importance"] as? String,
+        let people = value["people"] as? NSArray as? [String],
         let sid = value["sid"] as? String
         
         
@@ -187,6 +190,7 @@ public struct Task: Identifiable{
         self.description = description
         self.pplAssigned = pplAssigned
         self.importance = importance
+        self.people = people
         
         
         
@@ -197,6 +201,7 @@ public struct Task: Identifiable{
         "name": name,
         "description": description,
         "pplAssigned": pplAssigned,
+        "people": people,
         "importance": importance
       ]
     }
@@ -205,4 +210,5 @@ public struct Task: Identifiable{
 class EventTasks: ObservableObject {
     @Published var tasks: [Task] = []
     @Published var users: [User] = []
+    @Published var usersId: [String] = []
 }

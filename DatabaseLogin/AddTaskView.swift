@@ -73,7 +73,7 @@ struct AddTaskView: View {
                     guard !name.isEmpty, !description.isEmpty, !importance.isEmpty else{
                         return
                     }
-                    let task = Task(name: name, importance: importance, description: description, ppl: eventTasks.users.count)
+                    let task = Task(name: name, importance: importance, description: description, ppl: eventTasks.users.count, people: eventTasks.usersId)
                     eventTasks.tasks.append(task)
                     DispatchQueue.main.async {
                         viewModel.addTasks(event: event, tasks: eventTasks.tasks)

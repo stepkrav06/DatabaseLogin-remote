@@ -1,0 +1,148 @@
+//
+//  TaskDetailed.swift
+//  DatabaseLogin
+//
+//  Created by Степан Кравцов on 11.08.2022.
+//
+
+import SwiftUI
+import Firebase
+
+struct TaskDetailed: View {
+    var task: Task
+    @State var users: [String] = []
+    let importanceText = ["not very important", "important", "very important"]
+    var body: some View {
+        ScrollView{
+        VStack(spacing: 5){
+            Group{
+            Text("Task")
+                .fontWeight(.thin)
+                .italic()
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding(.top)
+                .padding(.horizontal)
+            RoundedRectangle(cornerRadius: 50, style: .continuous)
+                .frame(height: 1)
+                .padding(.vertical, 4)
+                .padding(.horizontal)
+            ZStack {
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .frame(height: 50)
+                    .foregroundColor(Color.lightGray)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal)
+                Text(task.name)
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding()
+                .padding(.horizontal)
+            }
+            }
+            Group{
+            Text("Description")
+                .fontWeight(.thin)
+                .italic()
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding(.top)
+                .padding(.horizontal)
+            RoundedRectangle(cornerRadius: 50, style: .continuous)
+                .frame(height: 1)
+                .padding(.vertical, 4)
+                .padding(.horizontal)
+            ZStack {
+                
+                Text(task.description)
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding(32)
+                
+                .background(RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .frame(minHeight: 50)
+                    .foregroundColor(Color.lightGray)
+                    .padding())
+            }
+            }
+            Group{
+            Text("Importance")
+                .fontWeight(.thin)
+                .italic()
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding(.top)
+                .padding(.horizontal)
+            RoundedRectangle(cornerRadius: 50, style: .continuous)
+                .frame(height: 1)
+                .padding(.vertical, 4)
+                .padding(.horizontal)
+            ZStack {
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .frame(height: 50)
+                    .foregroundColor(Color.lightGray)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal)
+                Text(task.importance + " (\(importanceText[Int(task.importance)!-1]))")
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding()
+                .padding(.horizontal)
+            }
+            }
+            Group{
+            Text("People")
+                .fontWeight(.thin)
+                .italic()
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding(.top)
+                .padding(.horizontal)
+            RoundedRectangle(cornerRadius: 50, style: .continuous)
+                .frame(height: 1)
+                .padding(.vertical, 4)
+                .padding(.horizontal)
+                
+                ForEach(users.indices, id: \.self) {
+                                 Text(self.users[$0])
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                        .padding()
+                        .padding(.horizontal)
+                    
+                            }
+                
+            }
+            Spacer()
+        }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationTitle("Task")
+        .onAppear{
+            let ref = Database.database().reference(withPath: "users")
+            for user in task.people{
+                
+                
+                let userRef = ref.child(user)
+                
+                userRef.observe(.value) { snapshot in
+                    
+
+                        
+                            let user = User(snapshot: snapshot)
+                            let userName = user!.name + " " + user!.lastName
+                            users.append(userName)
+                            
+                            
+                        
+                    
+                
+                
+                
+                
+            }
+            withCancel: { error in
+                print(error.localizedDescription)
+            }
+        }
+        }
+    }
+}
+
+struct TaskDetailed_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskDetailed(task: Task(name: "name", importance: "1", description: "description description description description description description description description description description description description description description", ppl: 1, people: ["11"]))
+    }
+}

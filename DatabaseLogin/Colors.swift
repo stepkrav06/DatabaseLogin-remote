@@ -16,6 +16,8 @@ extension Color {
     static let background = Color("Background")
     static let textColor1 = Color("TextColor1")
     static let textColor2 = Color("TextColor2")
+    static let lightGray = Color("LightGray")
+    static let lightGray2 = Color("LightGray2")
     
 }
 let gradient1 = LinearGradient(gradient: Gradient(colors: [Color.darkGr1, Color.darkGr1.opacity(0.0)]), startPoint: .top, endPoint: .bottom)

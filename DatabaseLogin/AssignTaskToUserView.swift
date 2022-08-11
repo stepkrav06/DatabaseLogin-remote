@@ -30,9 +30,11 @@ struct AssignTaskToUserView: View {
                             if event.users.contains(user){
                                 if let index = event.users.firstIndex(of: user) {
                                     event.users.remove(at: index)
+                                    event.usersId.remove(at: index)
                                 }
                             } else{
                                 event.users.append(user)
+                                event.usersId.append(user.uid)
                             }
                             print(event.users)
                         }

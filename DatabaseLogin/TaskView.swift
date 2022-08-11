@@ -80,8 +80,9 @@ struct TaskView: View {
                                 
                                 Group {
                                     ForEach(searchResults(event: event).sorted(by: { $0.name < $1.name })){ task in
-                                     
+                                        NavigationLink(destination: TaskDetailed(task: task)){
                                         TaskViewCard(taskName: task.name, taskId: task.sid, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
+                                        }
                                     }
                                 }
                             }
@@ -101,7 +102,9 @@ struct TaskView: View {
                                 Group {
                                     ForEach(searchResults(event: event).sorted(by: { $0.name < $1.name })){ task in
                                       
+                                        NavigationLink(destination: TaskDetailed(task: task)){
                                         TaskViewCard(taskName: task.name, taskId: task.sid, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
+                                        }
                                     }
                                 }
                             }
@@ -122,7 +125,7 @@ struct TaskView: View {
         .navigationTitle("Tasks")
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.secondary)
+        .background(Color.lightGray2)
         
         .onAppear{
             for event in viewModel.eventList{
