@@ -39,10 +39,10 @@ struct AddEventPage: View {
                     .padding()
                     .background(Color(.secondarySystemBackground))
                     
-                    DatePicker("Start date", selection: $startDate, displayedComponents: .date)
+                    DatePicker("Start date", selection: $startDate, displayedComponents: [.date])
                         .padding()
                         .background(Color(.secondarySystemBackground))
-                    DatePicker("End date", selection: $endDate, displayedComponents: .date)
+                    DatePicker("End date", selection: $endDate, displayedComponents: [.date])
                         .padding()
                         .background(Color(.secondarySystemBackground))
                     Toggle("Charity", isOn: $isCharity)

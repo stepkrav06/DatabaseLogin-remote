@@ -40,10 +40,10 @@ struct EventViewDetailed: View {
             List{
                 
                 Section {
-//                    ForEach(tasks.tasks) { task in
-//                        Text(task.content)
-//                            .badge(task.importance)
-//                    }
+                    ForEach(tasks.tasks) { task in
+                        Text(task.name)
+                            .badge(task.importance)
+                    }
                   } header: {
                     Text("Tasks")
                   } footer: {

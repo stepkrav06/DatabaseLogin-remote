@@ -20,11 +20,7 @@ struct AddTaskView: View {
         
         ZStack{
             VStack{
-                Text("Add tasks")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                
                 
                 Image(systemName: "square.and.pencil")
                     .font(.system(size: 100))
@@ -113,6 +109,7 @@ struct AddTaskView: View {
 //                    Text(user.name)
 //                }
             }
+            .navigationTitle("Add tasks")
             
             
             

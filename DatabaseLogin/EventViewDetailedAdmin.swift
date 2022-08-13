@@ -11,22 +11,48 @@ import Firebase
 struct EventViewDetailedAdmin: View {
     @EnvironmentObject var viewModel: AppViewModel
     @EnvironmentObject var eventTasks: EventTasks
-    @State var showAddTasks: Bool = false
     var event: Event
-    @State var tasks: [Task] = []
+    
+    @State private var eventRemoveAlert = false
     var body: some View {
         VStack{
             EventViewDetailed(event: event)
-            Button(action: {showAddTasks.toggle()}){
-                Text("Add tasks")
+            HStack{
+                NavigationLink(destination: AddTaskView(event: event)){
+                    
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.teal)
+                                .frame(height:50)
+                                .padding()
+                            Text("Add tasks")
+                                .foregroundColor(.white)
+                        }
+                        
+                    
+                    
+                }
+                Button(action: {eventRemoveAlert.toggle()}){
+                    
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(.red)
+                            .frame(height:50)
+                            .padding()
+                        Text("Remove event")
+                            .foregroundColor(.white)
+                    }
+                        
+                    
+                    
+                }
+                .alert("You want to delete the event?", isPresented: $eventRemoveAlert) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Yes", role: .destructive) {viewModel.removeEvent(event: event) }
+                }
             }
-            .foregroundColor(.white)
-            .padding()
-            .background(.teal)
-            .cornerRadius(8)
-            .sheet(isPresented: $showAddTasks){
-                AddTaskView(event: event)
-            }
+            
+            
         }
         
     }

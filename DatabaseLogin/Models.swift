@@ -145,8 +145,8 @@ public struct Event: Identifiable, Equatable, Hashable {
       return [
         "sid": sid,
         "name": name,
-        "startDate": startDate.formatted(date: .numeric, time: .omitted),
-        "endDate": endDate.formatted(date: .numeric, time: .omitted),
+        "startDate": startDate.formatted(.dateTime .day(.defaultDigits).month(.defaultDigits).year(.defaultDigits).locale(Locale(identifier: "ru"))),
+        "endDate": endDate.formatted(.dateTime .day(.defaultDigits).month(.defaultDigits).year(.defaultDigits).locale(Locale(identifier: "ru"))),
         "isCharity": isCharity,
         "charitySum": charitySum,
         "tasks": tasks as NSArray

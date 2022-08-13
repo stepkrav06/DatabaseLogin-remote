@@ -72,6 +72,7 @@ class AppViewModel: ObservableObject {
         let ref = Database.database().reference(withPath: "events")
         let eventRef = ref.child(event.sid)
         eventRef.setValue(event.toAnyObject())
+        self.eventList.append(event)
     }
     func changeEvent(event: Event, name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String){
         let ref = Database.database().reference(withPath: "events")
@@ -119,6 +120,47 @@ class AppViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
         
+        
+    }
+    func removeEvent(event:Event){
+        var ref = Database.database().reference(withPath: "events").child(event.sid)
+        ref.removeValue()
+        
+        for task in event.tasks{
+            ref = Database.database().reference(withPath: "tasks").child(task)
+            ref.removeValue()
+            for user in self.userList{
+                if user.tasks.contains(task){
+                    let ind = user.tasks.firstIndex(of: task)
+                    ref = Database.database().reference(withPath: "users").child(user.uid).child("tasks")
+                    ref.observeSingleEvent(of: .value, with: { snapshot in
+                        var userTasks: [String] = []
+                        // 3
+                        for child in snapshot.children {
+                          // 4
+                            if
+                              let snapshot = child as? DataSnapshot
+                             {
+                                let taskId = snapshot.value as! String
+                                userTasks.append(taskId)
+                                
+                                
+                          }
+                        }
+                        if userTasks.count != 1 {
+                            ref.child(String(ind!)).removeValue()
+                        } else {
+                            ref.child(String(ind!)).setValue("placeholder")
+                        }
+                    })
+                    { (error) in
+                       print(error.localizedDescription)
+                   }
+                    
+                    
+                }
+            }
+        }
         
     }
 }
