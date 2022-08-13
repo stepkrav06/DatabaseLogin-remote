@@ -10,6 +10,7 @@ import Firebase
 struct EventViewDetailed: View {
     var event: Event
     @EnvironmentObject var tasks: EventTasks
+    
     var body: some View {
         VStack{
             VStack{

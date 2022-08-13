@@ -163,6 +163,79 @@ class AppViewModel: ObservableObject {
         }
         
     }
+    func removeTask(task: Task){
+        var ref = Database.database().reference(withPath: "tasks").child(task.sid)
+        ref.removeValue()
+        
+        
+            
+        
+        for event in self.eventList{
+            if event.tasks.contains(task.sid){
+                let ind = event.tasks.firstIndex(of: task.sid)
+                ref = Database.database().reference(withPath: "events").child(event.sid).child("tasks")
+                ref.observeSingleEvent(of: .value, with: { snapshot in
+                    var tasks: [String] = []
+                    // 3
+                    for child in snapshot.children {
+                      // 4
+                        if
+                          let snapshot = child as? DataSnapshot
+                         {
+                            let taskId = snapshot.value as! String
+                            tasks.append(taskId)
+                            
+                            
+                      }
+                    }
+                    if tasks.count != 1 {
+                        ref.child(String(ind!)).removeValue()
+                    } else {
+                        ref.child(String(ind!)).setValue("placeholder")
+                    }
+                })
+                { (error) in
+                   print(error.localizedDescription)
+               }
+            }
+        }
+        
+        
+    }
+    func removeTask2(task: Task){
+        for user in self.userList{
+            if user.tasks.contains(task.sid){
+                let ind = user.tasks.firstIndex(of: task.sid)
+                let ref = Database.database().reference(withPath: "users").child(user.uid).child("tasks")
+                ref.observeSingleEvent(of: .value, with: { snapshot in
+                    var userTasks: [String] = []
+                    // 3
+                    for child in snapshot.children {
+                      // 4
+                        if
+                          let snapshot = child as? DataSnapshot
+                         {
+                            let taskId = snapshot.value as! String
+                            userTasks.append(taskId)
+                            
+                            
+                      }
+                    }
+                    let taskRef = ref.child(String(ind!))
+                    if userTasks.count != 1 {
+                        taskRef.removeValue()
+                    } else {
+                        taskRef.setValue("placeholder")
+                    }
+                })
+                { (error) in
+                   print(error.localizedDescription)
+               }
+                
+               
+            }
+        }
+    }
 }
 
 

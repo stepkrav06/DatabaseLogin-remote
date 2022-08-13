@@ -9,8 +9,12 @@ import SwiftUI
 import Firebase
 
 struct TaskDetailed: View {
+    @EnvironmentObject var viewModel: AppViewModel
     var task: Task
     @State var users: [String] = []
+    @Environment(\.dismiss) var dismiss
+    @State private var taskRemoveAlert = false
+    
     let importanceText = ["not very important", "important", "very important"]
     var body: some View {
         ScrollView{
@@ -104,6 +108,31 @@ struct TaskDetailed: View {
                     
                             }
                 
+            }
+            if viewModel.currentLoggedUser!.isAdmin{
+                Button(action: {taskRemoveAlert.toggle()}){
+                    
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
+                            .fill(.red)
+                            .frame(height:50)
+                            .padding()
+                        Text("Remove task")
+                            .foregroundColor(.white)
+                    }
+                        
+                    
+                    
+                }
+                .alert("You want to delete the task?", isPresented: $taskRemoveAlert) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Yes", role: .destructive) {
+                        viewModel.removeTask(task: task)
+                        viewModel.removeTask2(task: task)
+                        dismiss()
+                        
+                    }
+                }
             }
             Spacer()
         }

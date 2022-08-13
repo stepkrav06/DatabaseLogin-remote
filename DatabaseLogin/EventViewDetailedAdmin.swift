@@ -11,9 +11,11 @@ import Firebase
 struct EventViewDetailedAdmin: View {
     @EnvironmentObject var viewModel: AppViewModel
     @EnvironmentObject var eventTasks: EventTasks
+    @Environment(\.dismiss) var dismiss
     var event: Event
     
     @State private var eventRemoveAlert = false
+    
     var body: some View {
         VStack{
             EventViewDetailed(event: event)
@@ -32,6 +34,7 @@ struct EventViewDetailedAdmin: View {
                     
                     
                 }
+                
                 Button(action: {eventRemoveAlert.toggle()}){
                     
                     ZStack{
@@ -48,7 +51,10 @@ struct EventViewDetailedAdmin: View {
                 }
                 .alert("You want to delete the event?", isPresented: $eventRemoveAlert) {
                     Button("Cancel", role: .cancel) { }
-                    Button("Yes", role: .destructive) {viewModel.removeEvent(event: event) }
+                    Button("Yes", role: .destructive) {
+                        viewModel.removeEvent(event: event)
+                        dismiss()
+                    }
                 }
             }
             
