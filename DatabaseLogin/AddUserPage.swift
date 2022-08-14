@@ -12,6 +12,7 @@ struct AddUserPage: View {
     @State private var password: String = ""
     @State private var name: String = ""
     @State private var lastName: String = ""
+    @State private var grade: String = ""
     @State private var isAdmin: Bool = false
     @FocusState private var writingFocus: Bool
     @State private var createUserAlertError = false
@@ -62,6 +63,15 @@ struct AddUserPage: View {
                     .focused($writingFocus)
                     .padding()
                     .background(Color(.secondarySystemBackground))
+                    TextField(
+                        "Grade",
+                        text: $grade
+                    )
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .focused($writingFocus)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
                     Toggle("Admin", isOn: $isAdmin)
                         .padding()
                         .background(Color(.secondarySystemBackground))
@@ -74,7 +84,7 @@ struct AddUserPage: View {
                     guard !email.isEmpty, !password.isEmpty, !lastName.isEmpty, !name.isEmpty else{
                         return
                     }
-                    viewModel.createUser(email: email, password: password, name: name, lastName: lastName, isAdmin: isAdmin)
+                    viewModel.createUser(email: email, password: password, name: name, lastName: lastName, isAdmin: isAdmin, grade: grade)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         if viewModel.createUserError != nil {
                             createUserAlertError = true

@@ -16,23 +16,26 @@ public struct User: Identifiable, Equatable, Hashable {
     var name: String
     var lastName: String
     var tasks: [String]
+    var grade: String
     
     
-    init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool, tasks: [String]) {
+    init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool, tasks: [String], grade: String) {
         self.uid = uid
         self.email = email
         self.name = name
         self.lastName = lastName
         self.isAdmin = isAdmin
         self.tasks = tasks
+        self.grade = grade
     }
-    init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool) {
+    init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool, grade: String) {
         self.uid = uid
         self.email = email
         self.name = name
         self.lastName = lastName
         self.isAdmin = isAdmin
         self.tasks = ["placeholder"]
+        self.grade = grade
     }
     init?(snapshot: DataSnapshot) {
       guard
@@ -42,6 +45,7 @@ public struct User: Identifiable, Equatable, Hashable {
         let tasks = value["tasks"] as? NSArray as? [String],
         let isAdmin = value["isAdmin"] as? Bool,
         let email = value["email"] as? String,
+        let grade = value["grade"] as? String,
         let uid = value["uid"] as? String
       else {
         return nil
@@ -53,6 +57,7 @@ public struct User: Identifiable, Equatable, Hashable {
       self.uid = uid
         self.tasks = tasks
         self.email = email
+        self.grade = grade
     }
     func toAnyObject() -> Any {
       return [
@@ -61,6 +66,7 @@ public struct User: Identifiable, Equatable, Hashable {
         "isAdmin": isAdmin,
         "name": name,
         "lastName": lastName,
+        "grade": grade,
         "tasks": tasks as NSArray
       ]
     }
@@ -203,6 +209,40 @@ public struct Task: Identifiable{
         "pplAssigned": pplAssigned,
         "people": people,
         "importance": importance
+      ]
+    }
+}
+public struct Grade{
+    var attendance: Bool
+    var activity: String
+    var comments: String
+    init(attendance: Bool, activity: String, comments: String) {
+        self.attendance = attendance
+        self.activity = activity
+        self.comments = comments
+    }
+    init?(snapshot: DataSnapshot) {
+      guard
+        let value = snapshot.value as? [String: AnyObject],
+        let attendance = value["attendance"] as? Bool,
+        let activity = value["activity"] as? String,
+        let comments = value["comments"] as? String
+        
+        
+      else {
+        return nil
+      }
+        self.attendance = attendance
+        self.activity = activity
+        self.comments = comments
+        
+        
+    }
+    func toAnyObject() -> Any {
+      return [
+        "attendance": attendance,
+        "activity": activity,
+        "comments": comments
       ]
     }
 }

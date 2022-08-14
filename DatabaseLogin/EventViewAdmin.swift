@@ -14,6 +14,30 @@ struct EventViewAdmin: View {
     @State var sortBy: String = "Start Date"
     var body: some View {
         ScrollView {
+            if viewModel.eventList.count == 0{
+                VStack{
+                    Text("No events yet")
+                    Button(action: {showAddEvent.toggle()}){
+                        Image(systemName: "plus")
+                            .font(.system(size: 30))
+                            .padding(4)
+                            .foregroundColor(.secondary)
+                        
+                            .background(.black.opacity(0.1))
+                            .mask(
+                                Circle()
+                            )
+                            
+                            
+                    }
+                    .padding(.horizontal)
+                    .sheet(isPresented: $showAddEvent){
+                        AddEventPage ()
+                    }
+                }
+            }
+            else{
+            
             VStack{
                 VStack{
                     Text("Next coming event")
@@ -114,6 +138,7 @@ struct EventViewAdmin: View {
                 Spacer()
                     .frame(height: 100)
             }.navigationTitle("Events")
+            }
         }
     }
 }

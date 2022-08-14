@@ -10,7 +10,7 @@ import SwiftUI
 struct ManageUserCard: View {
     var user: User
     var body: some View {
-        VStack{
+        VStack(spacing: 5){
             HStack{
                 Text(user.name)
                     .bold()
@@ -18,18 +18,25 @@ struct ManageUserCard: View {
                     .bold()
             }
             .frame(alignment: .topLeading)
-            .padding()
+            
             if user.isAdmin {
                 Text("Adiminstrator")
-                    .padding()
+                    
             }
             else {
                 Text("Non Administaror")
-                    .padding()
+                    
             }
             Text("Email: \(user.email)")
-                .padding()
+            if Int(user.grade) != nil{
+                Text("Grade " + user.grade)
+            } else {
+                Text(user.grade)
+            }
+                
         }
+        .padding()
+        .frame(maxHeight: 120)
         .foregroundColor(.white)
         .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white, lineWidth: 1))
         .cornerRadius(20)
@@ -40,6 +47,6 @@ struct ManageUserCard: View {
 
 struct ManageUserCard_Previews: PreviewProvider {
     static var previews: some View {
-        ManageUserCard(user: User(uid: "preview", email: "preview", name: "preview", lastName: "preview", isAdmin: true))
+        ManageUserCard(user: User(uid: "preview", email: "preview", name: "preview", lastName: "preview", isAdmin: true, grade: "11")).background(.black)
     }
 }

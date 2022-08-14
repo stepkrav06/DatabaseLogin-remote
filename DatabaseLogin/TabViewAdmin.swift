@@ -24,7 +24,7 @@ struct TabViewAdmin: View {
                     case .tasks:
                         TaskView()
                     case .grading:
-                        SomeView()
+                        GradeView()
                     case .account:
                         AccountViewAdmin()
                     }

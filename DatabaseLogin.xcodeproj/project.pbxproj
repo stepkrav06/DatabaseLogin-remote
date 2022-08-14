@@ -25,6 +25,9 @@
 		DA1F65BC27F63F5600E7A07C /* TabViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */; };
 		DA1F65BE27F6463900E7A07C /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65BD27F6463900E7A07C /* AccountView.swift */; };
 		DA1F65C027F9E6B600E7A07C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1F65BF27F9E6B500E7A07C /* Colors.swift */; };
+		DA23AA2228A91C3F00352A0E /* GradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2128A91C3F00352A0E /* GradeView.swift */; };
+		DA23AA2428A91C8F00352A0E /* GradeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2328A91C8F00352A0E /* GradeCard.swift */; };
+		DA23AA2628A9256500352A0E /* GradingDetailedAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2528A9256500352A0E /* GradingDetailedAdmin.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
 		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
@@ -87,6 +90,9 @@
 		DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewAdmin.swift; sourceTree = "<group>"; };
 		DA1F65BD27F6463900E7A07C /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		DA1F65BF27F9E6B500E7A07C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DA23AA2128A91C3F00352A0E /* GradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeView.swift; sourceTree = "<group>"; };
+		DA23AA2328A91C8F00352A0E /* GradeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCard.swift; sourceTree = "<group>"; };
+		DA23AA2528A9256500352A0E /* GradingDetailedAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradingDetailedAdmin.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +189,9 @@
 				27765A5A27FEDEE6005D8407 /* EventCard.swift */,
 				277F52E628001FB30073BF3A /* EventViewDetailed.swift */,
 				277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */,
+				DA23AA2128A91C3F00352A0E /* GradeView.swift */,
+				DA23AA2328A91C8F00352A0E /* GradeCard.swift */,
+				DA23AA2528A9256500352A0E /* GradingDetailedAdmin.swift */,
 				27022F3B27F58C7800EAC364 /* Models.swift */,
 				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
 				DA5545CB27F4E62C00F476EA /* LoginPage.swift */,
@@ -370,6 +379,7 @@
 			files = (
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */,
+				DA23AA2228A91C3F00352A0E /* GradeView.swift in Sources */,
 				277F52E9280041720073BF3A /* EventViewDetailedAdmin.swift in Sources */,
 				DAB90B6628A55AA600E5ED16 /* TaskDetailed.swift in Sources */,
 				DA9CE1C028A3C3AE002FA019 /* TaskView.swift in Sources */,
@@ -389,11 +399,13 @@
 				27765A5B27FEDEE6005D8407 /* EventCard.swift in Sources */,
 				27B127F927FC51D700888179 /* AccountViewNonAdmin.swift in Sources */,
 				DA1330AD28032BE3002F75EC /* AssignTaskToUserView.swift in Sources */,
+				DA23AA2628A9256500352A0E /* GradingDetailedAdmin.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 				277F52E728001FB30073BF3A /* EventViewDetailed.swift in Sources */,
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,
 				DAFD93202803451600D7B348 /* EventViewNonAdmin.swift in Sources */,
 				2700CDBE27FAF2540017B114 /* ManageUserCard.swift in Sources */,
+				DA23AA2428A91C8F00352A0E /* GradeCard.swift in Sources */,
 				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
 				DA60765E27FCDB950046F6C5 /* EventViewAdmin.swift in Sources */,
 				277F52EB2800434C0073BF3A /* AddTaskView.swift in Sources */,

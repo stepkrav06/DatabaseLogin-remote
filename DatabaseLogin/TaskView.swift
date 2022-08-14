@@ -11,7 +11,6 @@ import Firebase
 struct TaskView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @State var picked = true
-    @Namespace var namespace
     @State var taskEventDict: [Event:[Task]] = [:]
     @State var taskIdEventDict: [Event:[String]] = [:]
     @State private var searchText = ""

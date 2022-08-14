@@ -22,17 +22,19 @@ class AppViewModel: ObservableObject {
     var isSignedIn: Bool  {
         return Auth.auth().currentUser != nil
     }
-    func createUser(email: String, password: String, name: String, lastName: String, isAdmin: Bool) {
+    func createUser(email: String, password: String, name: String, lastName: String, isAdmin: Bool, grade: String) {
         
         Auth.auth().createUser(withEmail: email, password: password) { res, error in
             if error != nil {
                 self.createUserError = error?.localizedDescription ?? ""
                 print(self.createUserError!)
             } else {
-                let user = User(uid: res!.user.uid, email: email, name: name, lastName: lastName, isAdmin: isAdmin)
+                let user = User(uid: res!.user.uid, email: email, name: name, lastName: lastName, isAdmin: isAdmin, grade: grade)
                 let ref = Database.database().reference(withPath: "users")
                 let userRef = ref.child(res!.user.uid)
                 userRef.setValue(user.toAnyObject())
+                let gradeRef = Database.database().reference(withPath: "grades").child(res!.user.uid)
+                gradeRef.setValue("")
             }
             
         }
@@ -73,12 +75,12 @@ class AppViewModel: ObservableObject {
         let eventRef = ref.child(event.sid)
         eventRef.setValue(event.toAnyObject())
         self.eventList.append(event)
-    }
-    func changeEvent(event: Event, name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String){
-        let ref = Database.database().reference(withPath: "events")
-        let eventRef = ref.child(event.sid)
-        let newEvent = Event(name: name, startDate: startDate, endDate: endDate, isCharity: isCharity, charitySum: charitySum, tasks: event.tasks)
-        eventRef.setValue(newEvent.toAnyObject())
+        let gradeRef = Database.database().reference(withPath: "grades")
+        let nulGrade = Grade(attendance: false, activity: "", comments: "")
+        for user in userList{
+            let gradeUserRef = gradeRef.child(user.uid).child(event.sid)
+            gradeUserRef.setValue(nulGrade.toAnyObject())
+        }
     }
     func addTasks(event: Event, tasks: [Task]){
         let ref = Database.database().reference(withPath: "events")
@@ -127,6 +129,7 @@ class AppViewModel: ObservableObject {
         ref.removeValue()
         
         for task in event.tasks{
+            
             ref = Database.database().reference(withPath: "tasks").child(task)
             ref.removeValue()
             for user in self.userList{
@@ -161,6 +164,14 @@ class AppViewModel: ObservableObject {
                 }
             }
         }
+        let gradeRef = Database.database().reference(withPath: "grades")
+        for user in userList{
+            let gradeRefUser = gradeRef.child(user.uid).child(event.sid)
+                gradeRefUser.removeValue()
+            
+            
+        }
+        
         
     }
     func removeTask(task: Task){
