@@ -22,7 +22,7 @@ struct AccountView: View {
                         Image(systemName: "person.crop.circle")
                             .font(.system(size: 100))
                             .foregroundColor(.textColor1)
-                        Text("Hello, \(viewModel.currentLoggedUser!.name)!")
+                        Text("Hello, " + (viewModel.currentLoggedUser?.name)!)
                         Button(action: {viewModel.logOut()}){
                             Text("Sign out")
                                 .foregroundColor(.white)

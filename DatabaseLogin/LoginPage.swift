@@ -62,7 +62,7 @@ struct LoginPage: View {
                 }
                 .foregroundColor(.white)
                 .padding()
-                .background(.orange)
+                .background(.teal)
                 .cornerRadius(8)
                 .alert(isPresented: $logInAlertError) {
                     Alert(title: Text("Unable to log in"), message: Text(viewModel.logInError!), dismissButton: .default(Text("OK")) {viewModel.logInError = nil})
