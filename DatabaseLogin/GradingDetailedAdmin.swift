@@ -40,12 +40,12 @@ struct GradingDetailedAdmin: View {
                         }
                         HStack(spacing: 5){
                         Image(systemName: "person.circle")
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                             .font(.largeTitle)
                             
                         VStack(alignment: .leading, spacing: 5){
                             Text(user.name + " " + user.lastName)
-                                .foregroundColor(Color.black)
+                                .foregroundColor(Color.primary)
                             if Int(user.grade) != nil{
                             Text("Grade " + user.grade)
                                 .foregroundColor(Color.secondary)
@@ -61,20 +61,20 @@ struct GradingDetailedAdmin: View {
                             if grades[user.uid]?.attendance == false{
                                 HStack{
                                     Image(systemName: "person.fill.xmark")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                     Text("Absent")
                                         .fontWeight(.thin)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                 }
                                 .padding(.trailing, 32)
                             }
                             else if grades[user.uid]?.attendance == true{
                                 HStack{
                                     Image(systemName: "checkmark")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                     Text("Graded")
                                         .fontWeight(.thin)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                 }
                                 .padding(.trailing, 32)
                             }
@@ -82,10 +82,10 @@ struct GradingDetailedAdmin: View {
                             else {
                                 HStack{
                                     Image(systemName: "xmark")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                     Text("Ungraded")
                                         .fontWeight(.thin)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                 }
                                 .padding(.trailing, 32)
                             }

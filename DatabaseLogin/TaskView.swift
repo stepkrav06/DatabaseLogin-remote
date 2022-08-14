@@ -19,7 +19,7 @@ struct TaskView: View {
             VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30, style: .continuous)
-                        .fill(.white)
+                        .fill(Color.textColor2)
                         .frame(maxHeight: 250, alignment: .top)
                     VStack{
                         HStack{
@@ -27,7 +27,7 @@ struct TaskView: View {
                             Text("Upcoming")
                                 .fontWeight(.thin)
                                 .padding(.horizontal)
-                                .foregroundColor(picked ? .teal : .black)
+                                .foregroundColor(picked ? .teal : .primary)
                                 .onTapGesture {
                                     withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
                                         picked = true
@@ -41,7 +41,7 @@ struct TaskView: View {
                             Text("Completed")
                                 .fontWeight(.thin)
                                 .padding(.horizontal)
-                                .foregroundColor(!picked ? .teal : .black)
+                                .foregroundColor(!picked ? .teal : .primary)
                                 .onTapGesture {
                                     withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
                                         picked = false
@@ -69,12 +69,14 @@ struct TaskView: View {
                                     .font(.title)
                                     .fontWeight(.light)
                                     .padding()
+                                    .foregroundColor(.black)
                                 
                                 if taskEventDict[event]!.isEmpty{
                                     Text("No tasks assigned")
                                         .font(.body)
                                         .fontWeight(.thin)
                                         .padding(.horizontal, 20)
+                                        .foregroundColor(.black)
                                 }
                                 
                                 Group {
@@ -124,7 +126,7 @@ struct TaskView: View {
         .navigationTitle("Tasks")
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.lightGray2)
+        .background(.secondary)
         
         .onAppear{
             for event in viewModel.eventList{
