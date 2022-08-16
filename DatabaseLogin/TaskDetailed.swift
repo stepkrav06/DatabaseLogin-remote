@@ -40,6 +40,7 @@ struct TaskDetailed: View {
                     .frame(maxWidth: .infinity, alignment: .topLeading)
                 .padding()
                 .padding(.horizontal)
+                .foregroundColor(.black)
             }
             }
             Group{
@@ -58,6 +59,7 @@ struct TaskDetailed: View {
                 Text(task.description)
                     .frame(maxWidth: .infinity, alignment: .topLeading)
                 .padding(32)
+                .foregroundColor(.black)
                 
                 .background(RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .frame(minHeight: 50)
@@ -86,6 +88,7 @@ struct TaskDetailed: View {
                     .frame(maxWidth: .infinity, alignment: .topLeading)
                 .padding()
                 .padding(.horizontal)
+                .foregroundColor(.black)
             }
             }
             Group{

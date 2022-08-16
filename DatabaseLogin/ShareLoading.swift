@@ -61,7 +61,7 @@ struct ShareLoading: View {
                                 eventGrades[event.sid] = grade
                                 grades[user.uid]![event.sid] = grade
 
-                                print(grades[user.uid])
+                                
                                 }) { (error) in
                                     print(error.localizedDescription)
                                 }

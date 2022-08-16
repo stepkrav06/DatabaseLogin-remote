@@ -31,6 +31,7 @@
 		DA23AA2828A9A18E00352A0E /* GradePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2728A9A18E00352A0E /* GradePersonView.swift */; };
 		DA23AA2A28AA5D8100352A0E /* ExportGradesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2928AA5D8100352A0E /* ExportGradesView.swift */; };
 		DA23AA2C28ABBADE00352A0E /* ShareLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2B28ABBADE00352A0E /* ShareLoading.swift */; };
+		DA23AA2E28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2D28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
 		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
@@ -99,6 +100,7 @@
 		DA23AA2728A9A18E00352A0E /* GradePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePersonView.swift; sourceTree = "<group>"; };
 		DA23AA2928AA5D8100352A0E /* ExportGradesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportGradesView.swift; sourceTree = "<group>"; };
 		DA23AA2B28ABBADE00352A0E /* ShareLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLoading.swift; sourceTree = "<group>"; };
+		DA23AA2D28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewDetailedNonAdmin.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,9 +197,10 @@
 				27765A5A27FEDEE6005D8407 /* EventCard.swift */,
 				277F52E628001FB30073BF3A /* EventViewDetailed.swift */,
 				277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */,
-				DA23AA2128A91C3F00352A0E /* GradeView.swift */,
 				DA23AA2328A91C8F00352A0E /* GradeCard.swift */,
+				DA23AA2128A91C3F00352A0E /* GradeView.swift */,
 				DA23AA2528A9256500352A0E /* GradingDetailedAdmin.swift */,
+				DA23AA2D28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift */,
 				DA23AA2728A9A18E00352A0E /* GradePersonView.swift */,
 				DA23AA2928AA5D8100352A0E /* ExportGradesView.swift */,
 				DA23AA2B28ABBADE00352A0E /* ShareLoading.swift */,
@@ -418,6 +421,7 @@
 				2700CDBE27FAF2540017B114 /* ManageUserCard.swift in Sources */,
 				DA23AA2428A91C8F00352A0E /* GradeCard.swift in Sources */,
 				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
+				DA23AA2E28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift in Sources */,
 				DA60765E27FCDB950046F6C5 /* EventViewAdmin.swift in Sources */,
 				277F52EB2800434C0073BF3A /* AddTaskView.swift in Sources */,
 				DA23AA2828A9A18E00352A0E /* GradePersonView.swift in Sources */,

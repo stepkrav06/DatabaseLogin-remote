@@ -276,16 +276,16 @@ struct ContentView: View {
                         .onAppear{
                             var ref = Database.database().reference(withPath: "users")
                             let user = Auth.auth().currentUser
-                            print(user?.email)
+                            
                             let userPath = ref.child(user!.uid)
                             userPath.observe(.value) { snapshot in
                                     let curuser = User(snapshot: snapshot)
                                     viewModel.currentLoggedUser = curuser
-                                    print(viewModel.currentLoggedUser?.isAdmin)
+                                    
                                 } withCancel: { error in
                                     print(error.localizedDescription)
                                 }
-                            let completed = ref.observe(.value) { snapshot in
+                            ref.observe(.value) { snapshot in
                               // 2
                               var users: [User] = []
                               // 3
@@ -307,7 +307,7 @@ struct ContentView: View {
                             }
                                 
                             ref = Database.database().reference(withPath: "events")
-                            let completed2 = ref.observe(.value) { snapshot in
+                            ref.observe(.value) { snapshot in
                               // 2
                               var events: [Event] = []
                               // 3

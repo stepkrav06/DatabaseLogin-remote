@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import AVFoundation
 
 struct GradeView: View {
     @EnvironmentObject var viewModel: AppViewModel
@@ -14,14 +15,21 @@ struct GradeView: View {
         ScrollView {
             VStack{
                 ForEach(viewModel.eventList){event in
-                    NavigationLink(destination: GradingDetailedAdmin(event: event)){
-                        GradeCard(admin: viewModel.currentLoggedUser!.isAdmin, event: event)
+                    if viewModel.currentLoggedUser!.isAdmin{
+                        NavigationLink(destination: GradingDetailedAdmin(event: event)){
+                            GradeCard(admin: viewModel.currentLoggedUser!.isAdmin, event: event)
+                        }
+                    } else {
+                        NavigationLink(destination: GradeViewDetailedNonAdmin(event: event)){
+                            GradeCard(admin: viewModel.currentLoggedUser!.isAdmin, event: event)
+                        }
                     }
+                    
                     
                 }
             }
         }
-        .navigationTitle("Grading")
+        .navigationTitle(viewModel.currentLoggedUser!.isAdmin ? "Grading" : "Activity")
         .toolbar {
             if viewModel.currentLoggedUser!.isAdmin{
                 Button(action: {}){

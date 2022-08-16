@@ -34,13 +34,23 @@ struct AddTaskView: View {
                     .disableAutocorrection(true)
                     .padding()
                     .background(Color(.secondarySystemBackground))
+                    Text("Description of the task:")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    RoundedRectangle(cornerRadius: 50, style: .continuous)
+                        .frame(height: 1)
+                        .padding(.top, 4)
+                        .padding(.horizontal)
                     TextEditor(
                         text: $description
                     )
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding()
-                    .background(Color(.secondarySystemBackground))
+                    RoundedRectangle(cornerRadius: 50, style: .continuous)
+                        .frame(height: 1)
+                        .padding(.top, 4)
+                        .padding(.horizontal)
                     TextField(
                         "Importance",
                         text: $importance

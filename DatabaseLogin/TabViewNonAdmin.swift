@@ -24,7 +24,7 @@ struct TabViewNonAdmin: View {
                     case .tasks:
                         TaskView()
                     case .activity:
-                        SomeView()
+                        GradeView()
                     case .account:
                         AccountView()
                     }
