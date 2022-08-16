@@ -18,6 +18,7 @@ class AppViewModel: ObservableObject {
     @Published var isWriting: Bool = false
     @Published var userList: [User] = []
     @Published var eventList: [Event] = []
+    @Published var gradesExported: Bool = false
     
     var isSignedIn: Bool  {
         return Auth.auth().currentUser != nil
@@ -76,7 +77,7 @@ class AppViewModel: ObservableObject {
         eventRef.setValue(event.toAnyObject())
         self.eventList.append(event)
         let gradeRef = Database.database().reference(withPath: "grades")
-        let nulGrade = Grade(attendance: false, activity: "", comments: "")
+        let nulGrade = Grade(attendance: true, activity: "", comments: "")
         for user in userList{
             let gradeUserRef = gradeRef.child(user.uid).child(event.sid)
             gradeUserRef.setValue(nulGrade.toAnyObject())
@@ -247,6 +248,10 @@ class AppViewModel: ObservableObject {
             }
         }
     }
+    func submitGrade(grade: Grade, user: User, event: Event){
+        let ref = Database.database().reference(withPath: "grades").child(user.uid).child(event.sid)
+        ref.setValue(grade.toAnyObject())
+    }
 }
 
 
@@ -332,6 +337,15 @@ struct ContentView: View {
             viewModel.signedIn = viewModel.isSignedIn
         }
         
+    }
+}
+
+struct OvalTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(10)
+            .background(Color.lightGray)
+            .cornerRadius(20)
     }
 }
 

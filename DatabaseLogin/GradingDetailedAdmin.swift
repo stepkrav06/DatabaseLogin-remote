@@ -28,7 +28,7 @@ struct GradingDetailedAdmin: View {
                 .padding(.horizontal)
             ForEach(viewModel.userList){user in
                 
-                NavigationLink(destination: EmptyView()){
+                NavigationLink(destination: GradePersonView(user: user, event: event, oldGrade: grades[user.uid] ?? Grade(attendance: true, activity: "", comments: ""))){
                     ZStack{
                         if grades[user.uid]?.activity != ""{
                             

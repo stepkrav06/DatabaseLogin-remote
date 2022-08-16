@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct GradeView: View {
     @EnvironmentObject var viewModel: AppViewModel
@@ -16,12 +17,30 @@ struct GradeView: View {
                     NavigationLink(destination: GradingDetailedAdmin(event: event)){
                         GradeCard(admin: viewModel.currentLoggedUser!.isAdmin, event: event)
                     }
+                    
                 }
             }
         }
         .navigationTitle("Grading")
+        .toolbar {
+            if viewModel.currentLoggedUser!.isAdmin{
+                Button(action: {}){
+                    NavigationLink(destination: ExportGradesView()){
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(Color.textColor1)
+                    }
+                }
+                
+                
+            }
+            
+        }
+        .onAppear{
+            viewModel.gradesExported = false
+        }
         
     }
+    
 }
 
 struct GradeView_Previews: PreviewProvider {
