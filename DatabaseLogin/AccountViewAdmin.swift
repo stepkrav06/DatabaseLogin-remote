@@ -22,72 +22,17 @@ struct AccountViewAdmin: View {
         ScrollView{
                     VStack {
                         AccountView()
-                        if !showManageUsers{
-                            VStack{
-                                Text("Manage users")
-                                    
-                                    .matchedGeometryEffect(id: "title", in: namespace)
-                                    
-                                
-                                }
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color.teal
-                                        .matchedGeometryEffect(id: "bg", in: namespace)
-                                        .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
-                                                showManageUsers.toggle()
-                                                viewModel.isWriting.toggle()
-                                            }
-                                        })
-                        .cornerRadius(20)
-                        .padding()
-                        
-                        
-                        } else {
-                                VStack{
-                                    Text("Manage users")
-                                        .frame(alignment: .top)
-                                        
-                                        .matchedGeometryEffect(id: "title", in: namespace)
-                                        
-                                    ForEach(viewModel.userList){ user in
-                                        ManageUserCard(user: user)
-                                    }
-                                    NavigationLink(destination: AddUserPage()){
-                                        Image(systemName: "plus")
-                                            .font(.system(size: 30))
-                                            .padding(8)
-                                            .foregroundColor(.white)
-                                        
-                                            .background(.black.opacity(0.1))
-                                            .mask(
-                                                Circle()
-                                            )
-                                            .overlay( Circle().stroke(.white, lineWidth: 1).blur(radius: 2))
-                                            
-                                    }
-                                    .padding()
-                                    }
-                                
-                            
-                            
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.teal
-                                        .matchedGeometryEffect(id: "bg", in: namespace)
-                                        .onTapGesture {
-                                            withAnimation(.spring(response: 0.2, dampingFraction: 0.7)){
-                                                showManageUsers.toggle()
-                                                viewModel.isWriting.toggle()
-                                            }
-                                        })
-                        .cornerRadius(20)
-                        .padding()
-                        
+                        NavigationLink(destination: ManageUsersView()){
+                            Text("Manage users")
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity, maxHeight: 50)
+                                .background(Color.teal)
+                                .cornerRadius(20)
+                                .padding()
                         }
+                        
+                        
                         Spacer()
                     }
                     

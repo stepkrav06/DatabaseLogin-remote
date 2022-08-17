@@ -108,7 +108,7 @@ struct GradingDetailedAdmin: View {
             for user in viewModel.userList{
                 
             
-                ref.child(user.uid).child(event.sid).observeSingleEvent(of: .value, with: { snapshot in
+                ref.child(user.uid).child(event.sid).observe(.value, with: { snapshot in
                 // 3
                 
                   // 4

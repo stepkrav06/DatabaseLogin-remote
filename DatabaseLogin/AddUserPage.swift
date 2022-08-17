@@ -100,8 +100,8 @@ struct AddUserPage: View {
                 }
                 .foregroundColor(.white)
                 .padding()
-                .background(.orange)
-                .cornerRadius(8)
+                .background(.teal)
+                .cornerRadius(12)
                 .alert(isPresented: $createUserAlertError) {
                     Alert(title: Text("Unable to create user"), message: Text(viewModel.createUserError!), dismissButton: .default(Text("OK")) {viewModel.createUserError = nil})
                 }

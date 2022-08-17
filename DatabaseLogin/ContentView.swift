@@ -252,6 +252,17 @@ class AppViewModel: ObservableObject {
         let ref = Database.database().reference(withPath: "grades").child(user.uid).child(event.sid)
         ref.setValue(grade.toAnyObject())
     }
+    func deleteUser(user: User){
+        let UserRef = Database.database().reference(withPath: "users").child(user.uid)
+        UserRef.removeValue()
+        let GradeRef = Database.database().reference(withPath: "grades").child(user.uid)
+        GradeRef.removeValue()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            Auth.auth().currentUser!.delete()
+            self.signedIn = false
+        }
+        
+    }
 }
 
 

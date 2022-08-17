@@ -68,7 +68,7 @@ struct GradeViewDetailedNonAdmin: View {
             
                 
             
-                ref.child(event.sid).observeSingleEvent(of: .value, with: { snapshot in
+                ref.child(event.sid).observe(.value, with: { snapshot in
                 // 3
                 
                   // 4
