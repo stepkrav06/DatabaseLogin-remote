@@ -33,6 +33,8 @@
 		DA23AA2E28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2D28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift */; };
 		DA23AA3028AD41EA00352A0E /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA2F28AD41EA00352A0E /* ManageUsersView.swift */; };
 		DA23AA6828B11D5800352A0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA23AA6728B11D5800352A0E /* GoogleService-Info.plist */; };
+		DA23AA6C28B1292900352A0E /* PlanNewMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */; };
+		DA23AA6E28B149AA00352A0E /* NextUpMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
 		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
@@ -103,6 +105,8 @@
 		DA23AA6728B11D5800352A0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA23AA6928B11FEF00352A0E /* DatabaseLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DatabaseLogin.entitlements; sourceTree = "<group>"; };
 		DA23AA6A28B1201300352A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanNewMeetingView.swift; sourceTree = "<group>"; };
+		DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextUpMeetingView.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +187,7 @@
 				277F52EA2800434C0073BF3A /* AddTaskView.swift */,
 				DA1330AC28032BE3002F75EC /* AssignTaskToUserView.swift */,
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
+				DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */,
 				DA0FADF527F9FD9100C702DB /* TabViewNonAdmin.swift */,
 				DA0FADF327F9FAEA00C702DB /* LoadingView.swift */,
 				DA1F65B927F63DB500E7A07C /* Tab.swift */,
@@ -212,6 +217,7 @@
 				DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */,
 				DAFD931F2803451600D7B348 /* EventViewNonAdmin.swift */,
 				DA8CB85627FF76CE006487CB /* EventNextUp.swift */,
+				DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */,
 				278CCF7127FEC774005A6F12 /* AddEventPage.swift */,
 				2700CDBF27FAF91A0017B114 /* AddUserPage.swift */,
 				DA23AA6728B11D5800352A0E /* GoogleService-Info.plist */,
@@ -416,8 +422,10 @@
 				DA1330AD28032BE3002F75EC /* AssignTaskToUserView.swift in Sources */,
 				DA23AA2628A9256500352A0E /* GradingDetailedAdmin.swift in Sources */,
 				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
+				DA23AA6E28B149AA00352A0E /* NextUpMeetingView.swift in Sources */,
 				277F52E728001FB30073BF3A /* EventViewDetailed.swift in Sources */,
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,
+				DA23AA6C28B1292900352A0E /* PlanNewMeetingView.swift in Sources */,
 				DAFD93202803451600D7B348 /* EventViewNonAdmin.swift in Sources */,
 				DA23AA2428A91C8F00352A0E /* GradeCard.swift in Sources */,
 				DA1F65BA27F63DB500E7A07C /* Tab.swift in Sources */,
@@ -590,6 +598,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DatabaseLogin/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Student Council";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -622,6 +631,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DatabaseLogin/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Student Council";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

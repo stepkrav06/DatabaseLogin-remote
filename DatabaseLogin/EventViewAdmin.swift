@@ -39,29 +39,8 @@ struct EventViewAdmin: View {
             else{
             
             VStack{
-                VStack{
-                    Text("Next coming event")
-                        .bold()
-                        .font(.title)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        .padding(4)
-                    if let event = viewModel.eventList.sorted(by: {
-                        $0.startDate.compare($1.startDate) == .orderedAscending
-                    })[0]{
-                        EventNextUp(event: event)
-                    } else {
-                        Text("No events planned")
-                    }
-                    
-                }
-                .frame(maxWidth: .infinity)
-                .foregroundColor(.primary)
-                .padding()
-                .background(.ultraThinMaterial)
-                .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.primary, lineWidth: 1).blur(radius: 4))
+                NextUpMeetingView()
                 
-                .padding()
                 HStack{
                     Picker("Sort by", selection: $sortBy) {
                                     Text("Start Date")

@@ -262,6 +262,39 @@ class AppViewModel: ObservableObject {
         }
         
     }
+    func planMeeting(date: Date, comments: String, location: String, deviceToken : String){
+        guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
+            return
+        }
+        let json: [String: Any] = [
+        
+            "to": deviceToken,
+            "notification": [
+            
+                "title": "A new meeting is planned",
+                "body": "\(date.formatted()). " + comments
+            ]
+            
+        ]
+        
+        let serverKey = "AAAAet8ZcFw:APA91bFLmcnhl1E_tTZE31ijMHStHUaoDitdRNs4fmBS_Pt4SjcdTx40vSTYqfZh5nvpDqk94AV4ssD-BcWlrYH4YmcCApuVxwrH9Cp5AGHIG-9B4iRVOby-l0KYUVPEN7q9y-ZrMXVG"
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: [.prettyPrinted])
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("key=\(serverKey)", forHTTPHeaderField: "Authorization")
+        
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: request){ _, _, err in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            }
+            print("Success")
+            
+        }
+        .resume()
+    }
 }
 
 
