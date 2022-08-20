@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Firebase
-
 class AppViewModel: ObservableObject {
     
     @Published var createUserError: String?

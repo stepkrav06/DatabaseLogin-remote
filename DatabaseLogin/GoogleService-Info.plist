@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>527728996444-q4gtefl89riesapdcs2jovfs2hq9eikh.apps.googleusercontent.com</string>
+	<string>527728996444-n9r3huus0c0j1ria8e9ui1a8sjrnevl7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.527728996444-q4gtefl89riesapdcs2jovfs2hq9eikh</string>
+	<string>com.googleusercontent.apps.527728996444-n9r3huus0c0j1ria8e9ui1a8sjrnevl7</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDA0qHLAu8XNVVrItAJOrmeKxr1Lb8NU0Q</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>somepie.DatabaseLogin</string>
+	<string>somepie.StudentCouncil</string>
 	<key>PROJECT_ID</key>
 	<string>databaselogin-19b8a</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:527728996444:ios:4bb0bfcde1ba7de1ae3699</string>
+	<string>1:527728996444:ios:dc2c82681e495de0ae3699</string>
+	<key>DATABASE_URL</key>
+	<string>https://databaselogin-19b8a-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

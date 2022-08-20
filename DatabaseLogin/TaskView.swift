@@ -140,7 +140,7 @@ struct TaskView: View {
                 
                 let eventRef = ref.child(event.sid)
                 let tasksRef = eventRef.child("tasks")
-                tasksRef.observe(.value) { snapshot in
+                tasksRef.observeSingleEvent(of :.value) { snapshot in
                     
                     // 3
                     for child in snapshot.children {
@@ -163,7 +163,7 @@ struct TaskView: View {
                     for taskId in taskIdEventDict[event]!{
                         let taskRef = ref.child(taskId)
                         
-                        taskRef.observe(.value) { snapshot in
+                        taskRef.observeSingleEvent(of: .value) { snapshot in
                             
                             // 3
                             
