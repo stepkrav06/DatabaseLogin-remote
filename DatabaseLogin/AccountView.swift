@@ -9,12 +9,6 @@ import SwiftUI
 
 struct AccountView: View {
     @EnvironmentObject var viewModel: AppViewModel
-    @Namespace var namespace
-    @State var show = false
-    @State private var password: String = ""
-    @State private var password2: String = ""
-    @FocusState private var writingFocus: Bool
-    @State private var changePasswordAlertError = false
     @State var userRemoveAlert = false
     @State var userRemoveAlertFail = false
     var body: some View {
