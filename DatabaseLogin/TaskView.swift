@@ -126,7 +126,7 @@ struct TaskView: View {
         .navigationTitle("Tasks")
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.secondary)
+        .background(Color.bg1)
         
         .onAppear{
             for event in viewModel.eventList{
