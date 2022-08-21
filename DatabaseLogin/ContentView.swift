@@ -343,7 +343,7 @@ struct ContentView: View {
                               }
                                 viewModel.userList = users
                                 
-                
+
                                 viewModel.isWriting = false
                             }
                                 

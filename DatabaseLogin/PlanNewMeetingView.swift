@@ -56,7 +56,7 @@ struct PlanNewMeetingView: View {
                     meetingRef.setValue(meeting.toAnyObject())
                     dismiss()
                 }){
-                    Text("Send notification")
+                    Text("Plan meeting")
                         .foregroundColor(.textColor1)
                         
                 }

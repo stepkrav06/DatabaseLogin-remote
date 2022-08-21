@@ -49,7 +49,7 @@ struct TaskViewCard: View {
                         Text(numPeople)
                             .fontWeight(.light)
                             .foregroundColor((viewModel.currentLoggedUser?.tasks.contains(taskId))! ? .green : .black)
-                    }.frame(minWidth: 50, maxHeight: .infinity, alignment: .bottomTrailing)
+                    }.frame(minWidth: 20, maxHeight: .infinity, alignment: .bottomTrailing)
                         .padding()
                         .padding(.horizontal)
                     

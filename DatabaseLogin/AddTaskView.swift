@@ -97,25 +97,16 @@ struct AddTaskView: View {
                 
                 Spacer()
                 
-                Spacer()
-//                Button(action: {
-//                    AddUser()
-//
-//                }){
-//                    Text("Add user")
-//                }
-//                .foregroundColor(.white)
-//                .padding()
-//                .background(.orange)
-//                .cornerRadius(8)
-//                ForEach(userList.users) { user in
-//                    Text(user.name)
-//                }
+                Spacer()             
             }
             .navigationTitle("Add tasks")
             
             
             
+        }
+        .onAppear{
+            eventTasks.users = []
+            eventTasks.usersId = []
         }
         
     }
