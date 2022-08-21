@@ -149,7 +149,7 @@ struct TaskView: View {
                             let snapshot = child as? DataSnapshot
                         {
                             let taskId = snapshot.value as! String
-                            print(taskId)
+                     
                             if taskId != "placeholder"{
                                 self.taskIdEventDict[event]!.append(taskId)
                             }

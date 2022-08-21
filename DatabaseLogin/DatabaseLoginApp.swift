@@ -53,9 +53,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
 
-      let dataDict: [String: String] = ["token": fcmToken ?? ""]
         
-        print(dataDict)
+        
         if fcmToken != nil{
         let ref = Database.database().reference(withPath: "deviceTokens")
         ref.observeSingleEvent(of :.value) { snapshot in
@@ -63,7 +62,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
                 
             var tokens = snapshot.value as? [String] ?? []
-            print(tokens)
+            
             if !tokens.contains(fcmToken!){
                 tokens.append(fcmToken!)
             }
@@ -103,7 +102,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         print("Message ID: \(messageID)")
       }
 
-      // Print full message.
       print(userInfo)
 
       return UIBackgroundFetchResult.newData

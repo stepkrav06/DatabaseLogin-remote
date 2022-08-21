@@ -36,7 +36,7 @@ struct AssignTaskToUserView: View {
                                 event.users.append(user)
                                 event.usersId.append(user.uid)
                             }
-                            print(event.users)
+                            
                         }
                     }
                   } header: {

@@ -19,6 +19,7 @@ struct NextUpMeetingView: View {
             
             Text("Next meeting planned")
                 .font(.title)
+                .bold()
                 
             Text("Meeting time: \(meeting.date.formatted(.dateTime .day(.defaultDigits).month(.defaultDigits).year(.defaultDigits).hour(.defaultDigits(amPM: .omitted)).minute(.defaultDigits).locale(Locale(identifier: "ru"))))")
                 .fontWeight(.light)
@@ -69,8 +70,7 @@ struct NextUpMeetingView: View {
                     meetingPlanned = false
                 } else {
                     if meeting.date < Date(){
-                        print(meeting.date)
-                        print(Date())
+                        
                         meetingPlanned = false
                         ref.removeValue()
                     } else {

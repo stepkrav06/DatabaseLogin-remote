@@ -53,7 +53,7 @@ struct AddTaskView: View {
                     .padding()
                     .background(Color(.secondarySystemBackground))
                     Button(action: {showUserList.toggle()
-                        print(event.sid)
+                        
                     }){
                         Text("Select users to assign task")
                     }

@@ -39,7 +39,7 @@ struct PlanNewMeetingView: View {
                         
                         
                         let tokens = snapshot.value as? [String] ?? []
-                        print(tokens)
+                        
                         for token in tokens{
                             
                             viewModel.planMeeting(date: dateTime, comments: comments, location: location, deviceToken: token)

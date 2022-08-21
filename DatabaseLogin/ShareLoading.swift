@@ -102,7 +102,7 @@ struct ShareLoading: View {
         let file = "Report \(Date().formatted(.dateTime .day(.defaultDigits).month(.defaultDigits).year(.defaultDigits).locale(Locale(identifier: "ru")))).txt"
         let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = dir.appendingPathComponent(file)
-        print(fileURL)
+        
 
         do {
             try fileContent.write(to: fileURL, atomically: false, encoding: .utf8)

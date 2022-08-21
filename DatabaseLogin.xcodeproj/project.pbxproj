@@ -10,7 +10,6 @@
 		2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700CDBB27FAED980017B114 /* AccountViewAdmin.swift */; };
 		2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700CDBF27FAF91A0017B114 /* AddUserPage.swift */; };
 		27022F3C27F58C7800EAC364 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27022F3B27F58C7800EAC364 /* Models.swift */; };
-		2773159927F6EC00000D5C28 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773159827F6EC00000D5C28 /* BlurView.swift */; };
 		27765A5B27FEDEE6005D8407 /* EventCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27765A5A27FEDEE6005D8407 /* EventCard.swift */; };
 		277F52E728001FB30073BF3A /* EventViewDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F52E628001FB30073BF3A /* EventViewDetailed.swift */; };
 		277F52E9280041720073BF3A /* EventViewDetailedAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */; };
@@ -36,7 +35,6 @@
 		DA23AA6C28B1292900352A0E /* PlanNewMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */; };
 		DA23AA6E28B149AA00352A0E /* NextUpMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
-		DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CD27F4EB5700F476EA /* SomeView.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
 		DA5664CB27F380FB0031F8F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664CA27F380FB0031F8F1 /* ContentView.swift */; };
 		DA5664CD27F380FC0031F8F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA5664CC27F380FC0031F8F1 /* Assets.xcassets */; };
@@ -80,7 +78,6 @@
 		2700CDBB27FAED980017B114 /* AccountViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewAdmin.swift; sourceTree = "<group>"; };
 		2700CDBF27FAF91A0017B114 /* AddUserPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserPage.swift; sourceTree = "<group>"; };
 		27022F3B27F58C7800EAC364 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		2773159827F6EC00000D5C28 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		27765A5A27FEDEE6005D8407 /* EventCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCard.swift; sourceTree = "<group>"; };
 		277F52E628001FB30073BF3A /* EventViewDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewDetailed.swift; sourceTree = "<group>"; };
 		277F52E8280041720073BF3A /* EventViewDetailedAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewDetailedAdmin.swift; sourceTree = "<group>"; };
@@ -108,7 +105,6 @@
 		DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanNewMeetingView.swift; sourceTree = "<group>"; };
 		DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextUpMeetingView.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
-		DA5545CD27F4EB5700F476EA /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLoginApp.swift; sourceTree = "<group>"; };
 		DA5664CA27F380FB0031F8F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -195,7 +191,6 @@
 				27B127F827FC51D600888179 /* AccountViewNonAdmin.swift */,
 				2700CDBB27FAED980017B114 /* AccountViewAdmin.swift */,
 				DA23AA2F28AD41EA00352A0E /* ManageUsersView.swift */,
-				2773159827F6EC00000D5C28 /* BlurView.swift */,
 				DA1F65BB27F63F5600E7A07C /* TabViewAdmin.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
 				DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */,
@@ -212,7 +207,6 @@
 				DA23AA2928AA5D8100352A0E /* ExportGradesView.swift */,
 				DA23AA2B28ABBADE00352A0E /* ShareLoading.swift */,
 				27022F3B27F58C7800EAC364 /* Models.swift */,
-				DA5545CD27F4EB5700F476EA /* SomeView.swift */,
 				DA5545CB27F4E62C00F476EA /* LoginPage.swift */,
 				DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */,
 				DAFD931F2803451600D7B348 /* EventViewNonAdmin.swift */,
@@ -414,14 +408,12 @@
 				DA23AA2C28ABBADE00352A0E /* ShareLoading.swift in Sources */,
 				DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */,
 				DA1F65BE27F6463900E7A07C /* AccountView.swift in Sources */,
-				2773159927F6EC00000D5C28 /* BlurView.swift in Sources */,
 				278CCF7227FEC774005A6F12 /* AddEventPage.swift in Sources */,
 				DA8CB85727FF76CE006487CB /* EventNextUp.swift in Sources */,
 				27765A5B27FEDEE6005D8407 /* EventCard.swift in Sources */,
 				27B127F927FC51D700888179 /* AccountViewNonAdmin.swift in Sources */,
 				DA1330AD28032BE3002F75EC /* AssignTaskToUserView.swift in Sources */,
 				DA23AA2628A9256500352A0E /* GradingDetailedAdmin.swift in Sources */,
-				DA5545CE27F4EB5700F476EA /* SomeView.swift in Sources */,
 				DA23AA6E28B149AA00352A0E /* NextUpMeetingView.swift in Sources */,
 				277F52E728001FB30073BF3A /* EventViewDetailed.swift in Sources */,
 				2700CDBC27FAED990017B114 /* AccountViewAdmin.swift in Sources */,
@@ -602,6 +594,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -614,7 +607,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -635,6 +628,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -647,7 +641,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

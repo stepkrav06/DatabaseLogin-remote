@@ -26,8 +26,8 @@ class AppViewModel: ObservableObject {
         
         Auth.auth().createUser(withEmail: email, password: password) { res, error in
             if error != nil {
-                self.createUserError = error?.localizedDescription ?? ""
-                print(self.createUserError!)
+                self.createUserError = error!.localizedDescription
+                
             } else {
                 let user = User(uid: res!.user.uid, email: email, name: name, lastName: lastName, isAdmin: isAdmin, grade: grade)
                 let ref = Database.database().reference(withPath: "users")
@@ -44,7 +44,7 @@ class AppViewModel: ObservableObject {
 
             guard user != nil, error == nil else {
                 self.logInError = error!.localizedDescription
-                print(self.logInError!)
+        
                 return
             }
             DispatchQueue.main.async {
@@ -61,14 +61,14 @@ class AppViewModel: ObservableObject {
     }
     func changePassword(password: String, confirmPassword: String){
         if password == confirmPassword {
-            print("bebe")
+            
             Auth.auth().currentUser?.updatePassword(to: password) { error in
                 if error != nil{
                     self.changePasswordError = error?.localizedDescription
                 }
             }
         }
-        print("no bebe")
+        
     }
     func addEvent(event: Event){
         let ref = Database.database().reference(withPath: "events")
@@ -272,7 +272,8 @@ class AppViewModel: ObservableObject {
             "notification": [
             
                 "title": "A new meeting is planned",
-                "body": "\(date.formatted()). " + comments
+                "body": "\(date.formatted()). " + comments,
+                "sound": "default"
             ]
             
         ]
@@ -290,7 +291,7 @@ class AppViewModel: ObservableObject {
                 print(err.localizedDescription)
                 return
             }
-            print("Success")
+            
             
         }
         .resume()
@@ -342,10 +343,7 @@ struct ContentView: View {
                               }
                                 viewModel.userList = users
                                 
-                                for user in users {
-                                    print(user.name)
-                                    print(user.tasks)
-                                }
+                
                                 viewModel.isWriting = false
                             }
                                 
