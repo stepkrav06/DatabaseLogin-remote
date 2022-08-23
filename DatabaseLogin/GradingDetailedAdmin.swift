@@ -50,7 +50,7 @@ struct GradingDetailedAdmin: View {
                             Text("Grade " + user.grade)
                                 .foregroundColor(Color.secondary)
                             } else {
-                                Text(user.grade)
+                                Text("Staff")
                                     .foregroundColor(Color.secondary)
                             }
                            

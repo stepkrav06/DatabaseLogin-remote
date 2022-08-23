@@ -34,7 +34,12 @@ class AppViewModel: ObservableObject {
                 let userRef = ref.child(res!.user.uid)
                 userRef.setValue(user.toAnyObject())
                 let gradeRef = Database.database().reference(withPath: "grades").child(res!.user.uid)
-                gradeRef.setValue("")
+                let nulGrade = Grade(attendance: true, activity: "", comments: "")
+                for event in self.eventList {
+                    let eventGradeRef = gradeRef.child(event.sid)
+                    eventGradeRef.setValue(nulGrade.toAnyObject())
+                }
+                
             }
             
         }
@@ -151,7 +156,10 @@ class AppViewModel: ObservableObject {
                           }
                         }
                         if userTasks.count != 1 {
-                            ref.child(String(ind!)).removeValue()
+                            if let index = userTasks.firstIndex(of: task) {
+                                userTasks.remove(at: index)
+                            }
+                            ref.setValue(userTasks as NSArray)
                         } else {
                             ref.child(String(ind!)).setValue("placeholder")
                         }
@@ -200,7 +208,10 @@ class AppViewModel: ObservableObject {
                       }
                     }
                     if tasks.count != 1 {
-                        ref.child(String(ind!)).removeValue()
+                        if let index = tasks.firstIndex(of: task.sid) {
+                          tasks.remove(at: index)
+                        }
+                        ref.setValue(tasks as NSArray)
                     } else {
                         ref.child(String(ind!)).setValue("placeholder")
                     }
@@ -234,7 +245,10 @@ class AppViewModel: ObservableObject {
                     }
                     let taskRef = ref.child(String(ind!))
                     if userTasks.count != 1 {
-                        taskRef.removeValue()
+                        if let index = userTasks.firstIndex(of: task.sid) {
+                            userTasks.remove(at: index)
+                        }
+                        ref.setValue(userTasks as NSArray)
                     } else {
                         taskRef.setValue("placeholder")
                     }
@@ -252,13 +266,14 @@ class AppViewModel: ObservableObject {
         ref.setValue(grade.toAnyObject())
     }
     func deleteUser(user: User){
+        Auth.auth().currentUser!.delete()
         let UserRef = Database.database().reference(withPath: "users").child(user.uid)
         UserRef.removeValue()
         let GradeRef = Database.database().reference(withPath: "grades").child(user.uid)
         GradeRef.removeValue()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            Auth.auth().currentUser!.delete()
-            self.signedIn = false
+            
+            self.logOut()
         }
         
     }
@@ -301,7 +316,6 @@ class AppViewModel: ObservableObject {
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
-//    @EnvironmentObject var userList: Users
     
     var body: some View {
         NavigationView{
@@ -381,14 +395,7 @@ struct ContentView: View {
     }
 }
 
-struct OvalTextFieldStyle: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-            .padding(10)
-            .background(Color.lightGray)
-            .cornerRadius(20)
-    }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

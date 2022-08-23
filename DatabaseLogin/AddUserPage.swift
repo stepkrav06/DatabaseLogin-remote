@@ -111,19 +111,6 @@ struct AddUserPage: View {
                 Spacer()
                 
                 Spacer()
-//                Button(action: {
-//                    AddUser()
-//
-//                }){
-//                    Text("Add user")
-//                }
-//                .foregroundColor(.white)
-//                .padding()
-//                .background(.orange)
-//                .cornerRadius(8)
-//                ForEach(userList.users) { user in
-//                    Text(user.name)
-//                }
             }
             .navigationTitle("Add user")
             
