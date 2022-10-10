@@ -1,16 +1,16 @@
 //
-//  UserStatsView.swift
+//  EventStatsView.swift
 //  DatabaseLogin
 //
 //  Created by Степан Кравцов on 10.10.2022.
 //
 
 import SwiftUI
-import SwiftUICharts    
+import SwiftUICharts
 
-struct UserStatsView: View {
+struct EventStatsView: View {
     var data: DoughnutChartData?
-    var user: User
+    var event: Event
     @State var hasData: Bool = true
     
     var body: some View {
@@ -37,8 +37,5 @@ struct UserStatsView: View {
     }
      
 }
-
-
-
 
 

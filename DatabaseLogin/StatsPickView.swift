@@ -14,6 +14,7 @@ struct StatsPickView: View {
     @State var data: Any = []
     @State var grades: [Grade] = []
     @State var pickedUser: Bool = false
+    @State var pickedEvent: Bool = false
     var body: some View {
         
             
@@ -24,19 +25,44 @@ struct StatsPickView: View {
                         .font(.title)
                         .fontWeight(.thin)
                     ForEach(viewModel.eventList){event in
-                        ZStack {
-                            NavigationLink(destination: AccountViewAdmin()){
+                        Button(action: {
+                            for user in viewModel.userList{
+                                let ref = Database.database().reference(withPath: "grades").child(user.uid).child(event.sid)
+                                ref.observeSingleEvent(of: .value, with: { snapshot in
+                                        
+                                    let grade = Grade(snapshot: snapshot)
+                                    grades.append(grade!)
+
+                                    
+                                    }) { (error) in
+                                        print(error.localizedDescription)
+                                    }
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                data = makeDataEvent(grades: grades, event: event)
+                                pickedEvent = true
+                            }
+                            
+                            
+                            
+                        }){
+                            ZStack {
+
+                                NavigationLink(destination: EventStatsView(data: data as? DoughnutChartData ?? nil, event: event), isActive: self.$pickedEvent){
+                                    
+                                    
+                                }.hidden()
                                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                                     .stroke(Color.textColor1)
                                     .frame(height: 50)
                                     .padding(8)
-                                
-                            }
-                            HStack{
-                                Text(event.name)
-                                    .foregroundColor(Color.textColor1)
+                                HStack{
+                                    Text(event.name)
+                                        .foregroundColor(Color.textColor1)
+                                }
                             }
                         }
+                        
                     }
                 }
                     .frame(maxHeight: .infinity, alignment: .top)
@@ -62,7 +88,7 @@ struct StatsPickView: View {
                                         }
                                 }
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    data = makeData(grades: grades, user: user)
+                                    data = makeDataUser(grades: grades, user: user)
                                     pickedUser = true
                                 }
                                 
@@ -111,3 +137,36 @@ struct StatsPickView_Previews: PreviewProvider {
     }
 }
 
+public func makeDataUser(grades: [Grade], user: User) -> DoughnutChartData {
+    var dataPoints: [PieChartDataPoint] = []
+    for grade in grades{
+        if grade.attendance && grade.activity != ""{
+            dataPoints.append(PieChartDataPoint(value: Double(grades.filter { $0.activity == grade.activity}.count), description: grade.activity  , colour: Color.random  , label: .label(text: grade.activity, rFactor: 0.8)))
+        }
+    }
+    let data = PieDataSet(
+        dataPoints: dataPoints,
+        legendTitle: "Grades")
+    
+    return DoughnutChartData(dataSets: data,
+                             metadata: ChartMetadata(title: "Grade summary", subtitle: "\(user.name) \(user.lastName)"),
+                             chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
+                             noDataText: Text("No grades"))
+}
+
+public func makeDataEvent(grades: [Grade], event: Event) -> DoughnutChartData {
+    var dataPoints: [PieChartDataPoint] = []
+    for grade in grades{
+        if grade.attendance && grade.activity != ""{
+            dataPoints.append(PieChartDataPoint(value: Double(grades.filter { $0.activity == grade.activity}.count), description: grade.activity  , colour: Color.random  , label: .label(text: grade.activity, rFactor: 0.8)))
+        }
+    }
+    let data = PieDataSet(
+        dataPoints: dataPoints,
+        legendTitle: "Grades")
+    
+    return DoughnutChartData(dataSets: data,
+                             metadata: ChartMetadata(title: "Grade summary", subtitle: "\(event.name)"),
+                             chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
+                             noDataText: Text("No grades"))
+}

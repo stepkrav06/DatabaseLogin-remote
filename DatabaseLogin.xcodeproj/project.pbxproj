@@ -54,6 +54,7 @@
 		DA60765E27FCDB950046F6C5 /* EventViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */; };
 		DA8CB85727FF76CE006487CB /* EventNextUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CB85627FF76CE006487CB /* EventNextUp.swift */; };
 		DA93314028F49FC3002B4742 /* StatsPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93313F28F49FC3002B4742 /* StatsPickView.swift */; };
+		DA93314428F4AFA7002B4742 /* EventStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93314328F4AFA7002B4742 /* EventStatsView.swift */; };
 		DA9CE1BE28A3BC5E002FA019 /* TaskViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */; };
 		DA9CE1C028A3C3AE002FA019 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */; };
 		DAB90B6628A55AA600E5ED16 /* TaskDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB90B6528A55AA600E5ED16 /* TaskDetailed.swift */; };
@@ -122,6 +123,7 @@
 		DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewAdmin.swift; sourceTree = "<group>"; };
 		DA8CB85627FF76CE006487CB /* EventNextUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNextUp.swift; sourceTree = "<group>"; };
 		DA93313F28F49FC3002B4742 /* StatsPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsPickView.swift; sourceTree = "<group>"; };
+		DA93314328F4AFA7002B4742 /* EventStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatsView.swift; sourceTree = "<group>"; };
 		DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCard.swift; sourceTree = "<group>"; };
 		DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		DAB90B6528A55AA600E5ED16 /* TaskDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailed.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				DA23AA6A28B1201300352A0E /* Info.plist */,
 				DA23AA6928B11FEF00352A0E /* DatabaseLogin.entitlements */,
 				DA240E6928F491D900FAA96A /* UserStatsView.swift */,
+				DA93314328F4AFA7002B4742 /* EventStatsView.swift */,
 				DA93313F28F49FC3002B4742 /* StatsPickView.swift */,
 				277F52EA2800434C0073BF3A /* AddTaskView.swift */,
 				DA1330AC28032BE3002F75EC /* AssignTaskToUserView.swift */,
@@ -403,6 +406,7 @@
 				DA23AA2A28AA5D8100352A0E /* ExportGradesView.swift in Sources */,
 				DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */,
 				2700CDC027FAF91A0017B114 /* AddUserPage.swift in Sources */,
+				DA93314428F4AFA7002B4742 /* EventStatsView.swift in Sources */,
 				DA23AA2228A91C3F00352A0E /* GradeView.swift in Sources */,
 				DA23AA3028AD41EA00352A0E /* ManageUsersView.swift in Sources */,
 				277F52E9280041720073BF3A /* EventViewDetailedAdmin.swift in Sources */,
