@@ -90,6 +90,9 @@ struct ExportGradesView: View {
                     .padding()
                     }
                 }
+                .onAppear{
+                    viewModel.gradesExported = false
+                }
         
             
         

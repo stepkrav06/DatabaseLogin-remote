@@ -38,6 +38,12 @@ struct GradeView: View {
                             .foregroundColor(Color.textColor1)
                     }
                 }
+                Button(action: {}){
+                    NavigationLink(destination: StatsPickView()){
+                        Image(systemName: "chart.bar")
+                            .foregroundColor(Color.textColor1)
+                    }
+                }
                 
                 
             }

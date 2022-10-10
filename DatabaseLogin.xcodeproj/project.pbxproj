@@ -34,6 +34,8 @@
 		DA23AA6828B11D5800352A0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA23AA6728B11D5800352A0E /* GoogleService-Info.plist */; };
 		DA23AA6C28B1292900352A0E /* PlanNewMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */; };
 		DA23AA6E28B149AA00352A0E /* NextUpMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */; };
+		DA240E6828F4908300FAA96A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DA240E6728F4908300FAA96A /* SwiftUICharts */; };
+		DA240E6A28F491D900FAA96A /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA240E6928F491D900FAA96A /* UserStatsView.swift */; };
 		DA5545CC27F4E62C00F476EA /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5545CB27F4E62C00F476EA /* LoginPage.swift */; };
 		DA5664C927F380FB0031F8F1 /* DatabaseLoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */; };
 		DA5664CB27F380FB0031F8F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5664CA27F380FB0031F8F1 /* ContentView.swift */; };
@@ -51,6 +53,7 @@
 		DA56650027F382FA0031F8F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DA5664FF27F382FA0031F8F1 /* FirebaseMessaging */; };
 		DA60765E27FCDB950046F6C5 /* EventViewAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */; };
 		DA8CB85727FF76CE006487CB /* EventNextUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CB85627FF76CE006487CB /* EventNextUp.swift */; };
+		DA93314028F49FC3002B4742 /* StatsPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA93313F28F49FC3002B4742 /* StatsPickView.swift */; };
 		DA9CE1BE28A3BC5E002FA019 /* TaskViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */; };
 		DA9CE1C028A3C3AE002FA019 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */; };
 		DAB90B6628A55AA600E5ED16 /* TaskDetailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB90B6528A55AA600E5ED16 /* TaskDetailed.swift */; };
@@ -104,6 +107,7 @@
 		DA23AA6A28B1201300352A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DA23AA6B28B1292900352A0E /* PlanNewMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanNewMeetingView.swift; sourceTree = "<group>"; };
 		DA23AA6D28B149AA00352A0E /* NextUpMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextUpMeetingView.swift; sourceTree = "<group>"; };
+		DA240E6928F491D900FAA96A /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		DA5545CB27F4E62C00F476EA /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLoginApp.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		DA5664E527F380FD0031F8F1 /* DatabaseLoginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseLoginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DA60765D27FCDB950046F6C5 /* EventViewAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewAdmin.swift; sourceTree = "<group>"; };
 		DA8CB85627FF76CE006487CB /* EventNextUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventNextUp.swift; sourceTree = "<group>"; };
+		DA93313F28F49FC3002B4742 /* StatsPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsPickView.swift; sourceTree = "<group>"; };
 		DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCard.swift; sourceTree = "<group>"; };
 		DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		DAB90B6528A55AA600E5ED16 /* TaskDetailed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailed.swift; sourceTree = "<group>"; };
@@ -133,6 +138,7 @@
 				DA56650027F382FA0031F8F1 /* FirebaseMessaging in Frameworks */,
 				DA5664FA27F382FA0031F8F1 /* FirebaseDatabaseSwift-Beta in Frameworks */,
 				DA5664F627F382FA0031F8F1 /* FirebaseAuthCombine-Community in Frameworks */,
+				DA240E6828F4908300FAA96A /* SwiftUICharts in Frameworks */,
 				DA5664FE27F382FA0031F8F1 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				DA5664FC27F382FA0031F8F1 /* FirebaseInAppMessaging-Beta in Frameworks */,
 			);
@@ -180,6 +186,8 @@
 			children = (
 				DA23AA6A28B1201300352A0E /* Info.plist */,
 				DA23AA6928B11FEF00352A0E /* DatabaseLogin.entitlements */,
+				DA240E6928F491D900FAA96A /* UserStatsView.swift */,
+				DA93313F28F49FC3002B4742 /* StatsPickView.swift */,
 				277F52EA2800434C0073BF3A /* AddTaskView.swift */,
 				DA1330AC28032BE3002F75EC /* AssignTaskToUserView.swift */,
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
@@ -271,6 +279,7 @@
 				DA5664FB27F382FA0031F8F1 /* FirebaseInAppMessaging-Beta */,
 				DA5664FD27F382FA0031F8F1 /* FirebaseInAppMessagingSwift-Beta */,
 				DA5664FF27F382FA0031F8F1 /* FirebaseMessaging */,
+				DA240E6728F4908300FAA96A /* SwiftUICharts */,
 			);
 			productName = DatabaseLogin;
 			productReference = DA5664C527F380FB0031F8F1 /* DatabaseLogin.app */;
@@ -346,6 +355,7 @@
 			mainGroup = DA5664BC27F380FB0031F8F1;
 			packageReferences = (
 				DA5664F227F382FA0031F8F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DA240E6628F4908300FAA96A /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = DA5664C627F380FB0031F8F1 /* Products */;
 			projectDirPath = "";
@@ -425,6 +435,8 @@
 				DA60765E27FCDB950046F6C5 /* EventViewAdmin.swift in Sources */,
 				277F52EB2800434C0073BF3A /* AddTaskView.swift in Sources */,
 				DA23AA2828A9A18E00352A0E /* GradePersonView.swift in Sources */,
+				DA93314028F49FC3002B4742 /* StatsPickView.swift in Sources */,
+				DA240E6A28F491D900FAA96A /* UserStatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = somepie.StudentCouncil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -636,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = somepie.StudentCouncil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -763,6 +775,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DA240E6628F4908300FAA96A /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		DA5664F227F382FA0031F8F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -774,6 +794,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DA240E6728F4908300FAA96A /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA240E6628F4908300FAA96A /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
 		DA5664F327F382FA0031F8F1 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DA5664F227F382FA0031F8F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
