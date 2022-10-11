@@ -48,7 +48,7 @@ struct StatsPickView: View {
                         }){
                             ZStack {
 
-                                NavigationLink(destination: EventStatsView(data: data as? DoughnutChartData ?? nil, event: event), isActive: self.$pickedEvent){
+                                NavigationLink(destination: EventStatsView(data: data as? DoughnutChartData ?? nil, event: event, grades: grades), isActive: self.$pickedEvent){
                                     
                                     
                                 }.hidden()
@@ -97,7 +97,7 @@ struct StatsPickView: View {
                             }){
                                 ZStack {
 
-                                    NavigationLink(destination: UserStatsView(data: data as? DoughnutChartData ?? nil, user: user), isActive: self.$pickedUser){
+                                    NavigationLink(destination: UserStatsView(data: data as? DoughnutChartData ?? nil, grades: grades, user: user), isActive: self.$pickedUser){
                                         
                                         
                                     }.hidden()

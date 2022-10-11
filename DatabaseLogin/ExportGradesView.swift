@@ -100,14 +100,6 @@ struct ExportGradesView: View {
         .toolbar {
            
                 Button(action: {
-//                    let events = pickedEvents.filter { $1 == true }.map { $0.0 }
-//                    let users = pickedUsers.filter { $1 == true }.map { $0.0 }
-//                    let grades = getGradesForUsersAndEvents(userList: users, eventList: events)
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                        let url = createSummaryByUser(userList: users, eventList: events, grades: grades)
-//                        actionSheet(url: url)
-//                    }
-                    
                     
                 }){
                     NavigationLink(destination: ShareLoading(users: pickedUsers, events: pickedEvents)){
