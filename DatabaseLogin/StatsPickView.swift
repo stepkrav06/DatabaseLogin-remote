@@ -139,10 +139,15 @@ struct StatsPickView_Previews: PreviewProvider {
 
 public func makeDataUser(grades: [Grade], user: User) -> DoughnutChartData {
     var dataPoints: [PieChartDataPoint] = []
+    var gradesDict: [String:Double] = [:]
     for grade in grades{
         if grade.attendance && grade.activity != ""{
-            dataPoints.append(PieChartDataPoint(value: Double(grades.filter { $0.activity == grade.activity}.count), description: grade.activity  , colour: Color.random  , label: .label(text: grade.activity, rFactor: 0.8)))
+            gradesDict[grade.activity] = (gradesDict[grade.activity] ?? 0) + 1
+            
         }
+    }
+    for grade in gradesDict.keys {
+        dataPoints.append(PieChartDataPoint(value: gradesDict[grade] ?? 0, description: grade, colour: Color.random  , label: .label(text: grade, rFactor: 0.8)))
     }
     let data = PieDataSet(
         dataPoints: dataPoints,

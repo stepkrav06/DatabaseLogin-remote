@@ -116,7 +116,7 @@ struct GradingDetailedAdmin: View {
                       
                      
                         let grade = Grade(snapshot: snapshot)
-                        grades[user.uid] = grade!
+                        grades[user.uid] = grade ?? Grade(attendance: true, activity: "", comments: "")
                         
                   
                 

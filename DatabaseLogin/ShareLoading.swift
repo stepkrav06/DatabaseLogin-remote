@@ -105,7 +105,7 @@ struct ShareLoading: View {
         
 
         do {
-            try fileContent.write(to: fileURL, atomically: false, encoding: .utf8)
+            try fileContent.write(to: fileURL, atomically: true, encoding: .utf8)
         }
         catch {
             print("Error: \(error)")
