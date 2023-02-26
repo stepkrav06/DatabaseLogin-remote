@@ -1,8 +1,8 @@
 //
 //  TaskDetailed.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 11.08.2022.
+//  The view with the detailed infrmation about a task
+//
 //
 
 import SwiftUI
@@ -113,6 +113,7 @@ struct TaskDetailed: View {
                 
             }
             if viewModel.currentLoggedUser!.isAdmin{
+                // shown only for admin users
                 Button(action: {taskRemoveAlert.toggle()}){
                     
                     ZStack{
@@ -143,6 +144,7 @@ struct TaskDetailed: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationTitle("Task")
         .onAppear{
+            // list of users the task is assigned to is loaded
             let ref = Database.database().reference(withPath: "users")
             for user in task.people{
                 

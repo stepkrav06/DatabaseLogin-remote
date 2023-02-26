@@ -1,8 +1,8 @@
 //
-//  Models.swift
-//  DatabaseLogin
+//  EventTasks.swift
 //
-//  Created by Степан Кравцов on 31.03.2022.
+//  Used to transfer a list of tasks and events through views (for assigning tasks)
+//
 //
 
 import Foundation

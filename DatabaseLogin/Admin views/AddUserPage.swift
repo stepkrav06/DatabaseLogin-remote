@@ -1,8 +1,8 @@
 //
 //  AddUserPage.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 04.04.2022.
+//  A view to add a new user
+//
 //
 
 import SwiftUI
@@ -35,7 +35,7 @@ struct AddUserPage: View {
                     .focused($writingFocus)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                    
+                    // secure field for the password
                     SecureField(
                         "Password",
                         text: $password

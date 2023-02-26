@@ -1,8 +1,8 @@
 //
 //  TabViewNonAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 03.04.2022.
+//  Tab view allowing to navigate the app for regular users
+//
 //
 
 import SwiftUI
@@ -32,6 +32,7 @@ struct TabViewNonAdmin: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 if !viewModel.isWriting{
+                    // only shown when a user is not typing (tab bar hidden, when in text fields)
                     HStack{
                         ForEach(tabItemsNonAdmin) { item in
                             Button(action: {

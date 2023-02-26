@@ -1,8 +1,8 @@
 //
 //  PlanNewMeetingView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 20.08.2022.
+//  The view for planning a new meeting
+//
 //
 
 import SwiftUI
@@ -33,6 +33,7 @@ struct PlanNewMeetingView: View {
             }
             Section{
                 Button(action:{
+                    // sending notifications about the new meeting to all users
                     let ref = Database.database().reference(withPath: "deviceTokens")
                     ref.observeSingleEvent(of :.value) { snapshot in
                         

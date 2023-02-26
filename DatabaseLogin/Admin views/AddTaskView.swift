@@ -1,8 +1,8 @@
 //
 //  AddTaskView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 08.04.2022.
+//  The view to add a new task
+//
 //
 
 import SwiftUI

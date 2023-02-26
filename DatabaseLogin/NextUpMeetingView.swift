@@ -1,8 +1,8 @@
 //
 //  NextUpMeetingView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 20.08.2022.
+//  Card with the information about the next planned meeting
+//
 //
 
 import SwiftUI
@@ -15,6 +15,7 @@ struct NextUpMeetingView: View {
     var body: some View {
         ZStack{
         if meetingPlanned{
+            // shown if a meeting is planned
             VStack(alignment: .leading, spacing: 5){
             
             Text("Next meeting planned")
@@ -37,6 +38,7 @@ struct NextUpMeetingView: View {
         .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke(.primary, lineWidth: 1).blur(radius: 4))
         .padding()
             } else {
+                // shown if no meeting is planned
                 VStack(spacing: 5){
                 Text("No meetings planned")
                     .padding()
@@ -62,6 +64,7 @@ struct NextUpMeetingView: View {
         
         }
         .onAppear{
+            // loading the next meeting information
             let ref = Database.database().reference(withPath: "nextMeeting")
             ref.observeSingleEvent(of: .value, with: { snapshot in
                 

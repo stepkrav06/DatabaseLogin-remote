@@ -218,6 +218,7 @@
 				277F52E628001FB30073BF3A /* EventViewDetailed.swift */,
 				DA23AA2D28ABE02800352A0E /* GradeViewDetailedNonAdmin.swift */,
 				DAFD931F2803451600D7B348 /* EventViewNonAdmin.swift */,
+				DA1F65BD27F6463900E7A07C /* AccountView.swift */,
 			);
 			path = "Non-admin views";
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 				DA0FADF327F9FAEA00C702DB /* LoadingView.swift */,
 				DA5664C827F380FB0031F8F1 /* DatabaseLoginApp.swift */,
 				DA1F65B927F63DB500E7A07C /* Tab.swift */,
-				DA1F65BD27F6463900E7A07C /* AccountView.swift */,
 				DA5664CA27F380FB0031F8F1 /* ContentView.swift */,
 				DA9CE1BD28A3BC5E002FA019 /* TaskViewCard.swift */,
 				DA9CE1BF28A3C3AE002FA019 /* TaskView.swift */,

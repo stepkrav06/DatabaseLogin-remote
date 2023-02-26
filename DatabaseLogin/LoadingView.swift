@@ -1,8 +1,8 @@
 //
 //  LoadingView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 03.04.2022.
+//  Loading view shown, when some information has to be loaded for another view to be shown
+//
 //
 
 import SwiftUI

@@ -1,8 +1,8 @@
 //
 //  Colors.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 03.04.2022.
+//  Additional colors for text and background
+//
 //
 
 import Foundation

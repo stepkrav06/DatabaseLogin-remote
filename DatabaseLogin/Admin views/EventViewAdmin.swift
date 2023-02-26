@@ -1,8 +1,8 @@
 //
 //  EventView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 05.04.2022.
+//  The event page for admin users
+//  
 //
 
 import SwiftUI
@@ -15,6 +15,7 @@ struct EventViewAdmin: View {
     var body: some View {
         ScrollView {
             if viewModel.eventList.count == 0{
+                // if no events planned
                 VStack{
                     Text("No events yet")
                     Button(action: {showAddEvent.toggle()}){
@@ -37,6 +38,7 @@ struct EventViewAdmin: View {
                 }
             }
             else{
+                // if some events planned
             
             VStack{
                 NextUpMeetingView()
@@ -74,6 +76,7 @@ struct EventViewAdmin: View {
                     AddEventPage ()
                 }
                 }
+                // sorting by start date (default)
                 if sortBy == "Start Date"{
                     
                 ForEach(viewModel.eventList.sorted(by: {
@@ -87,6 +90,7 @@ struct EventViewAdmin: View {
                     }
                 }
                 }
+                // sorting by end date
                 if sortBy == "End Date"{
                     
                 ForEach(viewModel.eventList.sorted(by: {
@@ -102,6 +106,7 @@ struct EventViewAdmin: View {
                         
                 }
                 }
+                // sorting by name
                 if sortBy == "Name"{
                     ForEach(viewModel.eventList.sorted { $0.name.lowercased() < $1.name.lowercased() }){ event in
                         NavigationLink(destination: EventViewDetailedAdmin(event: event)){

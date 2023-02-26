@@ -1,8 +1,8 @@
 //
 //  EventViewNonAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 10.04.2022.
+//  The event page for regular users
+//
 //
 
 import SwiftUI
@@ -33,6 +33,7 @@ struct EventViewNonAdmin: View {
                     
                 
                 }
+                // sorting by start date (default)
                 if sortBy == "Start Date"{
                     
                 ForEach(viewModel.eventList.sorted(by: {
@@ -46,6 +47,7 @@ struct EventViewNonAdmin: View {
                     }
                 }
                 }
+                // sorting by end date
                 if sortBy == "End Date"{
                     
                 ForEach(viewModel.eventList.sorted(by: {
@@ -61,6 +63,7 @@ struct EventViewNonAdmin: View {
                         
                 }
                 }
+                // sorting by name
                 if sortBy == "Name"{
                     ForEach(viewModel.eventList.sorted { $0.name.lowercased() < $1.name.lowercased() }){ event in
                         NavigationLink(destination: EventViewDetailed(event: event)){

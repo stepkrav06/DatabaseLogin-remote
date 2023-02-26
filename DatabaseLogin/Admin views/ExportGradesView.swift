@@ -1,8 +1,8 @@
 //
 //  ExportGradesView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 15.08.2022.
+//  View allowing to choose which grades to export
+//
 //
 
 import SwiftUI

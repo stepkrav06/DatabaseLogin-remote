@@ -1,8 +1,8 @@
 //
 //  TaskViewCard.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 10.08.2022.
+//  The card with information about a task
+//
 //
 
 import SwiftUI

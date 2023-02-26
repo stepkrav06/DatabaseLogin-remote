@@ -1,8 +1,8 @@
 //
 //  GradeView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 14.08.2022.
+//  Grading page
+//
 //
 
 import SwiftUI
@@ -16,10 +16,12 @@ struct GradeView: View {
             VStack{
                 ForEach(viewModel.eventList){event in
                     if viewModel.currentLoggedUser!.isAdmin{
+                        // shown for admin users
                         NavigationLink(destination: GradingDetailedAdmin(event: event)){
                             GradeCard(admin: viewModel.currentLoggedUser!.isAdmin, event: event)
                         }
                     } else {
+                        // shown for regular users
                         NavigationLink(destination: GradeViewDetailedNonAdmin(event: event)){
                             GradeCard(admin: viewModel.currentLoggedUser!.isAdmin, event: event)
                         }

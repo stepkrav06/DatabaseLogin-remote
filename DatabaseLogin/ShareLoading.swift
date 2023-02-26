@@ -1,8 +1,8 @@
 //
 //  ShareLoding.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 16.08.2022.
+//  Loading screen shown, while the text document with grades is created
+//
 //
 
 import SwiftUI
@@ -19,25 +19,6 @@ struct ShareLoading: View {
     var body: some View {
         VStack{
             LoadingView()
-//            Button(action:{shareAlert.toggle()}){
-//                ZStack{
-//                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-//                        .fill(.red)
-//                        .frame(height:50)
-//                        .padding()
-//                    Text("Share")
-//                        .foregroundColor(.white)
-//                }
-//            }
-//            .alert("You want to delete the task?", isPresented: $shareAlert) {
-//                Button("Cancel", role: .cancel) { }
-//                Button("Yes", role: .destructive) {
-//                    viewModel.removeTask(task: task)
-//                    viewModel.removeTask2(task: task)
-//                    dismiss()
-//                    
-//                }
-//            }
         }
                 .onAppear{
                     if !viewModel.gradesExported{
@@ -80,6 +61,17 @@ struct ShareLoading: View {
             }
         
     }
+    /*
+     A function for creating the text document with exported grades
+     arguments:
+        -userList: List of User objects to export the grades for
+        -eventList: List of Event objects to export the grades for
+        -grades: The dictianary associating grades to users and events
+     return:
+        -String: The URL of the exported file
+     result:
+        -text file with exported grades created
+     */
     func createSummaryByUser(userList: [User], eventList: [Event], grades: [String:[String:Grade]]) -> String{
         var fileContent = ""
         fileContent.append("The report for the student council activity\n\n")
@@ -113,6 +105,7 @@ struct ShareLoading: View {
         return fileURL.absoluteString
         
     }
+    // function opening the share menu to save a file in desired directory
     func actionSheet(url: String) {
             guard let urlShare = URL(string: url) else { return }
             let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)

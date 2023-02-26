@@ -1,8 +1,8 @@
 //
 //  Task.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 13.02.2023.
+//  Used to organize and store the information about the assigned tasks
+//
 //
 
 import Foundation
@@ -10,6 +10,7 @@ import Firebase
 
 
 public struct Task: Identifiable{
+    // instance variables
     public let id = UUID()
     var sid: String
     var name: String
@@ -17,6 +18,7 @@ public struct Task: Identifiable{
     var importance: String
     var pplAssigned: String
     var people: [String]
+    // constructor method 1
     init(name: String, importance: String, description: String, ppl: Int, people: [String]) {
         self.sid = self.id.uuidString
         self.name = name
@@ -25,6 +27,7 @@ public struct Task: Identifiable{
         self.importance = importance
         self.people = people
     }
+    // constructor method 2 (for loading from the database)
     init?(snapshot: DataSnapshot) {
       guard
         let value = snapshot.value as? [String: AnyObject],
@@ -49,6 +52,7 @@ public struct Task: Identifiable{
         
         
     }
+    // a function to trasform a Task object to a JSON string for writing to the database
     func toAnyObject() -> Any {
       return [
         "sid": sid,

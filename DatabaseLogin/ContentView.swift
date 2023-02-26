@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 29.03.2022.
+//  Main starting view
+//
 //
 
 import SwiftUI
@@ -14,16 +14,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             if viewModel.signedIn {
+                // if logged in
                 if viewModel.currentLoggedUser != nil && viewModel.userList != [] {
                     if viewModel.currentLoggedUser?.isAdmin == true{
+                        // shown for admin users
                         TabViewAdmin()
                     }
                     else{
+                        // shown for regular users
                         TabViewNonAdmin()
                     }
                     
                 }
                 else{
+                    // loading all user and events information
+                    // showing the loading view until loaded
                     LoadingView()
                         .onAppear{
                             var ref = Database.database().reference(withPath: "users")
@@ -78,6 +83,7 @@ struct ContentView: View {
                 }
                 
             } else {
+                // if not logged in
                 LoginPage()
             }
             

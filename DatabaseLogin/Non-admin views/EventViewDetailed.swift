@@ -1,8 +1,8 @@
 //
 //  EventViewDetailed.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 08.04.2022.
+//  The view with detailed event informaiton for regular users
+//
 //
 
 import SwiftUI
@@ -55,6 +55,7 @@ struct EventViewDetailed: View {
         .navigationTitle("Event details")
         .frame(maxWidth: .infinity)
         .onAppear{
+            // tasks information loaded
             let ref = Database.database().reference(withPath: "tasks")
             ref.observe(.value) { snapshot in
                 tasks.tasks = []

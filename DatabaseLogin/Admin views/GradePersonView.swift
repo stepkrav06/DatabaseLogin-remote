@@ -1,8 +1,8 @@
 //
 //  GradePersonView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 15.08.2022.
+//  The view for grading a person
+//
 //
 
 import SwiftUI
@@ -44,6 +44,7 @@ struct GradePersonView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             if !isAbsent{
+                // shown if a person attended the event
                 Group{
                     Text("Activity")
                         .font(.body)
@@ -101,6 +102,7 @@ struct GradePersonView: View {
                 
             }
             else{
+                // shown if a person did not attend the event
                 Spacer()
             }
             Button(action: {gradeSubmitAlert.toggle()}){

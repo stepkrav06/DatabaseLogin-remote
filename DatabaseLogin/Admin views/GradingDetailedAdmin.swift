@@ -1,8 +1,8 @@
 //
 //  GradingDetailedAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 14.08.2022.
+//  The view with the grading details for an event
+//
 //
 
 import SwiftUI
@@ -57,6 +57,7 @@ struct GradingDetailedAdmin: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         Spacer()
+                            // indication of which people were graded
                         if grades[user.uid]?.activity != ""{
                             if grades[user.uid]?.attendance == false{
                                 HStack{
@@ -104,16 +105,12 @@ struct GradingDetailedAdmin: View {
         .frame(maxHeight: .infinity, alignment: .top)
         .navigationTitle("Grading " + event.name)
         .onAppear{
+            // grades information loaded
             let ref = Database.database().reference(withPath: "grades")
             for user in viewModel.userList{
                 
             
                 ref.child(user.uid).child(event.sid).observe(.value, with: { snapshot in
-                // 3
-                
-                  // 4
-                    
-                      
                      
                         let grade = Grade(snapshot: snapshot)
                         grades[user.uid] = grade ?? Grade(attendance: true, activity: "", comments: "")

@@ -1,8 +1,8 @@
 //
 //  ManageUsersView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 17.08.2022.
+//  The view with the information about all the current users, a way to add new users
+//
 //
 
 import SwiftUI

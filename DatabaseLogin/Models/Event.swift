@@ -1,8 +1,8 @@
 //
 //  Event.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 13.02.2023.
+//  Used to organize and store the information about the planned events
+//
 //
 
 import Foundation
@@ -11,6 +11,7 @@ import Firebase
 
 
 public struct Event: Identifiable, Equatable, Hashable {
+    // instance variables
     public let id = UUID()
     var sid: String
     var name: String
@@ -19,7 +20,7 @@ public struct Event: Identifiable, Equatable, Hashable {
     var isCharity: Bool
     var charitySum: String
     var tasks: [String]
-    
+    // constructor method 1
     init(name: String, startDate: Date, endDate: Date, isCharity: Bool) {
         self.sid = id.uuidString
         self.name = name
@@ -29,6 +30,7 @@ public struct Event: Identifiable, Equatable, Hashable {
         self.charitySum = "0"
         self.tasks = ["placeholder"]
     }
+    // constructor method 2
     init(name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String) {
         self.sid = id.uuidString
         self.name = name
@@ -38,6 +40,7 @@ public struct Event: Identifiable, Equatable, Hashable {
         self.charitySum = charitySum
         self.tasks = ["placeholder"]
     }
+    // constructor method 3
     init(name: String, startDate: Date, endDate: Date, isCharity: Bool, tasks: [String]) {
         self.sid = id.uuidString
         self.name = name
@@ -47,6 +50,7 @@ public struct Event: Identifiable, Equatable, Hashable {
         self.charitySum = "0"
         self.tasks = tasks
     }
+    // constructor method 4
     init(name: String, startDate: Date, endDate: Date, isCharity: Bool, charitySum: String, tasks: [String]) {
         self.sid = id.uuidString
         self.name = name
@@ -56,6 +60,7 @@ public struct Event: Identifiable, Equatable, Hashable {
         self.charitySum = charitySum
         self.tasks = tasks
     }
+    // constructor method 5 (for loading from the database)
     init?(snapshot: DataSnapshot) {
       guard
         let value = snapshot.value as? [String: AnyObject],
@@ -83,6 +88,7 @@ public struct Event: Identifiable, Equatable, Hashable {
         
         
     }
+    // a function to trasform an Event object to a JSON string for writing to the database
     func toAnyObject() -> Any {
       return [
         "sid": sid,

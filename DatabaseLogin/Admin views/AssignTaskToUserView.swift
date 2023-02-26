@@ -1,8 +1,8 @@
 //
 //  AssignTaskToUserView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 10.04.2022.
+//  The view for choosing which users to assing a task to 
+//
 //
 
 import SwiftUI

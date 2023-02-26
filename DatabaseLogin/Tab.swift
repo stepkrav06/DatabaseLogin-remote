@@ -1,8 +1,8 @@
 //
 //  Tab.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 31.03.2022.
+//  Tab bar structure
+//
 //
 
 import Foundation

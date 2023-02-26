@@ -1,8 +1,8 @@
 //
 //  GradeCard.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 14.08.2022.
+//  Cards with event information for the grading page
+//
 //
 
 import SwiftUI

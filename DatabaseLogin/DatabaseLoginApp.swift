@@ -1,8 +1,8 @@
 //
 //  DatabaseLoginApp.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 29.03.2022.
+//  The app
+//
 //
 
 import SwiftUI
@@ -16,6 +16,7 @@ struct DatabaseLoginApp: App {
     
     var body: some Scene {
         WindowGroup {
+            // environment objects created and passed into the main view
             let viewModel = AppViewModel()
             let eventTasks = EventTasks()
             
@@ -29,12 +30,12 @@ struct DatabaseLoginApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     let gcmMessageIDKey = "gcm.message_id"
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
+        // Firebase and push messaging configuration
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
         
         if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
+          // For iOS 10 display notification (sent via APNs)
           UNUserNotificationCenter.current().delegate = self
 
           let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -51,6 +52,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         application.registerForRemoteNotifications()
         return true
     }
+    // function saving the device token for push messaging on app launch
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
 
         
@@ -77,6 +79,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
         }
     }
+    // function for handling notifications
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                   willPresent notification: UNNotification) async
         -> UNNotificationPresentationOptions {
@@ -88,13 +91,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
             return [[.banner, .badge, .sound]]
       }
-
+    // function for handling notifications
       func userNotificationCenter(_ center: UNUserNotificationCenter,
                                   didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
 
         print(userInfo)
       }
+    // function for handling notifications
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any]) async
       -> UIBackgroundFetchResult {
@@ -106,9 +110,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
 
       return UIBackgroundFetchResult.newData
     }
+    // function for handling notifications
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
     }
+    // function for handling notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
     }

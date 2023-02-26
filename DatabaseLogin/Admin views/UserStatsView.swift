@@ -1,8 +1,8 @@
 //
 //  UserStatsView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 10.10.2022.
+//  The view showing the statistics for a user
+//
 //
 
 import SwiftUI
@@ -19,6 +19,7 @@ struct UserStatsView: View {
         ScrollView {
             VStack {
                 if !data!.dataSets.dataPoints.isEmpty{
+                    // shown of there are grades for the user
                     DoughnutChart(chartData: data!)
                         .touchOverlay(chartData: data!)
                         .headerBox(chartData: data!)
@@ -41,6 +42,7 @@ struct UserStatsView: View {
                     .padding(.vertical)
                 }
                 else{
+                    // shown of there are no grades for the user
                     Text("No data")
                 }
                 

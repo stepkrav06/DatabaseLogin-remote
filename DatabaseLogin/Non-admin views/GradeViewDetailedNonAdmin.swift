@@ -1,8 +1,8 @@
 //
 //  GradeViewDetailedNonAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 16.08.2022.
+//  The view with detailed grade informaiton for regular users
+//
 //
 
 import SwiftUI
@@ -64,16 +64,13 @@ struct GradeViewDetailedNonAdmin: View {
         .frame(maxHeight: .infinity, alignment: .top)
         .navigationTitle(event.name)
         .onAppear{
+            // grade information loaded
             let ref = Database.database().reference(withPath: "grades").child(viewModel.currentLoggedUser!.uid)
             
                 
             
                 ref.child(event.sid).observe(.value, with: { snapshot in
-                // 3
-                
-                  // 4
-                    
-                      
+                                        
                      
                         let grade = Grade(snapshot: snapshot)
                         grades = grade!

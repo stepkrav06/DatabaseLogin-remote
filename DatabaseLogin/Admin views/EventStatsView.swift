@@ -1,8 +1,8 @@
 //
 //  EventStatsView.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 10.10.2022.
+//  The view showing the statistics for an event
+//
 //
 
 import SwiftUI
@@ -19,6 +19,7 @@ struct EventStatsView: View {
         ScrollView {
             VStack {
                 if !data!.dataSets.dataPoints.isEmpty{
+                    // shown of there are grades for the event
                     DoughnutChart(chartData: data!)
                         .touchOverlay(chartData: data!)
                         .headerBox(chartData: data!)
@@ -41,6 +42,7 @@ struct EventStatsView: View {
                     .padding(.vertical)
                 }
                 else{
+                    // shown of there are no grades for the event
                     Text("No data")
                 }
                 

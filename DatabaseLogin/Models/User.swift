@@ -1,14 +1,15 @@
 //
 //  User.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 13.02.2023.
+//  Used to organize and store the information about the users of the app
+//
 //
 
 import Foundation
 import Firebase
 
 public struct User: Identifiable, Equatable, Hashable {
+    // instance variables
     public let id = UUID()
     var uid: String
     var email: String
@@ -18,7 +19,7 @@ public struct User: Identifiable, Equatable, Hashable {
     var tasks: [String]
     var grade: String
     
-    
+    // constructor method 1
     init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool, tasks: [String], grade: String) {
         self.uid = uid
         self.email = email
@@ -28,6 +29,7 @@ public struct User: Identifiable, Equatable, Hashable {
         self.tasks = tasks
         self.grade = grade
     }
+    // constructor method 2
     init(uid: String, email: String, name: String, lastName: String, isAdmin: Bool, grade: String) {
         self.uid = uid
         self.email = email
@@ -37,6 +39,7 @@ public struct User: Identifiable, Equatable, Hashable {
         self.tasks = ["placeholder"]
         self.grade = grade
     }
+    // constructor method 3 (for loading from the database)
     init?(snapshot: DataSnapshot) {
       guard
         let value = snapshot.value as? [String: AnyObject],
@@ -59,6 +62,7 @@ public struct User: Identifiable, Equatable, Hashable {
         self.email = email
         self.grade = grade
     }
+    // a function to trasform a User object to a JSON string for writing to the database
     func toAnyObject() -> Any {
       return [
         "uid": uid,

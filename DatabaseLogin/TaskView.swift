@@ -1,8 +1,8 @@
 //
 //  TaskViewAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 10.08.2022.
+//  The tasks page
+//
 //
 
 import SwiftUI
@@ -65,6 +65,7 @@ struct TaskView: View {
                             
                             
                             if event.endDate > Date.now && picked{
+                                // upcoming tasks
                                 Text(event.name + " (\(event.endDate.formatted(date: .abbreviated, time: .omitted)))")
                                     .font(.title)
                                     .fontWeight(.light)
@@ -81,6 +82,7 @@ struct TaskView: View {
                                 
                                 Group {
                                     ForEach(searchResults(event: event).sorted(by: { $0.name < $1.name })){ task in
+                                        // searched tasks (all tasks if search is empty)
                                         NavigationLink(destination: TaskDetailed(task: task)){
                                         TaskViewCard(taskName: task.name, taskId: task.sid, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
                                         }
@@ -88,6 +90,7 @@ struct TaskView: View {
                                 }
                             }
                             else if event.endDate < Date.now && !picked{
+                                // completed tasks
                                 Text(event.name + " (\(event.endDate.formatted(date: .abbreviated, time: .omitted)))")
                                     .font(.title)
                                     .fontWeight(.light)
@@ -102,7 +105,7 @@ struct TaskView: View {
                                 
                                 Group {
                                     ForEach(searchResults(event: event).sorted(by: { $0.name < $1.name })){ task in
-                                      
+                                        // searched tasks (all tasks if search is empty)
                                         NavigationLink(destination: TaskDetailed(task: task)){
                                         TaskViewCard(taskName: task.name, taskId: task.sid, taskDescription: task.description, importance: task.importance, numPeople: task.pplAssigned)
                                         }
@@ -129,6 +132,7 @@ struct TaskView: View {
         .background(Color.bg1)
         
         .onAppear{
+            // task information loaded
             for event in viewModel.eventList{
                 taskEventDict[event] = []
                 taskIdEventDict[event] = []
@@ -189,6 +193,15 @@ struct TaskView: View {
             }
         }
     }
+    /*
+      A function for serching the task list
+      arguments:
+         -event: The Event object for which the tasks are assigned
+      return:
+         -[Task]: array of Task objects that fit the search criteria
+      result:
+         -only the Task objects that fit the search criteria are returned
+      */
     func searchResults(event: Event) -> [Task] {
             if searchText.isEmpty {
                 return taskEventDict[event]!

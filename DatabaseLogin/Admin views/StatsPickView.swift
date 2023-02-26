@@ -1,8 +1,8 @@
 //
 //  StatsPickView.swift
-//  DatabaseLogin
+//  
+//  View allowing to choose which events/users to see the statistics for
 //
-//  Created by Степан Кравцов on 10.10.2022.
 //
 
 import SwiftUI
@@ -39,6 +39,7 @@ struct StatsPickView: View {
                                     }
                             }
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                // creating the data for a chart
                                 data = makeDataEvent(grades: grades, event: event)
                                 pickedEvent = true
                             }
@@ -88,6 +89,7 @@ struct StatsPickView: View {
                                         }
                                 }
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    // creating the data for a chart
                                     data = makeDataUser(grades: grades, user: user)
                                     pickedUser = true
                                 }

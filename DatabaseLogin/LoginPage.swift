@@ -1,8 +1,8 @@
 //
 //  LoginPage.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 30.03.2022.
+//  Login page
+//
 //
 
 import SwiftUI

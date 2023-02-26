@@ -1,8 +1,8 @@
 //
 //  EventViewDetailedAdmin.swift
-//  DatabaseLogin
+//  
+//  The view with detailed event informaiton for admin users
 //
-//  Created by Степан Кравцов on 08.04.2022.
 //
 
 import SwiftUI

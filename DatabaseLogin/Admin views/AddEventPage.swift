@@ -90,19 +90,7 @@ struct AddEventPage: View {
                 Spacer()
                 
                 Spacer()
-//                Button(action: {
-//                    AddUser()
-//
-//                }){
-//                    Text("Add user")
-//                }
-//                .foregroundColor(.white)
-//                .padding()
-//                .backgrou nd(.orange)
-//                .cornerRadius(8)
-//                ForEach(userList.users) { user in
-//                    Text(user.name)
-//                }
+
             }
             
             

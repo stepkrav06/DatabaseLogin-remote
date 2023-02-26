@@ -1,8 +1,8 @@
 //
 //  EventCard.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 07.04.2022.
+//  Cards with event information for the events page
+//  
 //
 
 import SwiftUI

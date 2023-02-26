@@ -1,8 +1,8 @@
 //
 //  TabViewAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 01.04.2022.
+//  Tab view allowing to navigate the app for admin users
+//
 //
 
 import SwiftUI

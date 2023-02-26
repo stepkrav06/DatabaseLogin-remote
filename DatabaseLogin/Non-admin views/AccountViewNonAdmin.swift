@@ -1,8 +1,8 @@
 //
 //  AccountViewNonAdmin.swift
-//  DatabaseLogin
 //
-//  Created by Степан Кравцов on 05.04.2022.
+//  The account page for regular users
+//
 //
 
 import SwiftUI
